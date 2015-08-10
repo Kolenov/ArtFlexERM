@@ -20,12 +20,13 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity;
+using MySqlDB;
 
 namespace ArtFlex
 {
 	public partial class frmorders : Form
 	{
-		private ModelArtFlexEntities ctx;
+		private ModelEntities context;
 		
 		public frmorders()
 		{
@@ -34,9 +35,9 @@ namespace ArtFlex
 		
 		private void frmorders_Load(object sender, EventArgs e)
 		{
-			ctx = new ModelArtFlexEntities();
-			ctx.orders.Load();
-			BindingList<orders> _entities = ctx.orders.Local.ToBindingList();
+			context = new ModelEntities();
+			context.orders.Load();
+			BindingList<orders> _entities = context.orders.Local.ToBindingList();
 			ordersBindingSource.DataSource = _entities;
 			this.order_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "order_id", true ));
 			this.client_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "client_id", true ));
@@ -50,7 +51,7 @@ namespace ArtFlex
 		{
 			if (!this.Validate()) return;
 			ordersBindingSource.EndEdit();
-			ctx.SaveChanges();
+			context.SaveChanges();
 			
 		}
 		

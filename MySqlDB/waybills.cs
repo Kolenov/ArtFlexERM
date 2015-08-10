@@ -12,12 +12,12 @@ namespace MySqlDB
     using System;
     using System.Collections.Generic;
     
-    public partial class waybill
+    public partial class waybills
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public waybill()
+        public waybills()
         {
-            this.supplies = new HashSet<supply>();
+            this.supply = new HashSet<supply>();
         }
     
         public long waybill_id { get; set; }
@@ -28,6 +28,6 @@ namespace MySqlDB
     
         public virtual supplier supplier { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<supply> supplies { get; set; }
+        public virtual ICollection<supply> supply { get; set; }
     }
 }

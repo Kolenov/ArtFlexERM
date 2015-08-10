@@ -708,7 +708,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="artflex_crmEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="categories" EntityType="Self.category" />
           <EntitySet Name="clients" EntityType="Self.client" />
           <EntitySet Name="consumptions" EntityType="Self.consumption" />
@@ -779,7 +779,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище artflex_crmModelContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище artflex_crmModelContainer" CdmEntityContainer="artflex_crmEntities">
           <EntitySetMapping Name="categories">
             <EntityTypeMapping TypeName="artflex_crmModel.category">
               <MappingFragment StoreEntitySet="categories">
@@ -960,6 +960,34 @@
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
-    <Diagrams></Diagrams>
+    <Diagrams>
+      <Diagram DiagramId="420aa1e9052e47d186c046f159b9f334" Name="Diagram1">
+        <EntityTypeShape EntityType="artflex_crmModel.category" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="artflex_crmModel.client" Width="1.5" PointX="0.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="artflex_crmModel.consumption" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="artflex_crmModel.employee" Width="1.5" PointX="0.75" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="artflex_crmModel.job_titles" Width="1.5" PointX="1.5" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="artflex_crmModel.material" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="artflex_crmModel.order" Width="1.5" PointX="3" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="artflex_crmModel.rest" Width="1.5" PointX="8.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="artflex_crmModel.supplier" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="artflex_crmModel.supply" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="artflex_crmModel.unit" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="artflex_crmModel.waybill" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <AssociationConnector Association="artflex_crmModel.fk_materials_categories1" ManuallyRouted="false" />
+        <AssociationConnector Association="artflex_crmModel.fk_orders_clients1" ManuallyRouted="false" />
+        <AssociationConnector Association="artflex_crmModel.fk_consumption_materials1" ManuallyRouted="false" />
+        <AssociationConnector Association="artflex_crmModel.fk_consumption_orders1" ManuallyRouted="false" />
+        <AssociationConnector Association="artflex_crmModel.fk_consumption_supply1" ManuallyRouted="false" />
+        <AssociationConnector Association="artflex_crmModel.fk_employees_job_titles1" ManuallyRouted="false" />
+        <AssociationConnector Association="artflex_crmModel.fk_orders_employees1" ManuallyRouted="false" />
+        <AssociationConnector Association="artflex_crmModel.fk_materials_units1" ManuallyRouted="false" />
+        <AssociationConnector Association="artflex_crmModel.fk_rests_materials1" ManuallyRouted="false" />
+        <AssociationConnector Association="artflex_crmModel.fk_supply_materials1" ManuallyRouted="false" />
+        <AssociationConnector Association="artflex_crmModel.fk_rests_supply1" ManuallyRouted="false" />
+        <AssociationConnector Association="artflex_crmModel.fk_waybills_supplier1" ManuallyRouted="false" />
+        <AssociationConnector Association="artflex_crmModel.fk_supply_waybills1" ManuallyRouted="false" />
+      </Diagram>
+    </Diagrams>
   </Designer>
 </edmx:Edmx>

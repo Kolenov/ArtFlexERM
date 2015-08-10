@@ -7,28 +7,32 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ArtFlex
+namespace MySqlDB
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class orders
+    public partial class clients
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public orders()
+        public clients()
         {
-            this.consumption = new HashSet<consumption>();
+            this.orders = new HashSet<orders>();
         }
     
-        public long order_id { get; set; }
         public long client_id { get; set; }
-        public Nullable<int> order_status { get; set; }
-        public long employee_id { get; set; }
-        public System.DateTime order_createtime { get; set; }
+        public string client_name { get; set; }
+        public string client_surname { get; set; }
+        public string client_jobtitle { get; set; }
+        public string client_organisation { get; set; }
+        public string client_email { get; set; }
+        public string client_wphone { get; set; }
+        public string client_fax { get; set; }
+        public string client_skipe { get; set; }
+        public string client_address { get; set; }
+        public string client_description { get; set; }
     
-        public virtual clients clients { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<consumption> consumption { get; set; }
-        public virtual employees employees { get; set; }
+        public virtual ICollection<orders> orders { get; set; }
     }
 }

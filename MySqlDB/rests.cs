@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ArtFlex
+namespace MySqlDB
 {
     using System;
     using System.Collections.Generic;

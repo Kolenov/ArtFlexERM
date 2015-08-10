@@ -22,8 +22,8 @@ namespace MySqlDB
         public System.DateTime consumption_date { get; set; }
         public System.DateTime consumption_createtime { get; set; }
     
-        public virtual material material { get; set; }
-        public virtual order order { get; set; }
+        public virtual materials materials { get; set; }
+        public virtual orders orders { get; set; }
         public virtual supply supply { get; set; }
     }
 }

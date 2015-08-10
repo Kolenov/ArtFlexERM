@@ -20,12 +20,13 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity;
+using MySqlDB;
 
 namespace ArtFlex
 {
     public partial class frmmaterials : Form
     {
-        private ModelArtFlexEntities ctx;
+        private ModelEntities context;
 
         public frmmaterials()
         {
@@ -34,10 +35,13 @@ namespace ArtFlex
 
         private void frmmaterials_Load(object sender, EventArgs e)
         {
-            ctx = new ModelArtFlexEntities();
-            ctx.materials.Load();
-            BindingList<materials> _entities = ctx.materials.Local.ToBindingList();
-            materialsBindingSource.DataSource = _entities;
+            context = new ModelEntities();
+            //context.materials.Find(3);
+            context.materials.Where<materials>(b => b.category_id == 1).Load();
+   
+            BindingList<materials> _materials = context.materials.Local.ToBindingList();
+            materialsBindingSource.DataSource = _materials;
+   
 
             this.material_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.materialsBindingSource, "material_id", true));
             this.material_nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.materialsBindingSource, "material_name", true));
@@ -46,15 +50,20 @@ namespace ArtFlex
             this.material_descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.materialsBindingSource, "material_description", true));
             this.material_createtimeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.materialsBindingSource, "material_createtime", true));
 
-            this.material_CategoryComboBox.DataSource = ctx.categories.ToList();
+            this.material_CategoryComboBox.DataSource = context.categories.ToList();
             this.material_CategoryComboBox.DisplayMember = "category_name";
             this.material_CategoryComboBox.ValueMember = "category_id";
             this.material_CategoryComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.materialsBindingSource, "category_id"));
 
-            this.material_UnitsComboBox.DataSource = ctx.units.ToList();
+            this.material_UnitsComboBox.DataSource = context.units.ToList();
             this.material_UnitsComboBox.DisplayMember = "unit_shortname";
             this.material_UnitsComboBox.ValueMember = "unit_id";
             this.material_UnitsComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.materialsBindingSource, "unit_id"));
+
+            this.categoriesComboBox.DataSource = context.categories.ToList();
+            this.categoriesComboBox.DisplayMember = "category_name";
+            this.categoriesComboBox.ValueMember = "category_id";
+            this.categoriesComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.materialsBindingSource, "category_id"));
 
             System.Windows.Forms.DataGridViewTextBoxColumn col_material_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             col_material_id.DataPropertyName = "material_id";
@@ -63,7 +72,7 @@ namespace ArtFlex
             dataGridViewMaterials.Columns.Add(col_material_id);
 
             System.Windows.Forms.DataGridViewComboBoxColumn col_category_id = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            col_category_id.DataSource = ctx.categories.ToList();
+            col_category_id.DataSource = context.categories.ToList();
             col_category_id.DataPropertyName = "category_id";
             col_category_id.DisplayMember = "category_name";
             col_category_id.ValueMember = "category_id";
@@ -79,7 +88,7 @@ namespace ArtFlex
             dataGridViewMaterials.Columns.Add(col_material_name);
 
             System.Windows.Forms.DataGridViewComboBoxColumn col_units_id = new DataGridViewComboBoxColumn();
-            col_units_id.DataSource = ctx.units.ToList();
+            col_units_id.DataSource = context.units.ToList();
             col_units_id.DataPropertyName = "unit_id";
             col_units_id.DisplayMember = "unit_shortname";
             col_units_id.ValueMember = "unit_id";
@@ -123,7 +132,7 @@ namespace ArtFlex
         {
             if (!this.Validate()) return;
             materialsBindingSource.EndEdit();
-            ctx.SaveChanges();
+            context.SaveChanges();
             this.dataGridViewMaterials.Refresh();
 
         }
@@ -222,11 +231,11 @@ namespace ArtFlex
         {
 
             materials obj = new materials();
-            obj.material_id = ctx.materials.Local.Count;
+            obj.material_id = context.materials.Local.Count;
             obj.category_id = 1;
             obj.unit_id = 1;
             obj.material_name = "";
-            //MessageBox.Show(ctx.materials.Local.Count.ToString());
+            //MessageBox.Show(context.materials.Local.Count.ToString());
             materialsBindingSource.Add(obj);
             materialsBindingSource.MoveLast();
         }
@@ -295,7 +304,7 @@ namespace ArtFlex
             categories category = categoriesComboBox.SelectedItem as categories;
             if (null == category)
                 return;
-            ObjectQuery<materials> material = (ObjectQuery<materials>)ctx.materials
+            ObjectQuery<materials> material = (ObjectQuery<materials>)context.materials
             .Where(c => c.categories.category_id == category.category_id);
             dataGridViewMaterials.DataSource = material.Execute(MergeOption.NoTracking);
         }

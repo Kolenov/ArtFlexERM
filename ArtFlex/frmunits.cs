@@ -20,12 +20,13 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity;
+using MySqlDB;
 
 namespace ArtFlex
 {
 	public partial class frmunits : Form
 	{
-		private ModelArtFlexEntities ctx;
+		private ModelEntities context;
 		
 		public frmunits()
 		{
@@ -34,9 +35,9 @@ namespace ArtFlex
 		
 		private void frmunits_Load(object sender, EventArgs e)
 		{
-			ctx = new ModelArtFlexEntities();
-			ctx.units.Load();
-			BindingList<units> _entities = ctx.units.Local.ToBindingList();
+			context = new ModelEntities();
+			context.units.Load();
+			BindingList<units> _entities = context.units.Local.ToBindingList();
 			unitsBindingSource.DataSource = _entities;
 			bindingNavigatorAddNewItem.Enabled = false;
 			bindingNavigatorCountItem.Enabled = false;
@@ -72,7 +73,7 @@ namespace ArtFlex
 		{
 			if (!this.Validate()) return;
 			unitsBindingSource.EndEdit();
-			ctx.SaveChanges();
+			context.SaveChanges();
 			
 		}
 		

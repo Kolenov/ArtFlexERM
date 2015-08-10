@@ -20,12 +20,13 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity;
+using MySqlDB;
 
 namespace ArtFlex
 {
 	public partial class frmjob_titles : Form
 	{
-		private ModelArtFlexEntities ctx;
+		private ModelEntities context;
 		
 		public frmjob_titles()
 		{
@@ -34,9 +35,9 @@ namespace ArtFlex
 		
 		private void frmjob_titles_Load(object sender, EventArgs e)
 		{
-			ctx = new ModelArtFlexEntities();
-			ctx.job_titles.Load();
-			BindingList<job_titles> _entities = ctx.job_titles.Local.ToBindingList();
+			context = new ModelEntities();
+			context.job_titles.Load();
+			BindingList<job_titles> _entities = context.job_titles.Local.ToBindingList();
 			job_titlesBindingSource.DataSource = _entities;
 			this.jobtitle_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.job_titlesBindingSource, "jobtitle_id", true ));
 			this.jobtitle_nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.job_titlesBindingSource, "jobtitle_name", true ));
@@ -48,7 +49,7 @@ namespace ArtFlex
 		{
 			if (!this.Validate()) return;
 			job_titlesBindingSource.EndEdit();
-			ctx.SaveChanges();
+			context.SaveChanges();
 			
 		}
 		

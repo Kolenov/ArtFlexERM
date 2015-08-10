@@ -20,12 +20,13 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity;
+using MySqlDB;
 
 namespace ArtFlex
 {
 	public partial class frmconsumption : Form
 	{
-		private ModelArtFlexEntities ctx;
+		private ModelEntities context;
 		
 		public frmconsumption()
 		{
@@ -34,22 +35,22 @@ namespace ArtFlex
 		
 		private void frmconsumption_Load(object sender, EventArgs e)
 		{
-			ctx = new ModelArtFlexEntities();
-			ctx.consumption.Load();
-			BindingList<consumption> _entities = ctx.consumption.Local.ToBindingList();
+			context = new ModelEntities();
+			context.consumption.Load();
+			BindingList<consumption> _entities = context.consumption.Local.ToBindingList();
 			consumptionBindingSource.DataSource = _entities;
 			this.consumption_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.consumptionBindingSource, "consumption_id", true ));
-			this.supply_id_comboBox.DataSource = ctx.supply.ToList();
+			this.supply_id_comboBox.DataSource = context.supply.ToList();
 			this.supply_id_comboBox.DisplayMember = "supply_id";
 			this.supply_id_comboBox.ValueMember = "supply_id";
 			this.supply_id_comboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.consumptionBindingSource, "supply_id", true));
 
-			this.material_id_comboBox.DataSource = ctx.materials.ToList();
+			this.material_id_comboBox.DataSource = context.materials.ToList();
 			this.material_id_comboBox.DisplayMember = "material_id";
 			this.material_id_comboBox.ValueMember = "material_id";
 			this.material_id_comboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.consumptionBindingSource, "material_id", true));
 
-			this.order_id_comboBox.DataSource = ctx.orders.ToList();
+			this.order_id_comboBox.DataSource = context.orders.ToList();
 			this.order_id_comboBox.DisplayMember = "order_id";
 			this.order_id_comboBox.ValueMember = "order_id";
 			this.order_id_comboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.consumptionBindingSource, "order_id", true));
@@ -64,7 +65,7 @@ namespace ArtFlex
 		{
 			if (!this.Validate()) return;
 			consumptionBindingSource.EndEdit();
-			ctx.SaveChanges();
+			context.SaveChanges();
 			
 		}
 		

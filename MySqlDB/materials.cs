@@ -7,34 +7,37 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ArtFlex
+namespace MySqlDB
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class supply
+    public partial class materials
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public supply()
+        public materials()
         {
             this.consumption = new HashSet<consumption>();
             this.rests = new HashSet<rests>();
+            this.supply = new HashSet<supply>();
         }
     
-        public long supply_id { get; set; }
         public long material_id { get; set; }
-        public string supply_description { get; set; }
-        public long waybill_id { get; set; }
-        public System.DateTime supply_createtime { get; set; }
-        public double supply_quantity { get; set; }
-        public double supply_summ { get; set; }
-        public double supply_costunit { get; set; }
+        public long category_id { get; set; }
+        public string material_name { get; set; }
+        public string material_size { get; set; }
+        public Nullable<long> material_rollwidth { get; set; }
+        public long unit_id { get; set; }
+        public string material_description { get; set; }
+        public System.DateTime material_createtime { get; set; }
     
+        public virtual categories categories { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<consumption> consumption { get; set; }
-        public virtual materials materials { get; set; }
+        public virtual units units { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<rests> rests { get; set; }
-        public virtual waybills waybills { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<supply> supply { get; set; }
     }
 }

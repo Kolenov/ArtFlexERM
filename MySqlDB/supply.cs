@@ -17,24 +17,24 @@ namespace MySqlDB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public supply()
         {
-            this.consumptions = new HashSet<consumption>();
-            this.rests = new HashSet<rest>();
+            this.consumption = new HashSet<consumption>();
+            this.rests = new HashSet<rests>();
         }
     
         public long supply_id { get; set; }
-        public double supply_quantity { get; set; }
         public long material_id { get; set; }
-        public double supply_summ { get; set; }
-        public double supply_costunit { get; set; }
         public string supply_description { get; set; }
         public long waybill_id { get; set; }
         public System.DateTime supply_createtime { get; set; }
+        public double supply_quantity { get; set; }
+        public double supply_summ { get; set; }
+        public double supply_costunit { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<consumption> consumptions { get; set; }
-        public virtual material material { get; set; }
+        public virtual ICollection<consumption> consumption { get; set; }
+        public virtual materials materials { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<rest> rests { get; set; }
-        public virtual waybill waybill { get; set; }
+        public virtual ICollection<rests> rests { get; set; }
+        public virtual waybills waybills { get; set; }
     }
 }

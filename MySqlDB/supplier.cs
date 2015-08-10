@@ -17,7 +17,7 @@ namespace MySqlDB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public supplier()
         {
-            this.waybills = new HashSet<waybill>();
+            this.waybills = new HashSet<waybills>();
         }
     
         public long supplier_id { get; set; }
@@ -34,6 +34,6 @@ namespace MySqlDB
         public string supplier_description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<waybill> waybills { get; set; }
+        public virtual ICollection<waybills> waybills { get; set; }
     }
 }

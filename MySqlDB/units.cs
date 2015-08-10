@@ -7,24 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ArtFlex
+namespace MySqlDB
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class job_titles
+    public partial class units
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public job_titles()
+        public units()
         {
-            this.employees = new HashSet<employees>();
+            this.materials = new HashSet<materials>();
         }
     
-        public long jobtitle_id { get; set; }
-        public string jobtitle_name { get; set; }
-        public string jobtitle_descript { get; set; }
+        public long unit_id { get; set; }
+        public string unit_name { get; set; }
+        public string unit_shortname { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<employees> employees { get; set; }
+        public virtual ICollection<materials> materials { get; set; }
     }
 }

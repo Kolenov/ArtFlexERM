@@ -17,7 +17,7 @@ namespace MySqlDB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public job_titles()
         {
-            this.employees = new HashSet<employee>();
+            this.employees = new HashSet<employees>();
         }
     
         public long jobtitle_id { get; set; }
@@ -25,6 +25,6 @@ namespace MySqlDB
         public string jobtitle_descript { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<employee> employees { get; set; }
+        public virtual ICollection<employees> employees { get; set; }
     }
 }

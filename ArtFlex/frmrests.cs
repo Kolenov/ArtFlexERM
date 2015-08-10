@@ -20,12 +20,13 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity;
+using MySqlDB;
 
 namespace ArtFlex
 {
 	public partial class frmrests : Form
 	{
-		private ModelArtFlexEntities ctx;
+		private ModelEntities context;
 		
 		public frmrests()
 		{
@@ -34,16 +35,16 @@ namespace ArtFlex
 		
 		private void frmrests_Load(object sender, EventArgs e)
 		{
-			ctx = new ModelArtFlexEntities();
-			ctx.rests.Load();
-			BindingList<rests> _entities = ctx.rests.Local.ToBindingList();
+			context = new ModelEntities();
+			context.rests.Load();
+			BindingList<rests> _entities = context.rests.Local.ToBindingList();
 			restsBindingSource.DataSource = _entities;
 			this.rest_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.restsBindingSource, "rest_id", true ));
-			this.supply_id_comboBox.DataSource = ctx.supply.ToList();
+			this.supply_id_comboBox.DataSource = context.supply.ToList();
 			this.supply_id_comboBox.DisplayMember = "supply_id";
 			this.supply_id_comboBox.ValueMember = "supply_id";
 			this.supply_id_comboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.restsBindingSource, "supply_id", true));
-			this.material_id_comboBox.DataSource = ctx.materials.ToList();
+			this.material_id_comboBox.DataSource = context.materials.ToList();
 			this.material_id_comboBox.DisplayMember = "material_id";
 			this.material_id_comboBox.ValueMember = "material_id";
 			this.material_id_comboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.restsBindingSource, "material_id", true));
@@ -58,7 +59,7 @@ namespace ArtFlex
 		{
 			if (!this.Validate()) return;
 			restsBindingSource.EndEdit();
-			ctx.SaveChanges();
+			context.SaveChanges();
 			
 		}
 		

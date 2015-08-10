@@ -20,12 +20,13 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity;
+using MySqlDB;
 
 namespace ArtFlex
 {
 	public partial class frmemployees : Form
 	{
-		private ModelArtFlexEntities ctx;
+		private ModelEntities context;
 		
 		public frmemployees()
 		{
@@ -34,9 +35,9 @@ namespace ArtFlex
 		
 		private void frmemployees_Load(object sender, EventArgs e)
 		{
-			ctx = new ModelArtFlexEntities();
-			ctx.employees.Load();
-			BindingList<employees> _entities = ctx.employees.Local.ToBindingList();
+			context = new ModelEntities();
+			context.employees.Load();
+			BindingList<employees> _entities = context.employees.Local.ToBindingList();
 			employeesBindingSource.DataSource = _entities;
 			this.employee_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeesBindingSource, "employee_id", true ));
 			this.employee_loginTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeesBindingSource, "employee_login", true ));
@@ -53,7 +54,7 @@ namespace ArtFlex
 			this.employee_hphoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeesBindingSource, "employee_hphone", true ));
 			this.employee_addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeesBindingSource, "employee_address", true ));
 			this.employee_descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeesBindingSource, "employee_description", true ));
-			this.jobtitle_id_comboBox.DataSource = ctx.job_titles.ToList();
+			this.jobtitle_id_comboBox.DataSource = context.job_titles.ToList();
 			this.jobtitle_id_comboBox.DisplayMember = "jobtitle_id";
 			this.jobtitle_id_comboBox.ValueMember = "jobtitle_id";
 			this.jobtitle_id_comboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.employeesBindingSource, "jobtitle_id", true));
@@ -64,7 +65,7 @@ namespace ArtFlex
 		{
 			if (!this.Validate()) return;
 			employeesBindingSource.EndEdit();
-			ctx.SaveChanges();
+			context.SaveChanges();
 			
 		}
 		

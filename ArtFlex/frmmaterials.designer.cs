@@ -46,26 +46,26 @@ namespace ArtFlex
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.categoriesbindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.category_idLabel = new System.Windows.Forms.Label();
+            this.buttonAddNew = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.material_UnitsComboBox = new System.Windows.Forms.ComboBox();
             this.material_CategoryComboBox = new System.Windows.Forms.ComboBox();
+            this.unit_idLabel = new System.Windows.Forms.Label();
+            this.material_descriptionLabel = new System.Windows.Forms.Label();
+            this.material_idLabel = new System.Windows.Forms.Label();
+            this.material_rollwidthLabel = new System.Windows.Forms.Label();
+            this.material_idTextBox = new System.Windows.Forms.TextBox();
+            this.material_descriptionTextBox = new System.Windows.Forms.TextBox();
+            this.category_idLabel = new System.Windows.Forms.Label();
+            this.material_sizeTextBox = new System.Windows.Forms.TextBox();
+            this.material_nameLabel = new System.Windows.Forms.Label();
+            this.material_createtimeLabel = new System.Windows.Forms.Label();
+            this.material_rollwidthTextBox = new System.Windows.Forms.TextBox();
+            this.material_sizeLabel = new System.Windows.Forms.Label();
+            this.material_nameTextBox = new System.Windows.Forms.TextBox();
+            this.material_createtimeTextBox = new System.Windows.Forms.TextBox();
             this.dataGridViewMaterials = new System.Windows.Forms.DataGridView();
             this.categoriesComboBox = new System.Windows.Forms.ComboBox();
-            this.material_descriptionLabel = new System.Windows.Forms.Label();
-            this.material_createtimeLabel = new System.Windows.Forms.Label();
-            this.material_idLabel = new System.Windows.Forms.Label();
-            this.unit_idLabel = new System.Windows.Forms.Label();
-            this.material_sizeLabel = new System.Windows.Forms.Label();
-            this.material_UnitsComboBox = new System.Windows.Forms.ComboBox();
-            this.material_sizeTextBox = new System.Windows.Forms.TextBox();
-            this.material_rollwidthLabel = new System.Windows.Forms.Label();
-            this.material_rollwidthTextBox = new System.Windows.Forms.TextBox();
-            this.material_idTextBox = new System.Windows.Forms.TextBox();
-            this.material_createtimeTextBox = new System.Windows.Forms.TextBox();
-            this.material_descriptionTextBox = new System.Windows.Forms.TextBox();
-            this.material_nameTextBox = new System.Windows.Forms.TextBox();
-            this.material_nameLabel = new System.Windows.Forms.Label();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonAddNew = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.materialsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesbindingSource)).BeginInit();
@@ -123,14 +123,35 @@ namespace ArtFlex
             this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 1;
             // 
-            // category_idLabel
+            // buttonAddNew
             // 
-            this.category_idLabel.AutoSize = true;
-            this.category_idLabel.Location = new System.Drawing.Point(8, 6);
-            this.category_idLabel.Name = "category_idLabel";
-            this.category_idLabel.Size = new System.Drawing.Size(84, 13);
-            this.category_idLabel.TabIndex = 21;
-            this.category_idLabel.Text = "Тип материала";
+            this.buttonAddNew.Location = new System.Drawing.Point(916, 54);
+            this.buttonAddNew.Name = "buttonAddNew";
+            this.buttonAddNew.Size = new System.Drawing.Size(75, 23);
+            this.buttonAddNew.TabIndex = 37;
+            this.buttonAddNew.Text = "Add";
+            this.buttonAddNew.UseVisualStyleBackColor = true;
+            this.buttonAddNew.Click += new System.EventHandler(this.AddNewItem_Click);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Location = new System.Drawing.Point(916, 24);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.TabIndex = 36;
+            this.buttonSave.Text = "Save";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.Save_Click);
+            // 
+            // material_UnitsComboBox
+            // 
+            this.material_UnitsComboBox.FormattingEnabled = true;
+            this.material_UnitsComboBox.Location = new System.Drawing.Point(608, 24);
+            this.material_UnitsComboBox.MaxDropDownItems = 10;
+            this.material_UnitsComboBox.Name = "material_UnitsComboBox";
+            this.material_UnitsComboBox.Size = new System.Drawing.Size(84, 21);
+            this.material_UnitsComboBox.TabIndex = 35;
+            this.material_UnitsComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.material_UnitsComboBox_Validating);
             // 
             // material_CategoryComboBox
             // 
@@ -140,6 +161,125 @@ namespace ArtFlex
             this.material_CategoryComboBox.Size = new System.Drawing.Size(151, 21);
             this.material_CategoryComboBox.TabIndex = 34;
             this.material_CategoryComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.category_id_comboBox_Validating);
+            // 
+            // unit_idLabel
+            // 
+            this.unit_idLabel.AutoSize = true;
+            this.unit_idLabel.Location = new System.Drawing.Point(606, 7);
+            this.unit_idLabel.Name = "unit_idLabel";
+            this.unit_idLabel.Size = new System.Drawing.Size(84, 13);
+            this.unit_idLabel.TabIndex = 29;
+            this.unit_idLabel.Text = "Ед. Измерения";
+            // 
+            // material_descriptionLabel
+            // 
+            this.material_descriptionLabel.AutoSize = true;
+            this.material_descriptionLabel.Location = new System.Drawing.Point(10, 47);
+            this.material_descriptionLabel.Name = "material_descriptionLabel";
+            this.material_descriptionLabel.Size = new System.Drawing.Size(57, 13);
+            this.material_descriptionLabel.TabIndex = 30;
+            this.material_descriptionLabel.Text = "Описание";
+            // 
+            // material_idLabel
+            // 
+            this.material_idLabel.AutoSize = true;
+            this.material_idLabel.Location = new System.Drawing.Point(718, 64);
+            this.material_idLabel.Name = "material_idLabel";
+            this.material_idLabel.Size = new System.Drawing.Size(57, 13);
+            this.material_idLabel.TabIndex = 19;
+            this.material_idLabel.Text = "material_id";
+            // 
+            // material_rollwidthLabel
+            // 
+            this.material_rollwidthLabel.AutoSize = true;
+            this.material_rollwidthLabel.Location = new System.Drawing.Point(776, 8);
+            this.material_rollwidthLabel.Name = "material_rollwidthLabel";
+            this.material_rollwidthLabel.Size = new System.Drawing.Size(84, 13);
+            this.material_rollwidthLabel.TabIndex = 27;
+            this.material_rollwidthLabel.Text = "Ширина рулона";
+            // 
+            // material_idTextBox
+            // 
+            this.material_idTextBox.Location = new System.Drawing.Point(779, 62);
+            this.material_idTextBox.Name = "material_idTextBox";
+            this.material_idTextBox.Size = new System.Drawing.Size(84, 20);
+            this.material_idTextBox.TabIndex = 20;
+            // 
+            // material_descriptionTextBox
+            // 
+            this.material_descriptionTextBox.Location = new System.Drawing.Point(10, 63);
+            this.material_descriptionTextBox.Multiline = true;
+            this.material_descriptionTextBox.Name = "material_descriptionTextBox";
+            this.material_descriptionTextBox.Size = new System.Drawing.Size(596, 36);
+            this.material_descriptionTextBox.TabIndex = 31;
+            // 
+            // category_idLabel
+            // 
+            this.category_idLabel.AutoSize = true;
+            this.category_idLabel.Location = new System.Drawing.Point(8, 6);
+            this.category_idLabel.Name = "category_idLabel";
+            this.category_idLabel.Size = new System.Drawing.Size(84, 13);
+            this.category_idLabel.TabIndex = 21;
+            this.category_idLabel.Text = "Тип материала";
+            // 
+            // material_sizeTextBox
+            // 
+            this.material_sizeTextBox.Location = new System.Drawing.Point(694, 24);
+            this.material_sizeTextBox.Name = "material_sizeTextBox";
+            this.material_sizeTextBox.Size = new System.Drawing.Size(84, 20);
+            this.material_sizeTextBox.TabIndex = 26;
+            this.material_sizeTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.material_sizeTextBox_Validating);
+            // 
+            // material_nameLabel
+            // 
+            this.material_nameLabel.AutoSize = true;
+            this.material_nameLabel.Location = new System.Drawing.Point(160, 6);
+            this.material_nameLabel.Name = "material_nameLabel";
+            this.material_nameLabel.Size = new System.Drawing.Size(115, 13);
+            this.material_nameLabel.TabIndex = 22;
+            this.material_nameLabel.Text = "Название материала";
+            // 
+            // material_createtimeLabel
+            // 
+            this.material_createtimeLabel.AutoSize = true;
+            this.material_createtimeLabel.Location = new System.Drawing.Point(682, 84);
+            this.material_createtimeLabel.Name = "material_createtimeLabel";
+            this.material_createtimeLabel.Size = new System.Drawing.Size(98, 13);
+            this.material_createtimeLabel.TabIndex = 32;
+            this.material_createtimeLabel.Text = "material_createtime";
+            // 
+            // material_rollwidthTextBox
+            // 
+            this.material_rollwidthTextBox.Location = new System.Drawing.Point(779, 24);
+            this.material_rollwidthTextBox.Name = "material_rollwidthTextBox";
+            this.material_rollwidthTextBox.Size = new System.Drawing.Size(84, 20);
+            this.material_rollwidthTextBox.TabIndex = 28;
+            this.material_rollwidthTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.material_rollwidthTextBox_Validating);
+            // 
+            // material_sizeLabel
+            // 
+            this.material_sizeLabel.AutoSize = true;
+            this.material_sizeLabel.Location = new System.Drawing.Point(692, 7);
+            this.material_sizeLabel.Name = "material_sizeLabel";
+            this.material_sizeLabel.Size = new System.Drawing.Size(46, 13);
+            this.material_sizeLabel.TabIndex = 25;
+            this.material_sizeLabel.Text = "Размер";
+            // 
+            // material_nameTextBox
+            // 
+            this.material_nameTextBox.Location = new System.Drawing.Point(163, 24);
+            this.material_nameTextBox.Name = "material_nameTextBox";
+            this.material_nameTextBox.Size = new System.Drawing.Size(444, 20);
+            this.material_nameTextBox.TabIndex = 23;
+            this.material_nameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.material_nameTextBox_Validating);
+            // 
+            // material_createtimeTextBox
+            // 
+            this.material_createtimeTextBox.Enabled = false;
+            this.material_createtimeTextBox.Location = new System.Drawing.Point(779, 81);
+            this.material_createtimeTextBox.Name = "material_createtimeTextBox";
+            this.material_createtimeTextBox.Size = new System.Drawing.Size(84, 20);
+            this.material_createtimeTextBox.TabIndex = 33;
             // 
             // dataGridViewMaterials
             // 
@@ -168,148 +308,8 @@ namespace ArtFlex
             this.categoriesComboBox.FormattingEnabled = true;
             this.categoriesComboBox.Location = new System.Drawing.Point(314, 0);
             this.categoriesComboBox.Name = "categoriesComboBox";
-            this.categoriesComboBox.Size = new System.Drawing.Size(121, 21);
+            this.categoriesComboBox.Size = new System.Drawing.Size(184, 21);
             this.categoriesComboBox.TabIndex = 3;
-            // 
-            // material_descriptionLabel
-            // 
-            this.material_descriptionLabel.AutoSize = true;
-            this.material_descriptionLabel.Location = new System.Drawing.Point(10, 47);
-            this.material_descriptionLabel.Name = "material_descriptionLabel";
-            this.material_descriptionLabel.Size = new System.Drawing.Size(57, 13);
-            this.material_descriptionLabel.TabIndex = 30;
-            this.material_descriptionLabel.Text = "Описание";
-            // 
-            // material_createtimeLabel
-            // 
-            this.material_createtimeLabel.AutoSize = true;
-            this.material_createtimeLabel.Location = new System.Drawing.Point(682, 84);
-            this.material_createtimeLabel.Name = "material_createtimeLabel";
-            this.material_createtimeLabel.Size = new System.Drawing.Size(98, 13);
-            this.material_createtimeLabel.TabIndex = 32;
-            this.material_createtimeLabel.Text = "material_createtime";
-            // 
-            // material_idLabel
-            // 
-            this.material_idLabel.AutoSize = true;
-            this.material_idLabel.Location = new System.Drawing.Point(718, 64);
-            this.material_idLabel.Name = "material_idLabel";
-            this.material_idLabel.Size = new System.Drawing.Size(57, 13);
-            this.material_idLabel.TabIndex = 19;
-            this.material_idLabel.Text = "material_id";
-            // 
-            // unit_idLabel
-            // 
-            this.unit_idLabel.AutoSize = true;
-            this.unit_idLabel.Location = new System.Drawing.Point(606, 7);
-            this.unit_idLabel.Name = "unit_idLabel";
-            this.unit_idLabel.Size = new System.Drawing.Size(84, 13);
-            this.unit_idLabel.TabIndex = 29;
-            this.unit_idLabel.Text = "Ед. Измерения";
-            // 
-            // material_sizeLabel
-            // 
-            this.material_sizeLabel.AutoSize = true;
-            this.material_sizeLabel.Location = new System.Drawing.Point(692, 7);
-            this.material_sizeLabel.Name = "material_sizeLabel";
-            this.material_sizeLabel.Size = new System.Drawing.Size(46, 13);
-            this.material_sizeLabel.TabIndex = 25;
-            this.material_sizeLabel.Text = "Размер";
-            // 
-            // material_UnitsComboBox
-            // 
-            this.material_UnitsComboBox.FormattingEnabled = true;
-            this.material_UnitsComboBox.Location = new System.Drawing.Point(608, 24);
-            this.material_UnitsComboBox.MaxDropDownItems = 10;
-            this.material_UnitsComboBox.Name = "material_UnitsComboBox";
-            this.material_UnitsComboBox.Size = new System.Drawing.Size(84, 21);
-            this.material_UnitsComboBox.TabIndex = 35;
-            this.material_UnitsComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.material_UnitsComboBox_Validating);
-            // 
-            // material_sizeTextBox
-            // 
-            this.material_sizeTextBox.Location = new System.Drawing.Point(694, 24);
-            this.material_sizeTextBox.Name = "material_sizeTextBox";
-            this.material_sizeTextBox.Size = new System.Drawing.Size(84, 20);
-            this.material_sizeTextBox.TabIndex = 26;
-            this.material_sizeTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.material_sizeTextBox_Validating);
-            // 
-            // material_rollwidthLabel
-            // 
-            this.material_rollwidthLabel.AutoSize = true;
-            this.material_rollwidthLabel.Location = new System.Drawing.Point(776, 8);
-            this.material_rollwidthLabel.Name = "material_rollwidthLabel";
-            this.material_rollwidthLabel.Size = new System.Drawing.Size(84, 13);
-            this.material_rollwidthLabel.TabIndex = 27;
-            this.material_rollwidthLabel.Text = "Ширина рулона";
-            // 
-            // material_rollwidthTextBox
-            // 
-            this.material_rollwidthTextBox.Location = new System.Drawing.Point(779, 24);
-            this.material_rollwidthTextBox.Name = "material_rollwidthTextBox";
-            this.material_rollwidthTextBox.Size = new System.Drawing.Size(84, 20);
-            this.material_rollwidthTextBox.TabIndex = 28;
-            this.material_rollwidthTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.material_rollwidthTextBox_Validating);
-            // 
-            // material_idTextBox
-            // 
-            this.material_idTextBox.Location = new System.Drawing.Point(779, 62);
-            this.material_idTextBox.Name = "material_idTextBox";
-            this.material_idTextBox.Size = new System.Drawing.Size(84, 20);
-            this.material_idTextBox.TabIndex = 20;
-            // 
-            // material_createtimeTextBox
-            // 
-            this.material_createtimeTextBox.Enabled = false;
-            this.material_createtimeTextBox.Location = new System.Drawing.Point(779, 81);
-            this.material_createtimeTextBox.Name = "material_createtimeTextBox";
-            this.material_createtimeTextBox.Size = new System.Drawing.Size(84, 20);
-            this.material_createtimeTextBox.TabIndex = 33;
-            // 
-            // material_descriptionTextBox
-            // 
-            this.material_descriptionTextBox.Location = new System.Drawing.Point(10, 63);
-            this.material_descriptionTextBox.Multiline = true;
-            this.material_descriptionTextBox.Name = "material_descriptionTextBox";
-            this.material_descriptionTextBox.Size = new System.Drawing.Size(596, 36);
-            this.material_descriptionTextBox.TabIndex = 31;
-            // 
-            // material_nameTextBox
-            // 
-            this.material_nameTextBox.Location = new System.Drawing.Point(163, 24);
-            this.material_nameTextBox.Name = "material_nameTextBox";
-            this.material_nameTextBox.Size = new System.Drawing.Size(444, 20);
-            this.material_nameTextBox.TabIndex = 23;
-            this.material_nameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.material_nameTextBox_Validating);
-            // 
-            // material_nameLabel
-            // 
-            this.material_nameLabel.AutoSize = true;
-            this.material_nameLabel.Location = new System.Drawing.Point(160, 6);
-            this.material_nameLabel.Name = "material_nameLabel";
-            this.material_nameLabel.Size = new System.Drawing.Size(115, 13);
-            this.material_nameLabel.TabIndex = 22;
-            this.material_nameLabel.Text = "Название материала";
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.Location = new System.Drawing.Point(916, 24);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
-            this.buttonSave.TabIndex = 36;
-            this.buttonSave.Text = "Save";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.Save_Click);
-            // 
-            // buttonAddNew
-            // 
-            this.buttonAddNew.Location = new System.Drawing.Point(916, 54);
-            this.buttonAddNew.Name = "buttonAddNew";
-            this.buttonAddNew.Size = new System.Drawing.Size(75, 23);
-            this.buttonAddNew.TabIndex = 37;
-            this.buttonAddNew.Text = "Add";
-            this.buttonAddNew.UseVisualStyleBackColor = true;
-            this.buttonAddNew.Click += new System.EventHandler(this.AddNewItem_Click);
             // 
             // frmmaterials
             // 

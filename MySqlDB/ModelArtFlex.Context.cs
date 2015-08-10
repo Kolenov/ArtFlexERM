@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ArtFlex
+namespace MySqlDB
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ModelArtFlexEntities : DbContext
+    public partial class ModelEntities : DbContext
     {
-        public ModelArtFlexEntities()
-            : base("name=ModelArtFlexEntities")
+        public ModelEntities()
+            : base("name=ModelEntities")
         {
         }
     

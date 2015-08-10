@@ -13,10 +13,10 @@ namespace MySqlDB
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class artflex_crmEntities : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public artflex_crmEntities()
+            : base("name=artflex_crmEntities")
         {
         }
     

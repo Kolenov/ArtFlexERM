@@ -20,12 +20,13 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity;
+using MySqlDB;
 
 namespace ArtFlex
 {
 	public partial class frmwaybills : Form
 	{
-		private ModelArtFlexEntities ctx;
+		private ModelEntities context;
 		
 		public frmwaybills()
 		{
@@ -34,9 +35,9 @@ namespace ArtFlex
 		
 		private void frmwaybills_Load(object sender, EventArgs e)
 		{
-			ctx = new ModelArtFlexEntities();
-			ctx.waybills.Load();
-			BindingList<waybills> _entities = ctx.waybills.Local.ToBindingList();
+			context = new ModelEntities();
+			context.waybills.Load();
+			BindingList<waybills> _entities = context.waybills.Local.ToBindingList();
 			waybillsBindingSource.DataSource = _entities;
 			this.waybill_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.waybillsBindingSource, "waybill_id", true ));
 			this.waybill_nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.waybillsBindingSource, "waybill_name", true ));
@@ -50,7 +51,7 @@ namespace ArtFlex
 		{
 			if (!this.Validate()) return;
 			waybillsBindingSource.EndEdit();
-			ctx.SaveChanges();
+			context.SaveChanges();
 			
 		}
 		

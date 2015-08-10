@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <edmx:Runtime>
+    <edmx:StorageModels>
+<Schema Namespace="Model1Model.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="categories">
+          <Key>
+            <PropertyRef Name="category_id" />
+          </Key>
+          <Property Name="category_id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category_name" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="clients">
+          <Key>
+            <PropertyRef Name="client_id" />
+          </Key>
+          <Property Name="client_id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="client_name" Type="varchar" MaxLength="45" />
+          <Property Name="client_surname" Type="varchar" MaxLength="45" />
+          <Property Name="client_jobtitle" Type="varchar" MaxLength="45" />
+          <Property Name="client_organisation" Type="varchar" MaxLength="45" />
+          <Property Name="client_email" Type="varchar" MaxLength="45" />
+          <Property Name="client_wphone" Type="varchar" MaxLength="45" />
+          <Property Name="client_fax" Type="varchar" MaxLength="45" />
+          <Property Name="client_skipe" Type="varchar" MaxLength="45" />
+          <Property Name="client_address" Type="varchar" MaxLength="255" />
+          <Property Name="client_description" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="consumption">
+          <Key>
+            <PropertyRef Name="consumption_id" />
+          </Key>
+          <Property Name="consumption_id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="supply_id" Type="uint" Nullable="false" />
+          <Property Name="material_id" Type="uint" Nullable="false" />
+          <Property Name="order_id" Type="uint" Nullable="false" />
+          <Property Name="consumption_quantity" Type="double" Nullable="false" />
+          <Property Name="consumption_date" Type="date" Nullable="false" />
+          <Property Name="consumption_createtime" Type="timestamp" Precision="0" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="employees">
+          <Key>
+            <PropertyRef Name="employee_id" />
+          </Key>
+          <Property Name="employee_id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="employee_login" Type="varchar" MaxLength="45" />
+          <Property Name="employee_password" Type="varchar" MaxLength="45" />
+          <Property Name="employee_name" Type="varchar" MaxLength="45" />
+          <Property Name="employee_surname" Type="varchar" MaxLength="45" />
+          <Property Name="employee_email" Type="varchar" MaxLength="45" />
+          <Property Name="employee_displayname" Type="varchar" MaxLength="45" />
+          <Property Name="employee_phone" Type="varchar" MaxLength="45" />
+          <Property Name="employee_mphone" Type="varchar" MaxLength="45" />
+          <Property Name="employee_wphone" Type="varchar" MaxLength="45" />
+          <Property Name="employee_fax" Type="varchar" MaxLength="45" />
+          <Property Name="employee_skype" Type="varchar" MaxLength="45" />
+          <Property Name="employee_hphone" Type="varchar" MaxLength="45" />
+          <Property Name="employee_address" Type="varchar" MaxLength="255" />
+          <Property Name="employee_description" Type="varchar" MaxLength="255" />
+          <Property Name="jobtitle_id" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="job_titles">
+          <Key>
+            <PropertyRef Name="jobtitle_id" />
+          </Key>
+          <Property Name="jobtitle_id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="jobtitle_name" Type="varchar" MaxLength="45" />
+          <Property Name="jobtitle_descript" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="materials">
+          <Key>
+            <PropertyRef Name="material_id" />
+          </Key>
+          <Property Name="material_id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category_id" Type="uint" Nullable="false" />
+          <Property Name="material_name" Type="varchar" MaxLength="255" />
+          <Property Name="material_size" Type="varchar" MaxLength="45" />
+          <Property Name="material_rollwidth" Type="uint" />
+          <Property Name="unit_id" Type="uint" Nullable="false" />
+          <Property Name="material_description" Type="varchar" MaxLength="255" />
+          <Property Name="material_createtime" Type="timestamp" Precision="0" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="orders">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="client_id" Type="uint" Nullable="false" />
+          <Property Name="order_status" Type="int" />
+          <Property Name="employee_id" Type="uint" Nullable="false" />
+          <Property Name="order_createtime" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rests">
+          <Key>
+            <PropertyRef Name="rest_id" />
+          </Key>
+          <Property Name="rest_id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="supply_id" Type="uint" Nullable="false" />
+          <Property Name="material_id" Type="uint" Nullable="false" />
+          <Property Name="rest_quantity" Type="double" Nullable="false" />
+          <Property Name="rest_summ" Type="double" Nullable="false" />
+          <Property Name="rest_date" Type="date" Nullable="false" />
+          <Property Name="rest_createtime" Type="timestamp" Precision="0" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="supplier">
+          <Key>
+            <PropertyRef Name="supplier_id" />
+          </Key>
+          <Property Name="supplier_id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="supplier_name" Type="varchar" MaxLength="45" />
+          <Property Name="supplier_surname" Type="varchar" MaxLength="45" />
+          <Property Name="supplier_jobtitle" Type="varchar" MaxLength="45" />
+          <Property Name="supplier_organisation" Type="varchar" MaxLength="45" />
+          <Property Name="supplier_email" Type="varchar" MaxLength="45" />
+          <Property Name="supplier_mphone" Type="varchar" MaxLength="45" />
+          <Property Name="supplier_wphone" Type="varchar" MaxLength="45" />
+          <Property Name="supplier_fax" Type="varchar" MaxLength="45" />
+          <Property Name="supplier_skipe" Type="varchar" MaxLength="45" />
+          <Property Name="supplier_address" Type="varchar" MaxLength="255" />
+          <Property Name="supplier_description" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="supply">
+          <Key>
+            <PropertyRef Name="supply_id" />
+          </Key>
+          <Property Name="supply_id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="supply_quantity" Type="double" Nullable="false" />
+          <Property Name="material_id" Type="uint" Nullable="false" />
+          <Property Name="supply_summ" Type="double" Nullable="false" />
+          <Property Name="supply_costunit" Type="double" Nullable="false" />
+          <Property Name="supply_description" Type="varchar" MaxLength="255" />
+          <Property Name="waybill_id" Type="uint" Nullable="false" />
+          <Property Name="supply_createtime" Type="timestamp" Precision="0" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="units">
+          <Key>
+            <PropertyRef Name="unit_id" />
+          </Key>
+          <Property Name="unit_id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="unit_name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="unit_shortname" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="waybills">
+          <Key>
+            <PropertyRef Name="waybill_id" />
+          </Key>
+          <Property Name="waybill_id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="waybill_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="supplier_id" Type="uint" Nullable="false" />
+          <Property Name="waybill_date" Type="date" Nullable="false" />
+          <Property Name="waybill_createtime" Type="timestamp" Precision="0" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <Association Name="fk_consumption_materials1">
+          <End Role="materials" Type="Self.materials" Multiplicity="1" />
+          <End Role="consumption" Type="Self.consumption" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="materials">
+              <PropertyRef Name="material_id" />
+            </Principal>
+            <Dependent Role="consumption">
+              <PropertyRef Name="material_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_consumption_orders1">
+          <End Role="orders" Type="Self.orders" Multiplicity="1" />
+          <End Role="consumption" Type="Self.consumption" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="orders">
+              <PropertyRef Name="order_id" />
+            </Principal>
+            <Dependent Role="consumption">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_consumption_supply1">
+          <End Role="supply" Type="Self.supply" Multiplicity="1" />
+          <End Role="consumption" Type="Self.consumption" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="supply">
+              <PropertyRef Name="supply_id" />
+            </Principal>
+            <Dependent Role="consumption">
+              <PropertyRef Name="supply_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_employees_job_titles1">
+          <End Role="job_titles" Type="Self.job_titles" Multiplicity="1" />
+          <End Role="employees" Type="Self.employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="job_titles">
+              <PropertyRef Name="jobtitle_id" />
+            </Principal>
+            <Dependent Role="employees">
+              <PropertyRef Name="jobtitle_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_materials_categories1">
+          <End Role="categories" Type="Self.categories" Multiplicity="1" />
+          <End Role="materials" Type="Self.materials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categories">
+              <PropertyRef Name="category_id" />
+            </Principal>
+            <Dependent Role="materials">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_materials_units1">
+          <End Role="units" Type="Self.units" Multiplicity="1" />
+          <End Role="materials" Type="Self.materials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="units">
+              <PropertyRef Name="unit_id" />
+            </Principal>
+            <Dependent Role="materials">
+              <PropertyRef Name="unit_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_orders_clients1">
+          <End Role="clients" Type="Self.clients" Multiplicity="1" />
+          <End Role="orders" Type="Self.orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clients">
+              <PropertyRef Name="client_id" />
+            </Principal>
+            <Dependent Role="orders">
+              <PropertyRef Name="client_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_orders_employees1">
+          <End Role="employees" Type="Self.employees" Multiplicity="1" />
+          <End Role="orders" Type="Self.orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employees">
+              <PropertyRef Name="employee_id" />
+            </Principal>
+            <Dependent Role="orders">
+              <PropertyRef Name="employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_rests_materials1">
+          <End Role="materials" Type="Self.materials" Multiplicity="1" />
+          <End Role="rests" Type="Self.rests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="materials">
+              <PropertyRef Name="material_id" />
+            </Principal>
+            <Dependent Role="rests">
+              <PropertyRef Name="material_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_rests_supply1">
+          <End Role="supply" Type="Self.supply" Multiplicity="1" />
+          <End Role="rests" Type="Self.rests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="supply">
+              <PropertyRef Name="supply_id" />
+            </Principal>
+            <Dependent Role="rests">
+              <PropertyRef Name="supply_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_supply_materials1">
+          <End Role="materials" Type="Self.materials" Multiplicity="1" />
+          <End Role="supply" Type="Self.supply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="materials">
+              <PropertyRef Name="material_id" />
+            </Principal>
+            <Dependent Role="supply">
+              <PropertyRef Name="material_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_supply_waybills1">
+          <End Role="waybills" Type="Self.waybills" Multiplicity="1" />
+          <End Role="supply" Type="Self.supply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="waybills">
+              <PropertyRef Name="waybill_id" />
+            </Principal>
+            <Dependent Role="supply">
+              <PropertyRef Name="waybill_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_waybills_supplier1">
+          <End Role="supplier" Type="Self.supplier" Multiplicity="1" />
+          <End Role="waybills" Type="Self.waybills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="supplier">
+              <PropertyRef Name="supplier_id" />
+            </Principal>
+            <Dependent Role="waybills">
+              <PropertyRef Name="supplier_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Model1ModelStoreContainer">
+          <EntitySet Name="categories" EntityType="Self.categories" Schema="artflex_crm" store:Type="Tables" />
+          <EntitySet Name="clients" EntityType="Self.clients" Schema="artflex_crm" store:Type="Tables" />
+          <EntitySet Name="consumption" EntityType="Self.consumption" Schema="artflex_crm" store:Type="Tables" />
+          <EntitySet Name="employees" EntityType="Self.employees" Schema="artflex_crm" store:Type="Tables" />
+          <EntitySet Name="job_titles" EntityType="Self.job_titles" Schema="artflex_crm" store:Type="Tables" />
+          <EntitySet Name="materials" EntityType="Self.materials" Schema="artflex_crm" store:Type="Tables" />
+          <EntitySet Name="orders" EntityType="Self.orders" Schema="artflex_crm" store:Type="Tables" />
+          <EntitySet Name="rests" EntityType="Self.rests" Schema="artflex_crm" store:Type="Tables" />
+          <EntitySet Name="supplier" EntityType="Self.supplier" Schema="artflex_crm" store:Type="Tables" />
+          <EntitySet Name="supply" EntityType="Self.supply" Schema="artflex_crm" store:Type="Tables" />
+          <EntitySet Name="units" EntityType="Self.units" Schema="artflex_crm" store:Type="Tables" />
+          <EntitySet Name="waybills" EntityType="Self.waybills" Schema="artflex_crm" store:Type="Tables" />
+          <AssociationSet Name="fk_consumption_materials1" Association="Self.fk_consumption_materials1">
+            <End Role="materials" EntitySet="materials" />
+            <End Role="consumption" EntitySet="consumption" />
+          </AssociationSet>
+          <AssociationSet Name="fk_consumption_orders1" Association="Self.fk_consumption_orders1">
+            <End Role="orders" EntitySet="orders" />
+            <End Role="consumption" EntitySet="consumption" />
+          </AssociationSet>
+          <AssociationSet Name="fk_consumption_supply1" Association="Self.fk_consumption_supply1">
+            <End Role="supply" EntitySet="supply" />
+            <End Role="consumption" EntitySet="consumption" />
+          </AssociationSet>
+          <AssociationSet Name="fk_employees_job_titles1" Association="Self.fk_employees_job_titles1">
+            <End Role="job_titles" EntitySet="job_titles" />
+            <End Role="employees" EntitySet="employees" />
+          </AssociationSet>
+          <AssociationSet Name="fk_materials_categories1" Association="Self.fk_materials_categories1">
+            <End Role="categories" EntitySet="categories" />
+            <End Role="materials" EntitySet="materials" />
+          </AssociationSet>
+          <AssociationSet Name="fk_materials_units1" Association="Self.fk_materials_units1">
+            <End Role="units" EntitySet="units" />
+            <End Role="materials" EntitySet="materials" />
+          </AssociationSet>
+          <AssociationSet Name="fk_orders_clients1" Association="Self.fk_orders_clients1">
+            <End Role="clients" EntitySet="clients" />
+            <End Role="orders" EntitySet="orders" />
+          </AssociationSet>
+          <AssociationSet Name="fk_orders_employees1" Association="Self.fk_orders_employees1">
+            <End Role="employees" EntitySet="employees" />
+            <End Role="orders" EntitySet="orders" />
+          </AssociationSet>
+          <AssociationSet Name="fk_rests_materials1" Association="Self.fk_rests_materials1">
+            <End Role="materials" EntitySet="materials" />
+            <End Role="rests" EntitySet="rests" />
+          </AssociationSet>
+          <AssociationSet Name="fk_rests_supply1" Association="Self.fk_rests_supply1">
+            <End Role="supply" EntitySet="supply" />
+            <End Role="rests" EntitySet="rests" />
+          </AssociationSet>
+          <AssociationSet Name="fk_supply_materials1" Association="Self.fk_supply_materials1">
+            <End Role="materials" EntitySet="materials" />
+            <End Role="supply" EntitySet="supply" />
+          </AssociationSet>
+          <AssociationSet Name="fk_supply_waybills1" Association="Self.fk_supply_waybills1">
+            <End Role="waybills" EntitySet="waybills" />
+            <End Role="supply" EntitySet="supply" />
+          </AssociationSet>
+          <AssociationSet Name="fk_waybills_supplier1" Association="Self.fk_waybills_supplier1">
+            <End Role="supplier" EntitySet="supplier" />
+            <End Role="waybills" EntitySet="waybills" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels><edmx:ConceptualModels>
+<Schema Namespace="MySqlDB" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"><EntityContainer Name="ArtFlexModelEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"><EntitySet Name="categories" EntityType="MySqlDB.categories" /><EntitySet Name="clients" EntityType="MySqlDB.clients" /><EntitySet Name="consumption" EntityType="MySqlDB.consumption" /><EntitySet Name="employees" EntityType="MySqlDB.employees" /><EntitySet Name="job_titles" EntityType="MySqlDB.job_titles" /><EntitySet Name="materials" EntityType="MySqlDB.materials" /><EntitySet Name="orders" EntityType="MySqlDB.orders" /><EntitySet Name="rests" EntityType="MySqlDB.rests" /><EntitySet Name="supplier" EntityType="MySqlDB.supplier" /><EntitySet Name="supply" EntityType="MySqlDB.supply" /><EntitySet Name="units" EntityType="MySqlDB.units" /><EntitySet Name="waybills" EntityType="MySqlDB.waybills" /><AssociationSet Name="fk_materials_categories1" Association="MySqlDB.fk_materials_categories1"><End Role="categories" EntitySet="categories" /><End Role="materials" EntitySet="materials" /></AssociationSet><AssociationSet Name="fk_orders_clients1" Association="MySqlDB.fk_orders_clients1"><End Role="clients" EntitySet="clients" /><End Role="orders" EntitySet="orders" /></AssociationSet><AssociationSet Name="fk_consumption_materials1" Association="MySqlDB.fk_consumption_materials1"><End Role="materials" EntitySet="materials" /><End Role="consumption" EntitySet="consumption" /></AssociationSet><AssociationSet Name="fk_consumption_orders1" Association="MySqlDB.fk_consumption_orders1"><End Role="orders" EntitySet="orders" /><End Role="consumption" EntitySet="consumption" /></AssociationSet><AssociationSet Name="fk_consumption_supply1" Association="MySqlDB.fk_consumption_supply1"><End Role="supply" EntitySet="supply" /><End Role="consumption" EntitySet="consumption" /></AssociationSet><AssociationSet Name="fk_employees_job_titles1" Association="MySqlDB.fk_employees_job_titles1"><End Role="job_titles" EntitySet="job_titles" /><End Role="employees" EntitySet="employees" /></AssociationSet><AssociationSet Name="fk_orders_employees1" Association="MySqlDB.fk_orders_employees1"><End Role="employees" EntitySet="employees" /><End Role="orders" EntitySet="orders" /></AssociationSet><AssociationSet Name="fk_materials_units1" Association="MySqlDB.fk_materials_units1"><End Role="units" EntitySet="units" /><End Role="materials" EntitySet="materials" /></AssociationSet><AssociationSet Name="fk_rests_materials1" Association="MySqlDB.fk_rests_materials1"><End Role="materials" EntitySet="materials" /><End Role="rests" EntitySet="rests" /></AssociationSet><AssociationSet Name="fk_supply_materials1" Association="MySqlDB.fk_supply_materials1"><End Role="materials" EntitySet="materials" /><End Role="supply" EntitySet="supply" /></AssociationSet><AssociationSet Name="fk_rests_supply1" Association="MySqlDB.fk_rests_supply1"><End Role="supply" EntitySet="supply" /><End Role="rests" EntitySet="rests" /></AssociationSet><AssociationSet Name="fk_waybills_supplier1" Association="MySqlDB.fk_waybills_supplier1"><End Role="supplier" EntitySet="supplier" /><End Role="waybills" EntitySet="waybills" /></AssociationSet><AssociationSet Name="fk_supply_waybills1" Association="MySqlDB.fk_supply_waybills1"><End Role="waybills" EntitySet="waybills" /><End Role="supply" EntitySet="supply" /></AssociationSet></EntityContainer><EntityType Name="categories"><Key><PropertyRef Name="category_id" /></Key><Property Name="category_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" /><Property Name="category_name" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" /><NavigationProperty Name="materials" Relationship="MySqlDB.fk_materials_categories1" FromRole="categories" ToRole="materials" /></EntityType><EntityType Name="clients"><Key><PropertyRef Name="client_id" /></Key><Property Name="client_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" /><Property Name="client_name" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="client_surname" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="client_jobtitle" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="client_organisation" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="client_email" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="client_wphone" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="client_fax" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="client_skipe" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="client_address" Type="String" MaxLength="255" Unicode="false" FixedLength="false" /><Property Name="client_description" Type="String" MaxLength="255" Unicode="false" FixedLength="false" /><NavigationProperty Name="orders" Relationship="MySqlDB.fk_orders_clients1" FromRole="clients" ToRole="orders" /></EntityType><EntityType Name="consumption"><Key><PropertyRef Name="consumption_id" /></Key><Property Name="consumption_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" /><Property Name="supply_id" Type="Int64" Nullable="false" /><Property Name="material_id" Type="Int64" Nullable="false" /><Property Name="order_id" Type="Int64" Nullable="false" /><Property Name="consumption_quantity" Type="Double" Nullable="false" /><Property Name="consumption_date" Type="DateTime" Nullable="false" /><Property Name="consumption_createtime" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" /><NavigationProperty Name="materials" Relationship="MySqlDB.fk_consumption_materials1" FromRole="consumption" ToRole="materials" /><NavigationProperty Name="orders" Relationship="MySqlDB.fk_consumption_orders1" FromRole="consumption" ToRole="orders" /><NavigationProperty Name="supply" Relationship="MySqlDB.fk_consumption_supply1" FromRole="consumption" ToRole="supply" /></EntityType><EntityType Name="employees"><Key><PropertyRef Name="employee_id" /></Key><Property Name="employee_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" /><Property Name="employee_login" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="employee_password" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="employee_name" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="employee_surname" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="employee_email" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="employee_displayname" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="employee_phone" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="employee_mphone" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="employee_wphone" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="employee_fax" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="employee_skype" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="employee_hphone" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="employee_address" Type="String" MaxLength="255" Unicode="false" FixedLength="false" /><Property Name="employee_description" Type="String" MaxLength="255" Unicode="false" FixedLength="false" /><Property Name="jobtitle_id" Type="Int64" Nullable="false" /><NavigationProperty Name="job_titles" Relationship="MySqlDB.fk_employees_job_titles1" FromRole="employees" ToRole="job_titles" /><NavigationProperty Name="orders" Relationship="MySqlDB.fk_orders_employees1" FromRole="employees" ToRole="orders" /></EntityType><EntityType Name="job_titles"><Key><PropertyRef Name="jobtitle_id" /></Key><Property Name="jobtitle_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" /><Property Name="jobtitle_name" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="jobtitle_descript" Type="String" MaxLength="250" Unicode="false" FixedLength="false" /><NavigationProperty Name="employees" Relationship="MySqlDB.fk_employees_job_titles1" FromRole="job_titles" ToRole="employees" /></EntityType><EntityType Name="materials"><Key><PropertyRef Name="material_id" /></Key><Property Name="material_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" /><Property Name="category_id" Type="Int64" Nullable="false" /><Property Name="material_name" Type="String" MaxLength="255" Unicode="false" FixedLength="false" /><Property Name="material_size" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="material_rollwidth" Type="Int64" /><Property Name="unit_id" Type="Int64" Nullable="false" /><Property Name="material_description" Type="String" MaxLength="255" Unicode="false" FixedLength="false" /><Property Name="material_createtime" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" /><NavigationProperty Name="categories" Relationship="MySqlDB.fk_materials_categories1" FromRole="materials" ToRole="categories" /><NavigationProperty Name="consumption" Relationship="MySqlDB.fk_consumption_materials1" FromRole="materials" ToRole="consumption" /><NavigationProperty Name="units" Relationship="MySqlDB.fk_materials_units1" FromRole="materials" ToRole="units" /><NavigationProperty Name="rests" Relationship="MySqlDB.fk_rests_materials1" FromRole="materials" ToRole="rests" /><NavigationProperty Name="supply" Relationship="MySqlDB.fk_supply_materials1" FromRole="materials" ToRole="supply" /></EntityType><EntityType Name="orders"><Key><PropertyRef Name="order_id" /></Key><Property Name="order_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" /><Property Name="client_id" Type="Int64" Nullable="false" /><Property Name="order_status" Type="Int32" /><Property Name="employee_id" Type="Int64" Nullable="false" /><Property Name="order_createtime" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" /><NavigationProperty Name="clients" Relationship="MySqlDB.fk_orders_clients1" FromRole="orders" ToRole="clients" /><NavigationProperty Name="consumption" Relationship="MySqlDB.fk_consumption_orders1" FromRole="orders" ToRole="consumption" /><NavigationProperty Name="employees" Relationship="MySqlDB.fk_orders_employees1" FromRole="orders" ToRole="employees" /></EntityType><EntityType Name="rests"><Key><PropertyRef Name="rest_id" /></Key><Property Name="rest_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" /><Property Name="supply_id" Type="Int64" Nullable="false" /><Property Name="material_id" Type="Int64" Nullable="false" /><Property Name="rest_quantity" Type="Double" Nullable="false" /><Property Name="rest_summ" Type="Double" Nullable="false" /><Property Name="rest_date" Type="DateTime" Nullable="false" /><Property Name="rest_createtime" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" /><NavigationProperty Name="materials" Relationship="MySqlDB.fk_rests_materials1" FromRole="rests" ToRole="materials" /><NavigationProperty Name="supply" Relationship="MySqlDB.fk_rests_supply1" FromRole="rests" ToRole="supply" /></EntityType><EntityType Name="supplier"><Key><PropertyRef Name="supplier_id" /></Key><Property Name="supplier_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" /><Property Name="supplier_name" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="supplier_surname" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="supplier_jobtitle" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="supplier_organisation" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="supplier_email" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="supplier_mphone" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="supplier_wphone" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="supplier_fax" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="supplier_skipe" Type="String" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="supplier_address" Type="String" MaxLength="255" Unicode="false" FixedLength="false" /><Property Name="supplier_description" Type="String" MaxLength="255" Unicode="false" FixedLength="false" /><NavigationProperty Name="waybills" Relationship="MySqlDB.fk_waybills_supplier1" FromRole="supplier" ToRole="waybills" /></EntityType><EntityType Name="supply"><Key><PropertyRef Name="supply_id" /></Key><Property Name="supply_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" /><Property Name="material_id" Type="Int64" Nullable="false" /><Property Name="supply_description" Type="String" MaxLength="255" Unicode="false" FixedLength="false" /><Property Name="waybill_id" Type="Int64" Nullable="false" /><Property Name="supply_createtime" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" /><NavigationProperty Name="consumption" Relationship="MySqlDB.fk_consumption_supply1" FromRole="supply" ToRole="consumption" /><NavigationProperty Name="materials" Relationship="MySqlDB.fk_supply_materials1" FromRole="supply" ToRole="materials" /><NavigationProperty Name="rests" Relationship="MySqlDB.fk_rests_supply1" FromRole="supply" ToRole="rests" /><NavigationProperty Name="waybills" Relationship="MySqlDB.fk_supply_waybills1" FromRole="supply" ToRole="waybills" />
+          <Property Name="supply_quantity" Type="Double" Nullable="false" />
+          <Property Name="supply_summ" Type="Double" Nullable="false" />
+          <Property Name="supply_costunit" Type="Double" Nullable="false" /></EntityType><EntityType Name="units"><Key><PropertyRef Name="unit_id" /></Key><Property Name="unit_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" /><Property Name="unit_name" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" /><Property Name="unit_shortname" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" /><NavigationProperty Name="materials" Relationship="MySqlDB.fk_materials_units1" FromRole="units" ToRole="materials" /></EntityType><EntityType Name="waybills"><Key><PropertyRef Name="waybill_id" /></Key><Property Name="waybill_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" /><Property Name="waybill_name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" /><Property Name="supplier_id" Type="Int64" Nullable="false" /><Property Name="waybill_date" Type="DateTime" Nullable="false" /><Property Name="waybill_createtime" Type="DateTime" annotation:StoreGeneratedPattern="Computed" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" /><NavigationProperty Name="supplier" Relationship="MySqlDB.fk_waybills_supplier1" FromRole="waybills" ToRole="supplier" /><NavigationProperty Name="supply" Relationship="MySqlDB.fk_supply_waybills1" FromRole="waybills" ToRole="supply" /></EntityType><Association Name="fk_materials_categories1"><End Role="categories" Type="MySqlDB.categories" Multiplicity="1" /><End Role="materials" Type="MySqlDB.materials" Multiplicity="*" /><ReferentialConstraint><Principal Role="categories"><PropertyRef Name="category_id" /></Principal><Dependent Role="materials"><PropertyRef Name="category_id" /></Dependent></ReferentialConstraint></Association><Association Name="fk_orders_clients1"><End Role="clients" Type="MySqlDB.clients" Multiplicity="1" /><End Role="orders" Type="MySqlDB.orders" Multiplicity="*" /><ReferentialConstraint><Principal Role="clients"><PropertyRef Name="client_id" /></Principal><Dependent Role="orders"><PropertyRef Name="client_id" /></Dependent></ReferentialConstraint></Association><Association Name="fk_consumption_materials1"><End Role="materials" Type="MySqlDB.materials" Multiplicity="1" /><End Role="consumption" Type="MySqlDB.consumption" Multiplicity="*" /><ReferentialConstraint><Principal Role="materials"><PropertyRef Name="material_id" /></Principal><Dependent Role="consumption"><PropertyRef Name="material_id" /></Dependent></ReferentialConstraint></Association><Association Name="fk_consumption_orders1"><End Role="orders" Type="MySqlDB.orders" Multiplicity="1" /><End Role="consumption" Type="MySqlDB.consumption" Multiplicity="*" /><ReferentialConstraint><Principal Role="orders"><PropertyRef Name="order_id" /></Principal><Dependent Role="consumption"><PropertyRef Name="order_id" /></Dependent></ReferentialConstraint></Association><Association Name="fk_consumption_supply1"><End Role="supply" Type="MySqlDB.supply" Multiplicity="1" /><End Role="consumption" Type="MySqlDB.consumption" Multiplicity="*" /><ReferentialConstraint><Principal Role="supply"><PropertyRef Name="supply_id" /></Principal><Dependent Role="consumption"><PropertyRef Name="supply_id" /></Dependent></ReferentialConstraint></Association><Association Name="fk_employees_job_titles1"><End Role="job_titles" Type="MySqlDB.job_titles" Multiplicity="1" /><End Role="employees" Type="MySqlDB.employees" Multiplicity="*" /><ReferentialConstraint><Principal Role="job_titles"><PropertyRef Name="jobtitle_id" /></Principal><Dependent Role="employees"><PropertyRef Name="jobtitle_id" /></Dependent></ReferentialConstraint></Association><Association Name="fk_orders_employees1"><End Role="employees" Type="MySqlDB.employees" Multiplicity="1" /><End Role="orders" Type="MySqlDB.orders" Multiplicity="*" /><ReferentialConstraint><Principal Role="employees"><PropertyRef Name="employee_id" /></Principal><Dependent Role="orders"><PropertyRef Name="employee_id" /></Dependent></ReferentialConstraint></Association><Association Name="fk_materials_units1"><End Role="units" Type="MySqlDB.units" Multiplicity="1" /><End Role="materials" Type="MySqlDB.materials" Multiplicity="*" /><ReferentialConstraint><Principal Role="units"><PropertyRef Name="unit_id" /></Principal><Dependent Role="materials"><PropertyRef Name="unit_id" /></Dependent></ReferentialConstraint></Association><Association Name="fk_rests_materials1"><End Role="materials" Type="MySqlDB.materials" Multiplicity="1" /><End Role="rests" Type="MySqlDB.rests" Multiplicity="*" /><ReferentialConstraint><Principal Role="materials"><PropertyRef Name="material_id" /></Principal><Dependent Role="rests"><PropertyRef Name="material_id" /></Dependent></ReferentialConstraint></Association><Association Name="fk_supply_materials1"><End Role="materials" Type="MySqlDB.materials" Multiplicity="1" /><End Role="supply" Type="MySqlDB.supply" Multiplicity="*" /><ReferentialConstraint><Principal Role="materials"><PropertyRef Name="material_id" /></Principal><Dependent Role="supply"><PropertyRef Name="material_id" /></Dependent></ReferentialConstraint></Association><Association Name="fk_rests_supply1"><End Role="supply" Type="MySqlDB.supply" Multiplicity="1" /><End Role="rests" Type="MySqlDB.rests" Multiplicity="*" /><ReferentialConstraint><Principal Role="supply"><PropertyRef Name="supply_id" /></Principal><Dependent Role="rests"><PropertyRef Name="supply_id" /></Dependent></ReferentialConstraint></Association><Association Name="fk_waybills_supplier1"><End Role="supplier" Type="MySqlDB.supplier" Multiplicity="1" /><End Role="waybills" Type="MySqlDB.waybills" Multiplicity="*" /><ReferentialConstraint><Principal Role="supplier"><PropertyRef Name="supplier_id" /></Principal><Dependent Role="waybills"><PropertyRef Name="supplier_id" /></Dependent></ReferentialConstraint></Association><Association Name="fk_supply_waybills1"><End Role="waybills" Type="MySqlDB.waybills" Multiplicity="1" /><End Role="supply" Type="MySqlDB.supply" Multiplicity="*" /><ReferentialConstraint><Principal Role="waybills"><PropertyRef Name="waybill_id" /></Principal><Dependent Role="supply"><PropertyRef Name="waybill_id" /></Dependent></ReferentialConstraint></Association></Schema>
+</edmx:ConceptualModels><edmx:Mappings>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs"><EntityContainerMapping StorageEntityContainer="Model1ModelStoreContainer" CdmEntityContainer="ArtFlexModelEntities"><EntitySetMapping Name="categories"><EntityTypeMapping TypeName="MySqlDB.categories"><MappingFragment StoreEntitySet="categories"><ScalarProperty Name="category_id" ColumnName="category_id" /><ScalarProperty Name="category_name" ColumnName="category_name" /></MappingFragment></EntityTypeMapping></EntitySetMapping><EntitySetMapping Name="clients"><EntityTypeMapping TypeName="MySqlDB.clients"><MappingFragment StoreEntitySet="clients"><ScalarProperty Name="client_id" ColumnName="client_id" /><ScalarProperty Name="client_name" ColumnName="client_name" /><ScalarProperty Name="client_surname" ColumnName="client_surname" /><ScalarProperty Name="client_jobtitle" ColumnName="client_jobtitle" /><ScalarProperty Name="client_organisation" ColumnName="client_organisation" /><ScalarProperty Name="client_email" ColumnName="client_email" /><ScalarProperty Name="client_wphone" ColumnName="client_wphone" /><ScalarProperty Name="client_fax" ColumnName="client_fax" /><ScalarProperty Name="client_skipe" ColumnName="client_skipe" /><ScalarProperty Name="client_address" ColumnName="client_address" /><ScalarProperty Name="client_description" ColumnName="client_description" /></MappingFragment></EntityTypeMapping></EntitySetMapping><EntitySetMapping Name="consumption"><EntityTypeMapping TypeName="MySqlDB.consumption"><MappingFragment StoreEntitySet="consumption"><ScalarProperty Name="consumption_id" ColumnName="consumption_id" /><ScalarProperty Name="supply_id" ColumnName="supply_id" /><ScalarProperty Name="material_id" ColumnName="material_id" /><ScalarProperty Name="order_id" ColumnName="order_id" /><ScalarProperty Name="consumption_quantity" ColumnName="consumption_quantity" /><ScalarProperty Name="consumption_date" ColumnName="consumption_date" /><ScalarProperty Name="consumption_createtime" ColumnName="consumption_createtime" /></MappingFragment></EntityTypeMapping></EntitySetMapping><EntitySetMapping Name="employees"><EntityTypeMapping TypeName="MySqlDB.employees"><MappingFragment StoreEntitySet="employees"><ScalarProperty Name="employee_id" ColumnName="employee_id" /><ScalarProperty Name="employee_login" ColumnName="employee_login" /><ScalarProperty Name="employee_password" ColumnName="employee_password" /><ScalarProperty Name="employee_name" ColumnName="employee_name" /><ScalarProperty Name="employee_surname" ColumnName="employee_surname" /><ScalarProperty Name="employee_email" ColumnName="employee_email" /><ScalarProperty Name="employee_displayname" ColumnName="employee_displayname" /><ScalarProperty Name="employee_phone" ColumnName="employee_phone" /><ScalarProperty Name="employee_mphone" ColumnName="employee_mphone" /><ScalarProperty Name="employee_wphone" ColumnName="employee_wphone" /><ScalarProperty Name="employee_fax" ColumnName="employee_fax" /><ScalarProperty Name="employee_skype" ColumnName="employee_skype" /><ScalarProperty Name="employee_hphone" ColumnName="employee_hphone" /><ScalarProperty Name="employee_address" ColumnName="employee_address" /><ScalarProperty Name="employee_description" ColumnName="employee_description" /><ScalarProperty Name="jobtitle_id" ColumnName="jobtitle_id" /></MappingFragment></EntityTypeMapping></EntitySetMapping><EntitySetMapping Name="job_titles"><EntityTypeMapping TypeName="MySqlDB.job_titles"><MappingFragment StoreEntitySet="job_titles"><ScalarProperty Name="jobtitle_id" ColumnName="jobtitle_id" /><ScalarProperty Name="jobtitle_name" ColumnName="jobtitle_name" /><ScalarProperty Name="jobtitle_descript" ColumnName="jobtitle_descript" /></MappingFragment></EntityTypeMapping></EntitySetMapping><EntitySetMapping Name="materials"><EntityTypeMapping TypeName="MySqlDB.materials"><MappingFragment StoreEntitySet="materials"><ScalarProperty Name="material_id" ColumnName="material_id" /><ScalarProperty Name="category_id" ColumnName="category_id" /><ScalarProperty Name="material_name" ColumnName="material_name" /><ScalarProperty Name="material_size" ColumnName="material_size" /><ScalarProperty Name="material_rollwidth" ColumnName="material_rollwidth" /><ScalarProperty Name="unit_id" ColumnName="unit_id" /><ScalarProperty Name="material_description" ColumnName="material_description" /><ScalarProperty Name="material_createtime" ColumnName="material_createtime" />
+                </MappingFragment></EntityTypeMapping></EntitySetMapping><EntitySetMapping Name="orders"><EntityTypeMapping TypeName="MySqlDB.orders"><MappingFragment StoreEntitySet="orders"><ScalarProperty Name="order_id" ColumnName="order_id" /><ScalarProperty Name="client_id" ColumnName="client_id" /><ScalarProperty Name="order_status" ColumnName="order_status" /><ScalarProperty Name="employee_id" ColumnName="employee_id" /><ScalarProperty Name="order_createtime" ColumnName="order_createtime" /></MappingFragment></EntityTypeMapping></EntitySetMapping><EntitySetMapping Name="rests"><EntityTypeMapping TypeName="MySqlDB.rests"><MappingFragment StoreEntitySet="rests"><ScalarProperty Name="rest_id" ColumnName="rest_id" /><ScalarProperty Name="supply_id" ColumnName="supply_id" /><ScalarProperty Name="material_id" ColumnName="material_id" /><ScalarProperty Name="rest_quantity" ColumnName="rest_quantity" /><ScalarProperty Name="rest_summ" ColumnName="rest_summ" /><ScalarProperty Name="rest_date" ColumnName="rest_date" /><ScalarProperty Name="rest_createtime" ColumnName="rest_createtime" /></MappingFragment></EntityTypeMapping></EntitySetMapping><EntitySetMapping Name="supplier"><EntityTypeMapping TypeName="MySqlDB.supplier"><MappingFragment StoreEntitySet="supplier"><ScalarProperty Name="supplier_id" ColumnName="supplier_id" /><ScalarProperty Name="supplier_name" ColumnName="supplier_name" /><ScalarProperty Name="supplier_surname" ColumnName="supplier_surname" /><ScalarProperty Name="supplier_jobtitle" ColumnName="supplier_jobtitle" /><ScalarProperty Name="supplier_organisation" ColumnName="supplier_organisation" /><ScalarProperty Name="supplier_email" ColumnName="supplier_email" /><ScalarProperty Name="supplier_mphone" ColumnName="supplier_mphone" /><ScalarProperty Name="supplier_wphone" ColumnName="supplier_wphone" /><ScalarProperty Name="supplier_fax" ColumnName="supplier_fax" /><ScalarProperty Name="supplier_skipe" ColumnName="supplier_skipe" /><ScalarProperty Name="supplier_address" ColumnName="supplier_address" /><ScalarProperty Name="supplier_description" ColumnName="supplier_description" /></MappingFragment></EntityTypeMapping></EntitySetMapping><EntitySetMapping Name="supply"><EntityTypeMapping TypeName="MySqlDB.supply"><MappingFragment StoreEntitySet="supply"><ScalarProperty Name="supply_costunit" ColumnName="supply_costunit" />
+                <ScalarProperty Name="supply_summ" ColumnName="supply_summ" />
+                <ScalarProperty Name="supply_quantity" ColumnName="supply_quantity" />
+                <ScalarProperty Name="supply_id" ColumnName="supply_id" /><ScalarProperty Name="material_id" ColumnName="material_id" /><ScalarProperty Name="supply_description" ColumnName="supply_description" /><ScalarProperty Name="waybill_id" ColumnName="waybill_id" /><ScalarProperty Name="supply_createtime" ColumnName="supply_createtime" /></MappingFragment></EntityTypeMapping></EntitySetMapping><EntitySetMapping Name="units"><EntityTypeMapping TypeName="MySqlDB.units"><MappingFragment StoreEntitySet="units"><ScalarProperty Name="unit_id" ColumnName="unit_id" /><ScalarProperty Name="unit_name" ColumnName="unit_name" /><ScalarProperty Name="unit_shortname" ColumnName="unit_shortname" /></MappingFragment></EntityTypeMapping></EntitySetMapping><EntitySetMapping Name="waybills"><EntityTypeMapping TypeName="MySqlDB.waybills"><MappingFragment StoreEntitySet="waybills"><ScalarProperty Name="waybill_id" ColumnName="waybill_id" /><ScalarProperty Name="waybill_name" ColumnName="waybill_name" /><ScalarProperty Name="supplier_id" ColumnName="supplier_id" /><ScalarProperty Name="waybill_date" ColumnName="waybill_date" /><ScalarProperty Name="waybill_createtime" ColumnName="waybill_createtime" /></MappingFragment></EntityTypeMapping></EntitySetMapping></EntityContainerMapping></Mapping>
+</edmx:Mappings></edmx:Runtime>
+<Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams >
+      <Diagram DiagramId="af803db99a7f47a3ada8b77db55f6885" Name="Diagram1">
+        <EntityTypeShape EntityType="MySqlDB.categories" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MySqlDB.clients" Width="1.5" PointX="0.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="MySqlDB.consumption" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MySqlDB.employees" Width="1.5" PointX="0.75" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MySqlDB.job_titles" Width="1.5" PointX="1.5" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MySqlDB.materials" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MySqlDB.orders" Width="1.5" PointX="3" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="MySqlDB.rests" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MySqlDB.supplier" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MySqlDB.supply" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MySqlDB.units" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MySqlDB.waybills" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <AssociationConnector Association="MySqlDB.fk_materials_categories1" ManuallyRouted="false" />
+        <AssociationConnector Association="MySqlDB.fk_orders_clients1" ManuallyRouted="false" />
+        <AssociationConnector Association="MySqlDB.fk_consumption_materials1" ManuallyRouted="false" />
+        <AssociationConnector Association="MySqlDB.fk_consumption_orders1" ManuallyRouted="false" />
+        <AssociationConnector Association="MySqlDB.fk_consumption_supply1" ManuallyRouted="false" />
+        <AssociationConnector Association="MySqlDB.fk_employees_job_titles1" ManuallyRouted="false" />
+        <AssociationConnector Association="MySqlDB.fk_orders_employees1" ManuallyRouted="false" />
+        <AssociationConnector Association="MySqlDB.fk_materials_units1" ManuallyRouted="false" />
+        <AssociationConnector Association="MySqlDB.fk_rests_materials1" ManuallyRouted="false" />
+        <AssociationConnector Association="MySqlDB.fk_supply_materials1" ManuallyRouted="false" />
+        <AssociationConnector Association="MySqlDB.fk_rests_supply1" ManuallyRouted="false" />
+        <AssociationConnector Association="MySqlDB.fk_waybills_supplier1" ManuallyRouted="false" />
+        <AssociationConnector Association="MySqlDB.fk_supply_waybills1" ManuallyRouted="false" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -7,27 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ArtFlex
+namespace MySqlDB
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class waybills
+    public partial class orders
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public waybills()
+        public orders()
         {
-            this.supply = new HashSet<supply>();
+            this.consumption = new HashSet<consumption>();
         }
     
-        public long waybill_id { get; set; }
-        public string waybill_name { get; set; }
-        public long supplier_id { get; set; }
-        public System.DateTime waybill_date { get; set; }
-        public Nullable<System.DateTime> waybill_createtime { get; set; }
+        public long order_id { get; set; }
+        public long client_id { get; set; }
+        public Nullable<int> order_status { get; set; }
+        public long employee_id { get; set; }
+        public System.DateTime order_createtime { get; set; }
     
-        public virtual supplier supplier { get; set; }
+        public virtual clients clients { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<supply> supply { get; set; }
+        public virtual ICollection<consumption> consumption { get; set; }
+        public virtual employees employees { get; set; }
     }
 }

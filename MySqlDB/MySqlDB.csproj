@@ -54,77 +54,72 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="category.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+    <Compile Include="categories.cs">
+      <DependentUpon>ModelArtFlex.tt</DependentUpon>
     </Compile>
-    <Compile Include="client.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+    <Compile Include="clients.cs">
+      <DependentUpon>ModelArtFlex.tt</DependentUpon>
     </Compile>
     <Compile Include="consumption.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>ModelArtFlex.tt</DependentUpon>
     </Compile>
-    <Compile Include="employee.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+    <Compile Include="employees.cs">
+      <DependentUpon>ModelArtFlex.tt</DependentUpon>
     </Compile>
     <Compile Include="job_titles.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>ModelArtFlex.tt</DependentUpon>
     </Compile>
-    <Compile Include="material.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+    <Compile Include="materials.cs">
+      <DependentUpon>ModelArtFlex.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model.Context.cs">
+    <Compile Include="ModelArtFlex.Context.cs">
+      <DependentUpon>ModelArtFlex.Context.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model.cs">
+    <Compile Include="ModelArtFlex.cs">
+      <DependentUpon>ModelArtFlex.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model.Designer.cs">
+    <Compile Include="ModelArtFlex.Designer.cs">
+      <DependentUpon>ModelArtFlex.edmx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="order.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+    <Compile Include="orders.cs">
+      <DependentUpon>ModelArtFlex.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="rest.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+    <Compile Include="rests.cs">
+      <DependentUpon>ModelArtFlex.tt</DependentUpon>
     </Compile>
     <Compile Include="supplier.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>ModelArtFlex.tt</DependentUpon>
     </Compile>
     <Compile Include="supply.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>ModelArtFlex.tt</DependentUpon>
     </Compile>
-    <Compile Include="unit.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+    <Compile Include="units.cs">
+      <DependentUpon>ModelArtFlex.tt</DependentUpon>
     </Compile>
-    <Compile Include="waybill.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+    <Compile Include="waybills.cs">
+      <DependentUpon>ModelArtFlex.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="Model.edmx">
+    <None Include="ModelArtFlex.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelArtFlex.Context.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="ModelArtFlex.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelArtFlex.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model.Context.tt">
+    <None Include="ModelArtFlex.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
-    </None>
-    <None Include="Model.edmx.diagram">
-      <DependentUpon>Model.edmx</DependentUpon>
-    </None>
-    <None Include="Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
-      <LastGenOutput>Model.cs</LastGenOutput>
+      <LastGenOutput>ModelArtFlex.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

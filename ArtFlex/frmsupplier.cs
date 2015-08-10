@@ -20,12 +20,13 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity;
+using MySqlDB;
 
 namespace ArtFlex
 {
 	public partial class frmsupplier : Form
 	{
-		private ModelArtFlexEntities ctx;
+		private ModelEntities context;
 		
 		public frmsupplier()
 		{
@@ -34,9 +35,9 @@ namespace ArtFlex
 		
 		private void frmsupplier_Load(object sender, EventArgs e)
 		{
-			ctx = new ModelArtFlexEntities();
-			ctx.supplier.Load();
-			BindingList<supplier> _entities = ctx.supplier.Local.ToBindingList();
+			context = new ModelEntities();
+			context.supplier.Load();
+			BindingList<supplier> _entities = context.supplier.Local.ToBindingList();
 			supplierBindingSource.DataSource = _entities;
 			this.supplier_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "supplier_id", true ));
 			this.supplier_nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "supplier_name", true ));
@@ -57,7 +58,7 @@ namespace ArtFlex
 		{
 			if (!this.Validate()) return;
 			supplierBindingSource.EndEdit();
-			ctx.SaveChanges();
+			context.SaveChanges();
 			
 		}
 		

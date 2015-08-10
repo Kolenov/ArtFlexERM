@@ -12,19 +12,18 @@ namespace MySqlDB
     using System;
     using System.Collections.Generic;
     
-    public partial class unit
+    public partial class categories
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public unit()
+        public categories()
         {
-            this.materials = new HashSet<material>();
+            this.materials = new HashSet<materials>();
         }
     
-        public long unit_id { get; set; }
-        public string unit_name { get; set; }
-        public string unit_shortname { get; set; }
+        public long category_id { get; set; }
+        public string category_name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<material> materials { get; set; }
+        public virtual ICollection<materials> materials { get; set; }
     }
 }
