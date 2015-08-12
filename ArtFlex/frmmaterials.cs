@@ -40,7 +40,6 @@ namespace ArtFlex
             BindingList<materials> _materials = context.materials.Local.ToBindingList();
             materialsBindingSource.DataSource = _materials;
 
-            this.material_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.materialsBindingSource, "material_id", true));
             this.material_nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.materialsBindingSource, "material_name", true));
             this.material_sizeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.materialsBindingSource, "material_size", true));
             this.material_rollwidthTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.materialsBindingSource, "material_rollwidth", true));
@@ -139,23 +138,6 @@ namespace ArtFlex
         }
 
         #region Validating
-        private void material_idTextBox_Validating(object sender, CancelEventArgs e)
-        {
-            e.Cancel = false;
-            if (string.IsNullOrEmpty(material_idTextBox.Text))
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(material_idTextBox, "The field material_id is required");
-            }
-            int v;
-            string s = material_idTextBox.Text;
-            if (!int.TryParse(s, out v))
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(material_idTextBox, "The field material_id must be int.");
-            }
-            if (!e.Cancel) { errorProvider1.SetError(material_idTextBox, ""); }
-        }
 
         private void category_id_comboBox_Validating(object sender, CancelEventArgs e)
         {
