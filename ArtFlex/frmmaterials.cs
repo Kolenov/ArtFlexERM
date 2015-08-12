@@ -95,15 +95,15 @@ namespace ArtFlex
             dataGridViewMaterials.Columns.Add(col_units_id);
 
             System.Windows.Forms.DataGridViewTextBoxColumn col_material_size = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            col_material_size.Name = "material_size";
+            col_material_size.Name = "col_material_size";
             col_material_size.HeaderText = "Размер";
-            col_material_size.DataPropertyName = "col_material_size";
+            col_material_size.DataPropertyName = "material_size";
             dataGridViewMaterials.Columns.Add(col_material_size);
 
             System.Windows.Forms.DataGridViewTextBoxColumn col_material_rollwidth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             col_material_rollwidth.DataPropertyName = "material_rollwidth";
             col_material_rollwidth.HeaderText = "Ширина рулона";
-            col_material_rollwidth.Name = "maerial_rollwidth";
+            col_material_rollwidth.Name = "col_material_rollwidth";
             dataGridViewMaterials.Columns.Add(col_material_rollwidth);
 
             System.Windows.Forms.DataGridViewTextBoxColumn col_material_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
