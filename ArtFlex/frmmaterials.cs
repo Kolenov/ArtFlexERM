@@ -285,5 +285,20 @@ namespace ArtFlex
             materialsBindingSource.DataSource = _materials;
         }
 
+        private void material_CategoryComboBox_MouseWheel(object sender, EventArgs e)
+        {
+            ((HandledMouseEventArgs)e).Handled = true;
+        }
+
+        private void categoriesComboBox_MouseWheel(object sender, EventArgs e)
+        {
+            ((HandledMouseEventArgs)e).Handled = true;
+        }
+
+        private void material_UnitsComboBox_MouseWheel(object sender, EventArgs e)
+        {
+            ((HandledMouseEventArgs)e).Handled = true;
+        }
+
     }
 }

@@ -42,6 +42,7 @@ namespace ArtFlex
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmclients));
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
+            this.clientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -54,7 +55,6 @@ namespace ArtFlex
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.clientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.Panel1 = new System.Windows.Forms.Panel();
             this.client_idLabel = new System.Windows.Forms.Label();
@@ -155,6 +155,7 @@ namespace ArtFlex
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+            this.bindingNavigatorMovePreviousItem.Click += new System.EventHandler(this.bindingNavigatorMovePreviousItem_Click);
             // 
             // bindingNavigatorSeparator
             // 
@@ -252,7 +253,7 @@ namespace ArtFlex
             this.Panel1.Location = new System.Drawing.Point(10, 0);
             this.Panel1.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
             this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(758, 350);
+            this.Panel1.Size = new System.Drawing.Size(758, 508);
             this.Panel1.TabIndex = 1;
             // 
             // client_idLabel
@@ -451,7 +452,7 @@ namespace ArtFlex
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 25);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(778, 360);
+            this.panel3.Size = new System.Drawing.Size(778, 518);
             this.panel3.TabIndex = 19;
             // 
             // panel4
@@ -459,7 +460,7 @@ namespace ArtFlex
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel4.Location = new System.Drawing.Point(768, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(10, 350);
+            this.panel4.Size = new System.Drawing.Size(10, 508);
             this.panel4.TabIndex = 3;
             // 
             // panel5
@@ -467,13 +468,13 @@ namespace ArtFlex
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(10, 350);
+            this.panel5.Size = new System.Drawing.Size(10, 508);
             this.panel5.TabIndex = 5;
             // 
             // panel6
             // 
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(0, 350);
+            this.panel6.Location = new System.Drawing.Point(0, 508);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(778, 10);
             this.panel6.TabIndex = 6;
@@ -483,7 +484,7 @@ namespace ArtFlex
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(778, 385);
+            this.ClientSize = new System.Drawing.Size(778, 543);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.bindingNavigator1);
             this.Name = "frmclients";

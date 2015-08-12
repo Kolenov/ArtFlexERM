@@ -201,5 +201,10 @@ namespace ArtFlex
 		{
 			clientsBindingSource.AddNew();
 		}
+
+        private void bindingNavigatorMovePreviousItem_Click(object sender, EventArgs e)
+        {
+
+        }
 	}
 }
