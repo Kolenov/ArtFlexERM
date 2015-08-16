@@ -152,15 +152,12 @@ namespace ArtFlex
 
             SetDoubleBuffered(dataGridViewMaterials, true);
 
+            this.splitContainer1.SplitterDistance = 0;
+
+
         }
 
-        private void Save_Click(object sender, EventArgs e)
-        {
-            if (!this.Validate()) return;
-            materialsBindingSource.EndEdit();
-            context.SaveChanges();
-            this.dataGridViewMaterials.Refresh();
-        }
+
 
         private void frmmaterials_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -234,17 +231,6 @@ namespace ArtFlex
             }
             if (!e.Cancel) { errorProvider1.SetError(material_descriptionTextBox, ""); }
         }
-        #endregion
-        private void AddNewItem_Click(object sender, EventArgs e)
-        {
-            categories category = categoriesComboBox.SelectedItem as categories;
-            materials obj = new materials();
-            obj.category_id = category.category_id;
-            obj.unit_id = 1;
-            obj.material_name = "";
-            materialsBindingSource.Add(obj);
-            materialsBindingSource.MoveLast();
-        }
 
         private void material_UnitsComboBox_Validating(object sender, CancelEventArgs e)
         {
@@ -260,6 +246,44 @@ namespace ArtFlex
                 errorProvider1.SetError(material_UnitsComboBox, "");
             }
         }
+
+
+        #endregion
+        private void AddNewItem_Click(object sender, EventArgs e)
+        {
+            this.splitContainer1.SplitterDistance = 120;
+            categories category = categoriesComboBox.SelectedItem as categories;
+            materials obj = new materials();
+            obj.category_id = category.category_id;
+            obj.unit_id = 1;
+            obj.material_name = "";
+            materialsBindingSource.Add(obj);
+            materialsBindingSource.MoveLast();
+            this.buttonAddNew.Enabled = false;
+            this.buttonSave.Enabled = false;
+        }
+
+        private void Save_Click(object sender, EventArgs e)
+        {
+            if (!this.Validate()) return;
+            materialsBindingSource.EndEdit();
+            context.SaveChanges();
+            this.buttonAddNew.Enabled = true;
+            this.dataGridViewMaterials.Refresh();
+        }
+
+        private void Done_Click(object sender, EventArgs e)
+        {
+            this.buttonSave.Enabled = true;
+            this.splitContainer1.SplitterDistance = 0;
+        }
+
+        private void Cancel_Click(object sender, EventArgs e)
+        {
+            this.splitContainer1.SplitterDistance = 0;
+
+        }
+
 
         private void dataGridViewMaterials_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
@@ -292,15 +316,6 @@ namespace ArtFlex
                 e.ThrowException = false;
             }
             //e.ThrowException = true;
-        }
-
-        private void dataGridViewMaterials_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            //MessageBox.Show(e.ColumnIndex.ToString());
-            //if (e.ColumnIndex == 0) // your combo column index
-            //{
-            //    e.Value = 1;
-            //}
         }
 
         private void categoriesComboBox_SelectedIndexChanged(object sender, EventArgs e)

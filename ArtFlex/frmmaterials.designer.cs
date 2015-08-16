@@ -44,6 +44,11 @@ namespace ArtFlex
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonAddNew = new System.Windows.Forms.Button();
+            this.categoriesComboBox = new System.Windows.Forms.ComboBox();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.dataGridViewMaterials = new System.Windows.Forms.DataGridView();
             this.material_createtimeTextBox = new System.Windows.Forms.TextBox();
             this.material_nameTextBox = new System.Windows.Forms.TextBox();
@@ -58,15 +63,9 @@ namespace ArtFlex
             this.material_descriptionLabel = new System.Windows.Forms.Label();
             this.unit_idLabel = new System.Windows.Forms.Label();
             this.material_CategoryComboBox = new System.Windows.Forms.ComboBox();
-            this.material_CategoryComboBox.MouseWheel += new System.Windows.Forms.MouseEventHandler(material_CategoryComboBox_MouseWheel);
             this.material_UnitsComboBox = new System.Windows.Forms.ComboBox();
-            this.material_UnitsComboBox.MouseWheel += new System.Windows.Forms.MouseEventHandler(material_UnitsComboBox_MouseWheel);
-            this.buttonAddNew = new System.Windows.Forms.Button();
-            this.categoriesComboBox = new System.Windows.Forms.ComboBox();
-            this.categoriesComboBox.MouseWheel += new System.Windows.Forms.MouseEventHandler(categoriesComboBox_MouseWheel);
-            this.button1 = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonDone = new System.Windows.Forms.Button();
             this.materialsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoriesbindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -87,15 +86,74 @@ namespace ArtFlex
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.buttonAddNew);
+            this.panel1.Controls.Add(this.categoriesComboBox);
             this.panel1.Controls.Add(this.buttonSave);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.panel1.Location = new System.Drawing.Point(0, 643);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1450, 44);
             this.panel1.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(231, 14);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(109, 17);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "Тип материала";
+            // 
+            // buttonAddNew
+            // 
+            this.buttonAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAddNew.Location = new System.Drawing.Point(1198, 4);
+            this.buttonAddNew.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonAddNew.Name = "buttonAddNew";
+            this.buttonAddNew.Size = new System.Drawing.Size(120, 36);
+            this.buttonAddNew.TabIndex = 37;
+            this.buttonAddNew.Text = "Добавить";
+            this.buttonAddNew.UseVisualStyleBackColor = true;
+            this.buttonAddNew.Click += new System.EventHandler(this.AddNewItem_Click);
+            // 
+            // categoriesComboBox
+            // 
+            this.categoriesComboBox.FormattingEnabled = true;
+            this.categoriesComboBox.Location = new System.Drawing.Point(16, 11);
+            this.categoriesComboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.categoriesComboBox.Name = "categoriesComboBox";
+            this.categoriesComboBox.Size = new System.Drawing.Size(207, 24);
+            this.categoriesComboBox.TabIndex = 3;
+            this.categoriesComboBox.SelectedIndexChanged += new System.EventHandler(this.categoriesComboBox_SelectedIndexChanged);
+            this.categoriesComboBox.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.categoriesComboBox_MouseWheel);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSave.Location = new System.Drawing.Point(1326, 4);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(120, 36);
+            this.buttonSave.TabIndex = 36;
+            this.buttonSave.Text = "Сохранить";
+            this.buttonSave.Click += new System.EventHandler(this.Save_Click);
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancel.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonCancel.Location = new System.Drawing.Point(1289, 65);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(120, 36);
+            this.buttonCancel.TabIndex = 38;
+            this.buttonCancel.Text = "Отменить";
+            this.buttonCancel.UseVisualStyleBackColor = false;
+            this.buttonCancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // dataGridViewMaterials
             // 
@@ -114,27 +172,25 @@ namespace ArtFlex
             this.dataGridViewMaterials.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMaterials.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewMaterials.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewMaterials.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewMaterials.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewMaterials.Name = "dataGridViewMaterials";
-            this.dataGridViewMaterials.Size = new System.Drawing.Size(1450, 523);
+            this.dataGridViewMaterials.Size = new System.Drawing.Size(1450, 529);
             this.dataGridViewMaterials.TabIndex = 24;
             this.dataGridViewMaterials.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewMaterials_DataError);
             // 
             // material_createtimeTextBox
             // 
             this.material_createtimeTextBox.Enabled = false;
-            this.material_createtimeTextBox.Location = new System.Drawing.Point(595, 77);
-            this.material_createtimeTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.material_createtimeTextBox.Location = new System.Drawing.Point(654, 76);
             this.material_createtimeTextBox.Name = "material_createtimeTextBox";
             this.material_createtimeTextBox.Size = new System.Drawing.Size(205, 23);
             this.material_createtimeTextBox.TabIndex = 33;
             // 
             // material_nameTextBox
             // 
-            this.material_nameTextBox.Location = new System.Drawing.Point(227, 29);
-            this.material_nameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.material_nameTextBox.Location = new System.Drawing.Point(225, 29);
             this.material_nameTextBox.Name = "material_nameTextBox";
-            this.material_nameTextBox.Size = new System.Drawing.Size(574, 23);
+            this.material_nameTextBox.Size = new System.Drawing.Size(634, 23);
             this.material_nameTextBox.TabIndex = 23;
             this.material_nameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.material_nameTextBox_Validating);
             // 
@@ -150,8 +206,7 @@ namespace ArtFlex
             // 
             // material_rollwidthTextBox
             // 
-            this.material_rollwidthTextBox.Location = new System.Drawing.Point(227, 78);
-            this.material_rollwidthTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.material_rollwidthTextBox.Location = new System.Drawing.Point(225, 76);
             this.material_rollwidthTextBox.Name = "material_rollwidthTextBox";
             this.material_rollwidthTextBox.Size = new System.Drawing.Size(215, 23);
             this.material_rollwidthTextBox.TabIndex = 28;
@@ -160,7 +215,7 @@ namespace ArtFlex
             // material_createtimeLabel
             // 
             this.material_createtimeLabel.AutoSize = true;
-            this.material_createtimeLabel.Location = new System.Drawing.Point(592, 57);
+            this.material_createtimeLabel.Location = new System.Drawing.Point(651, 57);
             this.material_createtimeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.material_createtimeLabel.Name = "material_createtimeLabel";
             this.material_createtimeLabel.Size = new System.Drawing.Size(132, 17);
@@ -170,7 +225,7 @@ namespace ArtFlex
             // material_nameLabel
             // 
             this.material_nameLabel.AutoSize = true;
-            this.material_nameLabel.Location = new System.Drawing.Point(227, 10);
+            this.material_nameLabel.Location = new System.Drawing.Point(245, 10);
             this.material_nameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.material_nameLabel.Name = "material_nameLabel";
             this.material_nameLabel.Size = new System.Drawing.Size(148, 17);
@@ -179,17 +234,16 @@ namespace ArtFlex
             // 
             // material_sizeTextBox
             // 
-            this.material_sizeTextBox.Location = new System.Drawing.Point(12, 78);
-            this.material_sizeTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.material_sizeTextBox.Location = new System.Drawing.Point(12, 76);
             this.material_sizeTextBox.Name = "material_sizeTextBox";
-            this.material_sizeTextBox.Size = new System.Drawing.Size(207, 23);
+            this.material_sizeTextBox.Size = new System.Drawing.Size(180, 23);
             this.material_sizeTextBox.TabIndex = 26;
             this.material_sizeTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.material_sizeTextBox_Validating);
             // 
             // category_idLabel
             // 
             this.category_idLabel.AutoSize = true;
-            this.category_idLabel.Location = new System.Drawing.Point(13, 10);
+            this.category_idLabel.Location = new System.Drawing.Point(9, 9);
             this.category_idLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.category_idLabel.Name = "category_idLabel";
             this.category_idLabel.Size = new System.Drawing.Size(109, 17);
@@ -198,17 +252,16 @@ namespace ArtFlex
             // 
             // material_descriptionTextBox
             // 
-            this.material_descriptionTextBox.Location = new System.Drawing.Point(808, 28);
-            this.material_descriptionTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.material_descriptionTextBox.Location = new System.Drawing.Point(886, 29);
             this.material_descriptionTextBox.Multiline = true;
             this.material_descriptionTextBox.Name = "material_descriptionTextBox";
-            this.material_descriptionTextBox.Size = new System.Drawing.Size(458, 73);
+            this.material_descriptionTextBox.Size = new System.Drawing.Size(367, 70);
             this.material_descriptionTextBox.TabIndex = 31;
             // 
             // material_rollwidthLabel
             // 
             this.material_rollwidthLabel.AutoSize = true;
-            this.material_rollwidthLabel.Location = new System.Drawing.Point(224, 57);
+            this.material_rollwidthLabel.Location = new System.Drawing.Point(245, 57);
             this.material_rollwidthLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.material_rollwidthLabel.Name = "material_rollwidthLabel";
             this.material_rollwidthLabel.Size = new System.Drawing.Size(110, 17);
@@ -218,7 +271,7 @@ namespace ArtFlex
             // material_descriptionLabel
             // 
             this.material_descriptionLabel.AutoSize = true;
-            this.material_descriptionLabel.Location = new System.Drawing.Point(805, 10);
+            this.material_descriptionLabel.Location = new System.Drawing.Point(883, 10);
             this.material_descriptionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.material_descriptionLabel.Name = "material_descriptionLabel";
             this.material_descriptionLabel.Size = new System.Drawing.Size(74, 17);
@@ -228,7 +281,7 @@ namespace ArtFlex
             // unit_idLabel
             // 
             this.unit_idLabel.AutoSize = true;
-            this.unit_idLabel.Location = new System.Drawing.Point(447, 57);
+            this.unit_idLabel.Location = new System.Drawing.Point(492, 57);
             this.unit_idLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.unit_idLabel.Name = "unit_idLabel";
             this.unit_idLabel.Size = new System.Drawing.Size(107, 17);
@@ -238,56 +291,23 @@ namespace ArtFlex
             // material_CategoryComboBox
             // 
             this.material_CategoryComboBox.FormattingEnabled = true;
-            this.material_CategoryComboBox.Location = new System.Drawing.Point(1289, 13);
-            this.material_CategoryComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.material_CategoryComboBox.Location = new System.Drawing.Point(12, 29);
             this.material_CategoryComboBox.Name = "material_CategoryComboBox";
-            this.material_CategoryComboBox.Size = new System.Drawing.Size(98, 24);
+            this.material_CategoryComboBox.Size = new System.Drawing.Size(180, 24);
             this.material_CategoryComboBox.TabIndex = 34;
+            this.material_CategoryComboBox.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.material_CategoryComboBox_MouseWheel);
             this.material_CategoryComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.category_id_comboBox_Validating);
             // 
             // material_UnitsComboBox
             // 
             this.material_UnitsComboBox.FormattingEnabled = true;
-            this.material_UnitsComboBox.Location = new System.Drawing.Point(450, 77);
-            this.material_UnitsComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.material_UnitsComboBox.Location = new System.Drawing.Point(480, 75);
             this.material_UnitsComboBox.MaxDropDownItems = 10;
             this.material_UnitsComboBox.Name = "material_UnitsComboBox";
             this.material_UnitsComboBox.Size = new System.Drawing.Size(137, 24);
             this.material_UnitsComboBox.TabIndex = 35;
+            this.material_UnitsComboBox.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.material_UnitsComboBox_MouseWheel);
             this.material_UnitsComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.material_UnitsComboBox_Validating);
-            // 
-            // buttonAddNew
-            // 
-            this.buttonAddNew.Location = new System.Drawing.Point(1289, 47);
-            this.buttonAddNew.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.buttonAddNew.Name = "buttonAddNew";
-            this.buttonAddNew.Size = new System.Drawing.Size(120, 36);
-            this.buttonAddNew.TabIndex = 37;
-            this.buttonAddNew.Text = "Добавить";
-            this.buttonAddNew.UseVisualStyleBackColor = true;
-            this.buttonAddNew.Click += new System.EventHandler(this.AddNewItem_Click);
-            // 
-            // categoriesComboBox
-            // 
-            this.categoriesComboBox.FormattingEnabled = true;
-            this.categoriesComboBox.Location = new System.Drawing.Point(12, 28);
-            this.categoriesComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.categoriesComboBox.Name = "categoriesComboBox";
-            this.categoriesComboBox.Size = new System.Drawing.Size(207, 24);
-            this.categoriesComboBox.TabIndex = 3;
-            this.categoriesComboBox.SelectedIndexChanged += new System.EventHandler(this.categoriesComboBox_SelectedIndexChanged);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(1198, 4);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 36);
-            this.button1.TabIndex = 38;
-            this.button1.Text = "Отменить";
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // splitContainer1
             // 
@@ -303,8 +323,8 @@ namespace ArtFlex
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.splitContainer1.Panel1.Controls.Add(this.categoriesComboBox);
-            this.splitContainer1.Panel1.Controls.Add(this.buttonAddNew);
+            this.splitContainer1.Panel1.Controls.Add(this.buttonDone);
+            this.splitContainer1.Panel1.Controls.Add(this.buttonCancel);
             this.splitContainer1.Panel1.Controls.Add(this.material_UnitsComboBox);
             this.splitContainer1.Panel1.Controls.Add(this.material_CategoryComboBox);
             this.splitContainer1.Panel1.Controls.Add(this.unit_idLabel);
@@ -320,25 +340,26 @@ namespace ArtFlex
             this.splitContainer1.Panel1.Controls.Add(this.material_nameTextBox);
             this.splitContainer1.Panel1.Controls.Add(this.material_createtimeTextBox);
             this.splitContainer1.Panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.splitContainer1.Panel1MinSize = 0;
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridViewMaterials);
             this.splitContainer1.Size = new System.Drawing.Size(1450, 643);
             this.splitContainer1.SplitterDistance = 113;
-            this.splitContainer1.SplitterWidth = 7;
+            this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 1;
             // 
-            // buttonSave
+            // buttonDone
             // 
-            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSave.Location = new System.Drawing.Point(1326, 4);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(120, 36);
-            this.buttonSave.TabIndex = 36;
-            this.buttonSave.Text = "Сохранить";
-            this.buttonSave.Click += new System.EventHandler(this.Save_Click);
+            this.buttonDone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonDone.Location = new System.Drawing.Point(1288, 22);
+            this.buttonDone.Name = "buttonDone";
+            this.buttonDone.Size = new System.Drawing.Size(120, 36);
+            this.buttonDone.TabIndex = 39;
+            this.buttonDone.Text = "Готово";
+            this.buttonDone.UseVisualStyleBackColor = true;
+            this.buttonDone.Click += new System.EventHandler(this.Done_Click);
             // 
             // categoriesbindingSource
             // 
@@ -353,13 +374,14 @@ namespace ArtFlex
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmmaterials";
             this.Text = "Materials";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmmaterials_FormClosing);
             this.Load += new System.EventHandler(this.frmmaterials_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMaterials)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -379,7 +401,7 @@ namespace ArtFlex
         private System.Windows.Forms.BindingSource categoriesbindingSource;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.ComboBox categoriesComboBox;
         private System.Windows.Forms.Button buttonAddNew;
         private System.Windows.Forms.Button buttonSave;
@@ -398,6 +420,8 @@ namespace ArtFlex
         private System.Windows.Forms.TextBox material_nameTextBox;
         private System.Windows.Forms.TextBox material_createtimeTextBox;
         private System.Windows.Forms.DataGridView dataGridViewMaterials;
+        private System.Windows.Forms.Button buttonDone;
+        private System.Windows.Forms.Label label1;
 		
 	}
 }
