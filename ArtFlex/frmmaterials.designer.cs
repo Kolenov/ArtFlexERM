@@ -40,8 +40,8 @@ namespace ArtFlex
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -57,12 +57,10 @@ namespace ArtFlex
             this.material_createtimeLabel = new System.Windows.Forms.Label();
             this.material_nameLabel = new System.Windows.Forms.Label();
             this.material_sizeTextBox = new System.Windows.Forms.TextBox();
-            this.category_idLabel = new System.Windows.Forms.Label();
             this.material_descriptionTextBox = new System.Windows.Forms.TextBox();
             this.material_rollwidthLabel = new System.Windows.Forms.Label();
             this.material_descriptionLabel = new System.Windows.Forms.Label();
             this.unit_idLabel = new System.Windows.Forms.Label();
-            this.material_CategoryComboBox = new System.Windows.Forms.ComboBox();
             this.material_UnitsComboBox = new System.Windows.Forms.ComboBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.buttonDone = new System.Windows.Forms.Button();
@@ -101,7 +99,7 @@ namespace ArtFlex
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(231, 14);
+            this.label1.Location = new System.Drawing.Point(16, 14);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 17);
@@ -111,7 +109,7 @@ namespace ArtFlex
             // buttonAddNew
             // 
             this.buttonAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAddNew.Location = new System.Drawing.Point(1198, 4);
+            this.buttonAddNew.Location = new System.Drawing.Point(348, 4);
             this.buttonAddNew.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAddNew.Name = "buttonAddNew";
             this.buttonAddNew.Size = new System.Drawing.Size(120, 36);
@@ -123,7 +121,7 @@ namespace ArtFlex
             // categoriesComboBox
             // 
             this.categoriesComboBox.FormattingEnabled = true;
-            this.categoriesComboBox.Location = new System.Drawing.Point(16, 11);
+            this.categoriesComboBox.Location = new System.Drawing.Point(133, 11);
             this.categoriesComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.categoriesComboBox.Name = "categoriesComboBox";
             this.categoriesComboBox.Size = new System.Drawing.Size(207, 24);
@@ -157,18 +155,18 @@ namespace ArtFlex
             // 
             // dataGridViewMaterials
             // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewMaterials.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewMaterials.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewMaterials.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewMaterials.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewMaterials.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewMaterials.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewMaterials.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMaterials.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewMaterials.Location = new System.Drawing.Point(0, 0);
@@ -188,16 +186,16 @@ namespace ArtFlex
             // 
             // material_nameTextBox
             // 
-            this.material_nameTextBox.Location = new System.Drawing.Point(225, 29);
+            this.material_nameTextBox.Location = new System.Drawing.Point(12, 29);
             this.material_nameTextBox.Name = "material_nameTextBox";
-            this.material_nameTextBox.Size = new System.Drawing.Size(634, 23);
+            this.material_nameTextBox.Size = new System.Drawing.Size(847, 23);
             this.material_nameTextBox.TabIndex = 23;
             this.material_nameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.material_nameTextBox_Validating);
             // 
             // material_sizeLabel
             // 
             this.material_sizeLabel.AutoSize = true;
-            this.material_sizeLabel.Location = new System.Drawing.Point(9, 57);
+            this.material_sizeLabel.Location = new System.Drawing.Point(180, 57);
             this.material_sizeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.material_sizeLabel.Name = "material_sizeLabel";
             this.material_sizeLabel.Size = new System.Drawing.Size(57, 17);
@@ -206,9 +204,9 @@ namespace ArtFlex
             // 
             // material_rollwidthTextBox
             // 
-            this.material_rollwidthTextBox.Location = new System.Drawing.Point(225, 76);
+            this.material_rollwidthTextBox.Location = new System.Drawing.Point(330, 76);
             this.material_rollwidthTextBox.Name = "material_rollwidthTextBox";
-            this.material_rollwidthTextBox.Size = new System.Drawing.Size(215, 23);
+            this.material_rollwidthTextBox.Size = new System.Drawing.Size(107, 23);
             this.material_rollwidthTextBox.TabIndex = 28;
             this.material_rollwidthTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.material_rollwidthTextBox_Validating);
             // 
@@ -225,7 +223,7 @@ namespace ArtFlex
             // material_nameLabel
             // 
             this.material_nameLabel.AutoSize = true;
-            this.material_nameLabel.Location = new System.Drawing.Point(245, 10);
+            this.material_nameLabel.Location = new System.Drawing.Point(9, 9);
             this.material_nameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.material_nameLabel.Name = "material_nameLabel";
             this.material_nameLabel.Size = new System.Drawing.Size(148, 17);
@@ -234,21 +232,11 @@ namespace ArtFlex
             // 
             // material_sizeTextBox
             // 
-            this.material_sizeTextBox.Location = new System.Drawing.Point(12, 76);
+            this.material_sizeTextBox.Location = new System.Drawing.Point(183, 76);
             this.material_sizeTextBox.Name = "material_sizeTextBox";
-            this.material_sizeTextBox.Size = new System.Drawing.Size(180, 23);
+            this.material_sizeTextBox.Size = new System.Drawing.Size(113, 23);
             this.material_sizeTextBox.TabIndex = 26;
             this.material_sizeTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.material_sizeTextBox_Validating);
-            // 
-            // category_idLabel
-            // 
-            this.category_idLabel.AutoSize = true;
-            this.category_idLabel.Location = new System.Drawing.Point(9, 9);
-            this.category_idLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.category_idLabel.Name = "category_idLabel";
-            this.category_idLabel.Size = new System.Drawing.Size(109, 17);
-            this.category_idLabel.TabIndex = 21;
-            this.category_idLabel.Text = "Тип материала";
             // 
             // material_descriptionTextBox
             // 
@@ -261,7 +249,7 @@ namespace ArtFlex
             // material_rollwidthLabel
             // 
             this.material_rollwidthLabel.AutoSize = true;
-            this.material_rollwidthLabel.Location = new System.Drawing.Point(245, 57);
+            this.material_rollwidthLabel.Location = new System.Drawing.Point(327, 57);
             this.material_rollwidthLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.material_rollwidthLabel.Name = "material_rollwidthLabel";
             this.material_rollwidthLabel.Size = new System.Drawing.Size(110, 17);
@@ -281,27 +269,17 @@ namespace ArtFlex
             // unit_idLabel
             // 
             this.unit_idLabel.AutoSize = true;
-            this.unit_idLabel.Location = new System.Drawing.Point(492, 57);
+            this.unit_idLabel.Location = new System.Drawing.Point(9, 57);
             this.unit_idLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.unit_idLabel.Name = "unit_idLabel";
-            this.unit_idLabel.Size = new System.Drawing.Size(107, 17);
+            this.unit_idLabel.Size = new System.Drawing.Size(143, 17);
             this.unit_idLabel.TabIndex = 29;
-            this.unit_idLabel.Text = "Ед. Измерения";
-            // 
-            // material_CategoryComboBox
-            // 
-            this.material_CategoryComboBox.FormattingEnabled = true;
-            this.material_CategoryComboBox.Location = new System.Drawing.Point(12, 29);
-            this.material_CategoryComboBox.Name = "material_CategoryComboBox";
-            this.material_CategoryComboBox.Size = new System.Drawing.Size(180, 24);
-            this.material_CategoryComboBox.TabIndex = 34;
-            this.material_CategoryComboBox.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.material_CategoryComboBox_MouseWheel);
-            this.material_CategoryComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.category_id_comboBox_Validating);
+            this.unit_idLabel.Text = "Единицы измерения";
             // 
             // material_UnitsComboBox
             // 
             this.material_UnitsComboBox.FormattingEnabled = true;
-            this.material_UnitsComboBox.Location = new System.Drawing.Point(480, 75);
+            this.material_UnitsComboBox.Location = new System.Drawing.Point(12, 77);
             this.material_UnitsComboBox.MaxDropDownItems = 10;
             this.material_UnitsComboBox.Name = "material_UnitsComboBox";
             this.material_UnitsComboBox.Size = new System.Drawing.Size(137, 24);
@@ -326,12 +304,10 @@ namespace ArtFlex
             this.splitContainer1.Panel1.Controls.Add(this.buttonDone);
             this.splitContainer1.Panel1.Controls.Add(this.buttonCancel);
             this.splitContainer1.Panel1.Controls.Add(this.material_UnitsComboBox);
-            this.splitContainer1.Panel1.Controls.Add(this.material_CategoryComboBox);
             this.splitContainer1.Panel1.Controls.Add(this.unit_idLabel);
             this.splitContainer1.Panel1.Controls.Add(this.material_descriptionLabel);
             this.splitContainer1.Panel1.Controls.Add(this.material_rollwidthLabel);
             this.splitContainer1.Panel1.Controls.Add(this.material_descriptionTextBox);
-            this.splitContainer1.Panel1.Controls.Add(this.category_idLabel);
             this.splitContainer1.Panel1.Controls.Add(this.material_sizeTextBox);
             this.splitContainer1.Panel1.Controls.Add(this.material_nameLabel);
             this.splitContainer1.Panel1.Controls.Add(this.material_createtimeLabel);
@@ -406,12 +382,11 @@ namespace ArtFlex
         private System.Windows.Forms.Button buttonAddNew;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.ComboBox material_UnitsComboBox;
-        private System.Windows.Forms.ComboBox material_CategoryComboBox;
+        //private System.Windows.Forms.ComboBox material_CategoryComboBox;
         private System.Windows.Forms.Label unit_idLabel;
         private System.Windows.Forms.Label material_descriptionLabel;
         private System.Windows.Forms.Label material_rollwidthLabel;
         private System.Windows.Forms.TextBox material_descriptionTextBox;
-        private System.Windows.Forms.Label category_idLabel;
         private System.Windows.Forms.TextBox material_sizeTextBox;
         private System.Windows.Forms.Label material_nameLabel;
         private System.Windows.Forms.Label material_createtimeLabel;

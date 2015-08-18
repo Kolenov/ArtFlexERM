@@ -73,10 +73,10 @@ namespace ArtFlex
             this.material_descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.materialsBindingSource, "material_description", true));
             this.material_createtimeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.materialsBindingSource, "material_createtime", true));
 
-            this.material_CategoryComboBox.DataSource = context.categories.ToList();
-            this.material_CategoryComboBox.DisplayMember = "category_name";
-            this.material_CategoryComboBox.ValueMember = "category_id";
-            this.material_CategoryComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.materialsBindingSource, "category_id"));
+            //this.material_CategoryComboBox.DataSource = context.categories.ToList();
+            //this.material_CategoryComboBox.DisplayMember = "category_name";
+            //this.material_CategoryComboBox.ValueMember = "category_id";
+            //this.material_CategoryComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.materialsBindingSource, "category_id"));
 
             this.material_UnitsComboBox.DataSource = context.units.ToList();
             this.material_UnitsComboBox.DisplayMember = "unit_shortname";
@@ -154,10 +154,9 @@ namespace ArtFlex
 
             this.splitContainer1.SplitterDistance = 0;
 
+            this.buttonCancel.CausesValidation = false;
 
         }
-
-
 
         private void frmmaterials_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -166,20 +165,20 @@ namespace ArtFlex
 
         #region Validating
 
-        private void category_id_comboBox_Validating(object sender, CancelEventArgs e)
-        {
-            int i = material_CategoryComboBox.SelectedIndex;
-            e.Cancel = false;
-            if (i == -1)
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(material_CategoryComboBox, "Must select a order_id");
-            }
-            if (!e.Cancel)
-            {
-                errorProvider1.SetError(material_CategoryComboBox, "");
-            }
-        }
+        //private void category_id_comboBox_Validating(object sender, CancelEventArgs e)
+        //{
+        //    int i = material_CategoryComboBox.SelectedIndex;
+        //    e.Cancel = false;
+        //    if (i == -1)
+        //    {
+        //        e.Cancel = true;
+        //        errorProvider1.SetError(material_CategoryComboBox, "Must select a order_id");
+        //    }
+        //    if (!e.Cancel)
+        //    {
+        //        errorProvider1.SetError(material_CategoryComboBox, "");
+        //    }
+        //}
 
         private void material_nameTextBox_Validating(object sender, CancelEventArgs e)
         {
@@ -247,18 +246,28 @@ namespace ArtFlex
             }
         }
 
-
         #endregion
+
+        #region Buttons
         private void AddNewItem_Click(object sender, EventArgs e)
         {
+
+            materials zeroIdObj = materialsBindingSource.List.OfType<materials>().ToList().Find(f => f.material_id == 0);
+            if (zeroIdObj != null) return;
+
             this.splitContainer1.SplitterDistance = 120;
             categories category = categoriesComboBox.SelectedItem as categories;
-            materials obj = new materials();
-            obj.category_id = category.category_id;
-            obj.unit_id = 1;
-            obj.material_name = "";
+
+            materials obj = new materials
+            {
+                unit_id = 1,
+                category_id = category.category_id
+            };
+
             materialsBindingSource.Add(obj);
+            this.material_nameTextBox.Focus();
             materialsBindingSource.MoveLast();
+
             this.buttonAddNew.Enabled = false;
             this.buttonSave.Enabled = false;
         }
@@ -274,16 +283,36 @@ namespace ArtFlex
 
         private void Done_Click(object sender, EventArgs e)
         {
+            foreach (Control control in this.splitContainer1.Panel1.Controls)
+            {
+                // Set focus on control
+                control.Focus();
+                // Validate causes the control's Validating event to be fired,
+                // if CausesValidation is True
+                if (!Validate())
+                {
+                    DialogResult = DialogResult.None;
+                    return;
+                }
+            }
+
             this.buttonSave.Enabled = true;
             this.splitContainer1.SplitterDistance = 0;
         }
 
         private void Cancel_Click(object sender, EventArgs e)
         {
+            this.errorProvider1.Dispose();
+            var zeroIdObj = materialsBindingSource.OfType<materials>().ToList().Find(f => f.material_id == 0);
+            if (zeroIdObj == null) return;
+            var position = materialsBindingSource.IndexOf(zeroIdObj);
+            materialsBindingSource.Position = position;
+            materialsBindingSource.RemoveAt(position);
+            this.buttonAddNew.Enabled = true;
+            this.buttonSave.Enabled = true;
             this.splitContainer1.SplitterDistance = 0;
-
         }
-
+        #endregion
 
         private void dataGridViewMaterials_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
