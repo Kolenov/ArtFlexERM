@@ -73,11 +73,6 @@ namespace ArtFlex
             this.material_descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.materialsBindingSource, "material_description", true));
             this.material_createtimeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.materialsBindingSource, "material_createtime", true));
 
-            //this.material_CategoryComboBox.DataSource = context.categories.ToList();
-            //this.material_CategoryComboBox.DisplayMember = "category_name";
-            //this.material_CategoryComboBox.ValueMember = "category_id";
-            //this.material_CategoryComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.materialsBindingSource, "category_id"));
-
             this.material_UnitsComboBox.DataSource = context.units.ToList();
             this.material_UnitsComboBox.DisplayMember = "unit_shortname";
             this.material_UnitsComboBox.ValueMember = "unit_id";
@@ -152,7 +147,7 @@ namespace ArtFlex
 
             SetDoubleBuffered(dataGridViewMaterials, true);
 
-            this.splitContainer1.SplitterDistance = 0;
+            this.splitContainer1.SplitterDistance = 120;
 
             this.buttonCancel.CausesValidation = false;
 
@@ -165,21 +160,6 @@ namespace ArtFlex
 
         #region Validating
 
-        //private void category_id_comboBox_Validating(object sender, CancelEventArgs e)
-        //{
-        //    int i = material_CategoryComboBox.SelectedIndex;
-        //    e.Cancel = false;
-        //    if (i == -1)
-        //    {
-        //        e.Cancel = true;
-        //        errorProvider1.SetError(material_CategoryComboBox, "Must select a order_id");
-        //    }
-        //    if (!e.Cancel)
-        //    {
-        //        errorProvider1.SetError(material_CategoryComboBox, "");
-        //    }
-        //}
-
         private void material_nameTextBox_Validating(object sender, CancelEventArgs e)
         {
             e.Cancel = false;
@@ -191,44 +171,17 @@ namespace ArtFlex
             if (!e.Cancel) { errorProvider1.SetError(material_nameTextBox, ""); }
         }
 
-        private void material_sizeTextBox_Validating(object sender, CancelEventArgs e)
-        {
-            e.Cancel = false;
-            if (string.IsNullOrEmpty(material_sizeTextBox.Text))
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(material_sizeTextBox, "The field material_size is required");
-            }
-            if (!e.Cancel) { errorProvider1.SetError(material_sizeTextBox, ""); }
-        }
-
         private void material_rollwidthTextBox_Validating(object sender, CancelEventArgs e)
         {
             e.Cancel = false;
-            if (string.IsNullOrEmpty(material_rollwidthTextBox.Text))
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(material_rollwidthTextBox, "The field material_rollwidth is required");
-            }
             int v;
             string s = material_rollwidthTextBox.Text;
-            if (!int.TryParse(s, out v))
+            if (!string.IsNullOrEmpty(material_rollwidthTextBox.Text) && !int.TryParse(s, out v))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(material_rollwidthTextBox, "The field material_rollwidth must be int.");
             }
             if (!e.Cancel) { errorProvider1.SetError(material_rollwidthTextBox, ""); }
-        }
-
-        private void material_descriptionTextBox_Validating(object sender, CancelEventArgs e)
-        {
-            e.Cancel = false;
-            if (string.IsNullOrEmpty(material_descriptionTextBox.Text))
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(material_descriptionTextBox, "The field material_description is required");
-            }
-            if (!e.Cancel) { errorProvider1.SetError(material_descriptionTextBox, ""); }
         }
 
         private void material_UnitsComboBox_Validating(object sender, CancelEventArgs e)
@@ -269,35 +222,33 @@ namespace ArtFlex
             materialsBindingSource.MoveLast();
 
             this.buttonAddNew.Enabled = false;
-            this.buttonSave.Enabled = false;
         }
 
         private void Save_Click(object sender, EventArgs e)
         {
-            if (!this.Validate()) return;
+            foreach (Control control in this.splitContainer1.Panel1.Controls)
+            {
+                control.Focus();
+                if (!Validate()) { return; }
+            }
+
+
+            using (var _context = new ModelEntities())
+            {
+                var zeroIdObj = materialsBindingSource.OfType<materials>().ToList().Find(f => f.material_id == 0);
+                var obj = _context.materials.ToList().Find(b => b.material_name == this.material_nameTextBox.Text);
+                if (obj != null && zeroIdObj != null)
+                {
+                    errorProvider1.SetError(material_nameTextBox, "Такое имя материала уже существует");
+                    return;
+                }
+                errorProvider1.SetError(material_nameTextBox, "");
+            }
+
             materialsBindingSource.EndEdit();
             context.SaveChanges();
             this.buttonAddNew.Enabled = true;
             this.dataGridViewMaterials.Refresh();
-        }
-
-        private void Done_Click(object sender, EventArgs e)
-        {
-            foreach (Control control in this.splitContainer1.Panel1.Controls)
-            {
-                // Set focus on control
-                control.Focus();
-                // Validate causes the control's Validating event to be fired,
-                // if CausesValidation is True
-                if (!Validate())
-                {
-                    DialogResult = DialogResult.None;
-                    return;
-                }
-            }
-
-            this.buttonSave.Enabled = true;
-            this.splitContainer1.SplitterDistance = 0;
         }
 
         private void Cancel_Click(object sender, EventArgs e)
@@ -310,7 +261,6 @@ namespace ArtFlex
             materialsBindingSource.RemoveAt(position);
             this.buttonAddNew.Enabled = true;
             this.buttonSave.Enabled = true;
-            this.splitContainer1.SplitterDistance = 0;
         }
         #endregion
 
@@ -373,5 +323,6 @@ namespace ArtFlex
         {
             ((HandledMouseEventArgs)e).Handled = true;
         }
+
     }
 }

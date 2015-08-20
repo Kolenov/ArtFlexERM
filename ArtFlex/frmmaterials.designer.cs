@@ -40,8 +40,8 @@ namespace ArtFlex
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -63,7 +63,6 @@ namespace ArtFlex
             this.unit_idLabel = new System.Windows.Forms.Label();
             this.material_UnitsComboBox = new System.Windows.Forms.ComboBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.buttonDone = new System.Windows.Forms.Button();
             this.materialsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoriesbindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -155,24 +154,27 @@ namespace ArtFlex
             // 
             // dataGridViewMaterials
             // 
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewMaterials.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewMaterials.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewMaterials.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewMaterials.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewMaterials.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewMaterials.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewMaterials.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewMaterials.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMaterials.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewMaterials.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewMaterials.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewMaterials.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewMaterials.Name = "dataGridViewMaterials";
-            this.dataGridViewMaterials.Size = new System.Drawing.Size(1450, 529);
+            this.dataGridViewMaterials.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewMaterials.Size = new System.Drawing.Size(1450, 522);
             this.dataGridViewMaterials.TabIndex = 24;
             this.dataGridViewMaterials.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewMaterials_DataError);
             // 
@@ -236,7 +238,6 @@ namespace ArtFlex
             this.material_sizeTextBox.Name = "material_sizeTextBox";
             this.material_sizeTextBox.Size = new System.Drawing.Size(113, 23);
             this.material_sizeTextBox.TabIndex = 26;
-            this.material_sizeTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.material_sizeTextBox_Validating);
             // 
             // material_descriptionTextBox
             // 
@@ -293,6 +294,7 @@ namespace ArtFlex
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer1.BackColor = System.Drawing.SystemColors.Control;
+            this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitContainer1.Name = "splitContainer1";
@@ -301,7 +303,6 @@ namespace ArtFlex
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.splitContainer1.Panel1.Controls.Add(this.buttonDone);
             this.splitContainer1.Panel1.Controls.Add(this.buttonCancel);
             this.splitContainer1.Panel1.Controls.Add(this.material_UnitsComboBox);
             this.splitContainer1.Panel1.Controls.Add(this.unit_idLabel);
@@ -322,20 +323,9 @@ namespace ArtFlex
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridViewMaterials);
             this.splitContainer1.Size = new System.Drawing.Size(1450, 643);
-            this.splitContainer1.SplitterDistance = 113;
+            this.splitContainer1.SplitterDistance = 120;
             this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 1;
-            // 
-            // buttonDone
-            // 
-            this.buttonDone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonDone.Location = new System.Drawing.Point(1288, 22);
-            this.buttonDone.Name = "buttonDone";
-            this.buttonDone.Size = new System.Drawing.Size(120, 36);
-            this.buttonDone.TabIndex = 39;
-            this.buttonDone.Text = "Готово";
-            this.buttonDone.UseVisualStyleBackColor = true;
-            this.buttonDone.Click += new System.EventHandler(this.Done_Click);
             // 
             // categoriesbindingSource
             // 
@@ -382,7 +372,6 @@ namespace ArtFlex
         private System.Windows.Forms.Button buttonAddNew;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.ComboBox material_UnitsComboBox;
-        //private System.Windows.Forms.ComboBox material_CategoryComboBox;
         private System.Windows.Forms.Label unit_idLabel;
         private System.Windows.Forms.Label material_descriptionLabel;
         private System.Windows.Forms.Label material_rollwidthLabel;
@@ -395,7 +384,6 @@ namespace ArtFlex
         private System.Windows.Forms.TextBox material_nameTextBox;
         private System.Windows.Forms.TextBox material_createtimeTextBox;
         private System.Windows.Forms.DataGridView dataGridViewMaterials;
-        private System.Windows.Forms.Button buttonDone;
         private System.Windows.Forms.Label label1;
 		
 	}
