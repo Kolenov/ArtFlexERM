@@ -21,6 +21,7 @@ using MySql.Data.MySqlClient;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity;
 using MySqlDB;
+using System.Reflection;
 
 namespace ArtFlex
 {
@@ -32,6 +33,33 @@ namespace ArtFlex
 		{
 			InitializeComponent();
 		}
+
+        /// <summary>
+        /// Изменение свойства DoubleBuffered контрола.
+        /// </summary>
+        /// <param name="c">Ссылка на контрол.</param>
+        /// <param name="value">Значение, которое надо установить DoubleBuffered.</param>
+        void SetDoubleBuffered(Control c, bool value)
+        {
+            PropertyInfo pi = typeof(Control).GetProperty("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic);
+            if (pi != null)
+            {
+                pi.SetValue(c, value, null);
+
+                MethodInfo mi = typeof(Control).GetMethod("SetStyle", BindingFlags.Instance | BindingFlags.InvokeMethod | BindingFlags.NonPublic);
+                if (mi != null)
+                {
+                    mi.Invoke(c, new object[] { ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer, true });
+                }
+
+                mi = typeof(Control).GetMethod("UpdateStyles", BindingFlags.Instance | BindingFlags.InvokeMethod | BindingFlags.NonPublic);
+                if (mi != null)
+                {
+                    mi.Invoke(c, null);
+                }
+            }
+        }
+
 		
 		private void frmclients_Load(object sender, EventArgs e)
 		{
@@ -39,51 +67,140 @@ namespace ArtFlex
 			context.clients.Load();
 			BindingList<clients> _entities = context.clients.Local.ToBindingList();
 			clientsBindingSource.DataSource = _entities;
-			this.client_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientsBindingSource, "client_id", true ));
 			this.client_nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientsBindingSource, "client_name", true ));
-			this.client_surnameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientsBindingSource, "client_surname", true ));
-			this.client_jobtitleTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientsBindingSource, "client_jobtitle", true ));
-			this.client_organisationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientsBindingSource, "client_organisation", true ));
 			this.client_emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientsBindingSource, "client_email", true ));
 			this.client_wphoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientsBindingSource, "client_wphone", true ));
 			this.client_faxTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientsBindingSource, "client_fax", true ));
 			this.client_skipeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientsBindingSource, "client_skipe", true ));
 			this.client_addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientsBindingSource, "client_address", true ));
 			this.client_descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientsBindingSource, "client_description", true ));
-			
-		}
-		
-		private void Save_Click(object sender, EventArgs e)
-		{
-			if (!this.Validate()) return;
-			clientsBindingSource.EndEdit();
-			context.SaveChanges();
-			
+
+            // DataGridView Collumns
+            System.Windows.Forms.DataGridViewTextBoxColumn col_client_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            col_client_id.DataPropertyName = "client_id";
+            col_client_id.HeaderText = "ID";
+            col_client_id.Name = "col_material_id";
+            dataGridViewClients.Columns.Add(col_client_id);
+
+            System.Windows.Forms.DataGridViewTextBoxColumn col_client_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            col_client_name.DataPropertyName = "client_name";
+            col_client_name.HeaderText = "Имя";
+            col_client_name.Name = "col_client_name";
+            dataGridViewClients.Columns.Add(col_client_name);
+
+            System.Windows.Forms.DataGridViewTextBoxColumn col_client_email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            col_client_name.DataPropertyName = "client_email";
+            col_client_name.HeaderText = "e-mail";
+            col_client_name.Name = "col_client_email";
+            dataGridViewClients.Columns.Add(col_client_email);
+
+
+            System.Windows.Forms.DataGridViewTextBoxColumn col_client_wphone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            col_client_name.DataPropertyName = "client_wphone";
+            col_client_name.HeaderText = "Телефон";
+            col_client_name.Name = "col_client_wphone";
+            dataGridViewClients.Columns.Add(col_client_wphone);
+
+            System.Windows.Forms.DataGridViewTextBoxColumn col_client_fax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            col_client_name.DataPropertyName = "client_fax";
+            col_client_name.HeaderText = "Факс";
+            col_client_name.Name = "col_client_fax";
+            dataGridViewClients.Columns.Add(col_client_fax);
+
+            System.Windows.Forms.DataGridViewTextBoxColumn col_client_skipe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            col_client_name.DataPropertyName = "client_skipe";
+            col_client_name.HeaderText = "Скайп";
+            col_client_name.Name = "col_client_skipe";
+            dataGridViewClients.Columns.Add(col_client_skipe);
+
+            System.Windows.Forms.DataGridViewTextBoxColumn col_client_address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            col_client_name.DataPropertyName = "client_address";
+            col_client_name.HeaderText = "Адрес";
+            col_client_name.Name = "col_client_address";
+            dataGridViewClients.Columns.Add(col_client_address);
+
+            System.Windows.Forms.DataGridViewTextBoxColumn col_client_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            col_client_name.DataPropertyName = "client_description";
+            col_client_name.HeaderText = "Описание";
+            col_client_name.Name = "col_client_description";
+            dataGridViewClients.Columns.Add(col_client_description);
+            
+
+            this.dataGridViewClients.AutoGenerateColumns = false;
+            this.dataGridViewClients.DataSource = this.clientsBindingSource;
+
+            SetDoubleBuffered(dataGridViewClients, true);
+
+            this.splitContainer1.SplitterDistance = 120;
+
+            this.buttonCancel.CausesValidation = false;		
 		}
 		
 		private void frmclients_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			e.Cancel = false;
 		}
-		
-		private void client_idTextBox_Validating(object sender, CancelEventArgs e)
-		{
-			e.Cancel = false;
-			if( string.IsNullOrEmpty( client_idTextBox.Text ) )
-			{
-				e.Cancel = true;
-				errorProvider1.SetError( client_idTextBox, "The field client_id is required" ); 
-			}
-			int v;
-			string s = client_idTextBox.Text;
-			if( !int.TryParse( s, out v ) )
-			{
-				e.Cancel = true;
-				errorProvider1.SetError( client_idTextBox, "The field client_id must be int." );
-			}
-			if( !e.Cancel ) { errorProvider1.SetError( client_idTextBox, "" ); } 
-		}
-		
+
+        #region Buttons
+        private void AddNewItem_Click(object sender, EventArgs e)
+        {
+
+            materials zeroIdObj = clientsBindingSource.List.OfType<materials>().ToList().Find(f => f.material_id == 0);
+            if (zeroIdObj != null) return;
+
+            clientsBindingSource.AddNew();
+            this.client_nameTextBox.Focus();
+            clientsBindingSource.MoveLast();
+
+            this.buttonAddNew.Enabled = false;
+        }
+
+        private void Save_Click(object sender, EventArgs e)
+        {
+            foreach (Control control in this.splitContainer1.Panel1.Controls)
+            {
+                control.Focus();
+                if (!Validate()) { return; }
+            }
+
+
+            using (var _context = new ModelEntities())
+            {
+                var zeroIdObj = clientsBindingSource.OfType<clients>().ToList().Find(f => f.client_id == 0);
+                var obj = _context.clients.ToList().Find(b => b.client_name == this.client_nameTextBox.Text);
+                if (obj != null && zeroIdObj != null)
+                {
+                    errorProvider1.SetError(client_nameTextBox, "Такое имя клиента уже существует");
+                    return;
+                }
+                errorProvider1.SetError(client_nameTextBox, "");
+            }
+
+            clientsBindingSource.EndEdit();
+            context.SaveChanges();
+            this.buttonAddNew.Enabled = true;
+            this.dataGridViewClients.Refresh();
+        }
+
+        private void Cancel_Click(object sender, EventArgs e)
+        {
+            this.errorProvider1.Dispose();
+            var zeroIdObj = clientsBindingSource.OfType<clients>().ToList().Find(f => f.client_id == 0);
+            if (zeroIdObj == null) return;
+            var position = clientsBindingSource.IndexOf(zeroIdObj);
+            clientsBindingSource.Position = position;
+            clientsBindingSource.RemoveAt(position);
+            this.buttonAddNew.Enabled = true;
+            this.buttonSave.Enabled = true;
+        }
+        #endregion
+	
+
+
+
+
+
+
 		private void client_nameTextBox_Validating(object sender, CancelEventArgs e)
 		{
 			e.Cancel = false;
@@ -95,72 +212,41 @@ namespace ArtFlex
 			if( !e.Cancel ) { errorProvider1.SetError( client_nameTextBox, "" ); } 
 		}
 		
-		private void client_surnameTextBox_Validating(object sender, CancelEventArgs e)
-		{
-			e.Cancel = false;
-			if( string.IsNullOrEmpty( client_surnameTextBox.Text ) )
-			{
-				e.Cancel = true;
-				errorProvider1.SetError( client_surnameTextBox, "The field client_surname is required" ); 
-			}
-			if( !e.Cancel ) { errorProvider1.SetError( client_surnameTextBox, "" ); } 
-		}
-		
-		private void client_jobtitleTextBox_Validating(object sender, CancelEventArgs e)
-		{
-			e.Cancel = false;
-			if( string.IsNullOrEmpty( client_jobtitleTextBox.Text ) )
-			{
-				e.Cancel = true;
-				errorProvider1.SetError( client_jobtitleTextBox, "The field client_jobtitle is required" ); 
-			}
-			if( !e.Cancel ) { errorProvider1.SetError( client_jobtitleTextBox, "" ); } 
-		}
-		
-		private void client_organisationTextBox_Validating(object sender, CancelEventArgs e)
-		{
-			e.Cancel = false;
-			if( string.IsNullOrEmpty( client_organisationTextBox.Text ) )
-			{
-				e.Cancel = true;
-				errorProvider1.SetError( client_organisationTextBox, "The field client_organisation is required" ); 
-			}
-			if( !e.Cancel ) { errorProvider1.SetError( client_organisationTextBox, "" ); } 
-		}
-		
+
 		private void client_emailTextBox_Validating(object sender, CancelEventArgs e)
 		{
 			e.Cancel = false;
-			if( string.IsNullOrEmpty( client_emailTextBox.Text ) )
-			{
-				e.Cancel = true;
-				errorProvider1.SetError( client_emailTextBox, "The field client_email is required" ); 
-			}
-			if( !e.Cancel ) { errorProvider1.SetError( client_emailTextBox, "" ); } 
+            //if( string.IsNullOrEmpty( client_emailTextBox.Text ) )
+            //{
+            //    e.Cancel = true;
+            //    errorProvider1.SetError( client_emailTextBox, "The field client_email is required" ); 
+            //}
+            //if( !e.Cancel ) { errorProvider1.SetError( client_emailTextBox, "" ); } 
 		}
 		
 		private void client_wphoneTextBox_Validating(object sender, CancelEventArgs e)
 		{
 			e.Cancel = false;
-			if( string.IsNullOrEmpty( client_wphoneTextBox.Text ) )
-			{
-				e.Cancel = true;
-				errorProvider1.SetError( client_wphoneTextBox, "The field client_wphone is required" ); 
-			}
-			if( !e.Cancel ) { errorProvider1.SetError( client_wphoneTextBox, "" ); } 
+            //if( string.IsNullOrEmpty( client_wphoneTextBox.Text ) )
+            //{
+            //    e.Cancel = true;
+            //    errorProvider1.SetError( client_wphoneTextBox, "The field client_wphone is required" ); 
+            //}
+            //if( !e.Cancel ) { errorProvider1.SetError( client_wphoneTextBox, "" ); } 
 		}
 		
 		private void client_faxTextBox_Validating(object sender, CancelEventArgs e)
 		{
 			e.Cancel = false;
-			if( string.IsNullOrEmpty( client_faxTextBox.Text ) )
-			{
-				e.Cancel = true;
-				errorProvider1.SetError( client_faxTextBox, "The field client_fax is required" ); 
-			}
-			if( !e.Cancel ) { errorProvider1.SetError( client_faxTextBox, "" ); } 
+            //if( string.IsNullOrEmpty( client_faxTextBox.Text ) )
+            //{
+            //    e.Cancel = true;
+            //    errorProvider1.SetError( client_faxTextBox, "The field client_fax is required" ); 
+            //}
+            //if( !e.Cancel ) { errorProvider1.SetError( client_faxTextBox, "" ); } 
 		}
-		
+
+		/*		
 		private void client_skipeTextBox_Validating(object sender, CancelEventArgs e)
 		{
 			e.Cancel = false;
@@ -182,29 +268,13 @@ namespace ArtFlex
 			}
 			if( !e.Cancel ) { errorProvider1.SetError( client_addressTextBox, "" ); } 
 		}
-		
-		private void client_descriptionTextBox_Validating(object sender, CancelEventArgs e)
-		{
-			e.Cancel = false;
-			if( string.IsNullOrEmpty( client_descriptionTextBox.Text ) )
-			{
-				e.Cancel = true;
-				errorProvider1.SetError( client_descriptionTextBox, "The field client_description is required" ); 
-			}
-			if( !e.Cancel ) { errorProvider1.SetError( client_descriptionTextBox, "" ); } 
-		}
-		
-		
-		
-		
-		private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
-		{
-			clientsBindingSource.AddNew();
-		}
+         * */
 
-        private void bindingNavigatorMovePreviousItem_Click(object sender, EventArgs e)
-        {
 
-        }
+
+
+
+
+
 	}
 }
