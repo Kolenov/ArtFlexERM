@@ -26,7 +26,7 @@ namespace ArtFlex
 {
 	public partial class frmsupply : Form
 	{
-		private ModelEntities context;
+		private ArtflexDbContext context;
 		
 		public frmsupply()
 		{
@@ -35,9 +35,9 @@ namespace ArtFlex
 		
 		private void frmsupply_Load(object sender, EventArgs e)
 		{
-			context = new ModelEntities();
-			context.supply.Load();
-			BindingList<supply> _entities = context.supply.Local.ToBindingList();
+			context = new ArtflexDbContext();
+			context.supplies.Load();
+			BindingList<supplies> _entities = context.supplies.Local.ToBindingList();
 			supplyBindingSource.DataSource = _entities;
 			this.supply_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplyBindingSource, "supply_id", true ));
 			this.supply_quantityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplyBindingSource, "", true ));

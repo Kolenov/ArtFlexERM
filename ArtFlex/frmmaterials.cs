@@ -27,7 +27,7 @@ namespace ArtFlex
 {
     public partial class frmmaterials : Form
     {
-        private ModelEntities context;
+        private ArtflexDbContext context;
 
         public frmmaterials()
         {
@@ -62,7 +62,7 @@ namespace ArtFlex
 
         private void frmmaterials_Load(object sender, EventArgs e)
         {
-            context = new ModelEntities();
+            context = new ArtflexDbContext();
             context.materials.Where<materials>(b => b.category_id == 1).Load();
             BindingList<materials> _materials = context.materials.Local.ToBindingList();
             materialsBindingSource.DataSource = _materials;
@@ -233,7 +233,7 @@ namespace ArtFlex
             }
 
 
-            using (var _context = new ModelEntities())
+            using (var _context = new ArtflexDbContext())
             {
                 var zeroIdObj = materialsBindingSource.OfType<materials>().ToList().Find(f => f.material_id == 0);
                 var obj = _context.materials.ToList().Find(b => b.material_name == this.material_nameTextBox.Text);
@@ -303,7 +303,7 @@ namespace ArtFlex
             if (category == null)
                 return;
             this.context.Dispose();
-            this.context = new ModelEntities();
+            this.context = new ArtflexDbContext();
             this.context.materials.Where<materials>(b => b.category_id == category.category_id).Load();
             BindingList<materials> _materials = this.context.materials.Local.ToBindingList();
             materialsBindingSource.DataSource = _materials;

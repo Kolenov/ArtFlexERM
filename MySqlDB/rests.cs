@@ -23,6 +23,6 @@ namespace MySqlDB
         public System.DateTime rest_createtime { get; set; }
     
         public virtual materials materials { get; set; }
-        public virtual supply supply { get; set; }
+        public virtual supplies supplies { get; set; }
     }
 }

@@ -26,7 +26,7 @@ namespace ArtFlex
 {
 	public partial class frmwaybills : Form
 	{
-		private ModelEntities context;
+		private ArtflexDbContext context;
 		
 		public frmwaybills()
 		{
@@ -35,7 +35,7 @@ namespace ArtFlex
 		
 		private void frmwaybills_Load(object sender, EventArgs e)
 		{
-			context = new ModelEntities();
+			context = new ArtflexDbContext();
 			context.waybills.Load();
 			BindingList<waybills> _entities = context.waybills.Local.ToBindingList();
 			waybillsBindingSource.DataSource = _entities;

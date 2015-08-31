@@ -26,7 +26,7 @@ namespace ArtFlex
 {
 	public partial class frmrests : Form
 	{
-		private ModelEntities context;
+		private ArtflexDbContext context;
 		
 		public frmrests()
 		{
@@ -35,12 +35,12 @@ namespace ArtFlex
 		
 		private void frmrests_Load(object sender, EventArgs e)
 		{
-			context = new ModelEntities();
+			context = new ArtflexDbContext();
 			context.rests.Load();
 			BindingList<rests> _entities = context.rests.Local.ToBindingList();
 			restsBindingSource.DataSource = _entities;
 			this.rest_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.restsBindingSource, "rest_id", true ));
-			this.supply_id_comboBox.DataSource = context.supply.ToList();
+			this.supply_id_comboBox.DataSource = context.supplies.ToList();
 			this.supply_id_comboBox.DisplayMember = "supply_id";
 			this.supply_id_comboBox.ValueMember = "supply_id";
 			this.supply_id_comboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.restsBindingSource, "supply_id", true));

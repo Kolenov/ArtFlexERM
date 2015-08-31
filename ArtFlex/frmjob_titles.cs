@@ -26,7 +26,7 @@ namespace ArtFlex
 {
 	public partial class frmjob_titles : Form
 	{
-		private ModelEntities context;
+		private ArtflexDbContext context;
 		
 		public frmjob_titles()
 		{
@@ -35,7 +35,7 @@ namespace ArtFlex
 		
 		private void frmjob_titles_Load(object sender, EventArgs e)
 		{
-			context = new ModelEntities();
+			context = new ArtflexDbContext();
 			context.job_titles.Load();
 			BindingList<job_titles> _entities = context.job_titles.Local.ToBindingList();
 			job_titlesBindingSource.DataSource = _entities;

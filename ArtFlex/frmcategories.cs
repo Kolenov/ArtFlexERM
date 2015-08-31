@@ -26,7 +26,7 @@ namespace ArtFlex
 {
 	public partial class frmcategories : Form
 	{
-		private ModelEntities context;
+		private ArtflexDbContext context;
 		
 		public frmcategories()
 		{
@@ -35,7 +35,7 @@ namespace ArtFlex
 		
 		private void frmcategories_Load(object sender, EventArgs e)
 		{
-			context = new ModelEntities();
+			context = new ArtflexDbContext();
 			context.categories.Load();
 			BindingList<categories> _entities = context.categories.Local.ToBindingList();
 			categoriesBindingSource.DataSource = _entities;

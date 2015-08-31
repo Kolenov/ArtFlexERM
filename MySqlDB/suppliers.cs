@@ -12,29 +12,25 @@ namespace MySqlDB
     using System;
     using System.Collections.Generic;
     
-    public partial class supply
+    public partial class suppliers
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public supply()
+        public suppliers()
         {
-            this.consumption = new HashSet<consumption>();
-            this.rests = new HashSet<rests>();
+            this.waybills = new HashSet<waybills>();
         }
     
-        public long supply_id { get; set; }
-        public long material_id { get; set; }
-        public string supply_description { get; set; }
-        public long waybill_id { get; set; }
-        public System.DateTime supply_createtime { get; set; }
-        public double supply_quantity { get; set; }
-        public double supply_summ { get; set; }
-        public double supply_costunit { get; set; }
+        public long supplier_id { get; set; }
+        public string supplier_name { get; set; }
+        public string supplier_email { get; set; }
+        public string supplier_mphone { get; set; }
+        public string supplier_wphone { get; set; }
+        public string supplier_fax { get; set; }
+        public string supplier_skipe { get; set; }
+        public string supplier_address { get; set; }
+        public string supplier_description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<consumption> consumption { get; set; }
-        public virtual materials materials { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<rests> rests { get; set; }
-        public virtual waybills waybills { get; set; }
+        public virtual ICollection<waybills> waybills { get; set; }
     }
 }

@@ -27,7 +27,7 @@ namespace ArtFlex
 {
 	public partial class frmclients : Form
 	{
-		private ModelEntities context;
+		private ArtflexDbContext context;
 		
 		public frmclients()
 		{
@@ -63,7 +63,7 @@ namespace ArtFlex
 		
 		private void frmclients_Load(object sender, EventArgs e)
 		{
-			context = new ModelEntities();
+			context = new ArtflexDbContext();
 			context.clients.Load();
 			BindingList<clients> _entities = context.clients.Local.ToBindingList();
 			clientsBindingSource.DataSource = _entities;
@@ -164,7 +164,7 @@ namespace ArtFlex
             }
 
 
-            using (var _context = new ModelEntities())
+            using (var _context = new ArtflexDbContext())
             {
                 var zeroIdObj = clientsBindingSource.OfType<clients>().ToList().Find(f => f.client_id == 0);
                 var obj = _context.clients.ToList().Find(b => b.client_name == this.client_nameTextBox.Text);

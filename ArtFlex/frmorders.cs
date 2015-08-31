@@ -26,7 +26,7 @@ namespace ArtFlex
 {
 	public partial class frmorders : Form
 	{
-		private ModelEntities context;
+		private ArtflexDbContext context;
 		
 		public frmorders()
 		{
@@ -35,7 +35,7 @@ namespace ArtFlex
 		
 		private void frmorders_Load(object sender, EventArgs e)
 		{
-			context = new ModelEntities();
+			context = new ArtflexDbContext();
 			context.orders.Load();
 			BindingList<orders> _entities = context.orders.Local.ToBindingList();
 			ordersBindingSource.DataSource = _entities;

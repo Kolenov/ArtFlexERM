@@ -26,7 +26,7 @@ namespace ArtFlex
 {
 	public partial class frmconsumption : Form
 	{
-		private ModelEntities context;
+		private ArtflexDbContext context;
 		
 		public frmconsumption()
 		{
@@ -35,12 +35,12 @@ namespace ArtFlex
 		
 		private void frmconsumption_Load(object sender, EventArgs e)
 		{
-			context = new ModelEntities();
-			context.consumption.Load();
-			BindingList<consumption> _entities = context.consumption.Local.ToBindingList();
+			context = new ArtflexDbContext();
+			context.consumptions.Load();
+			BindingList<consumptions> _entities = context.consumptions.Local.ToBindingList();
 			consumptionBindingSource.DataSource = _entities;
 			this.consumption_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.consumptionBindingSource, "consumption_id", true ));
-			this.supply_id_comboBox.DataSource = context.supply.ToList();
+			this.supply_id_comboBox.DataSource = context.supplies.ToList();
 			this.supply_id_comboBox.DisplayMember = "supply_id";
 			this.supply_id_comboBox.ValueMember = "supply_id";
 			this.supply_id_comboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.consumptionBindingSource, "supply_id", true));

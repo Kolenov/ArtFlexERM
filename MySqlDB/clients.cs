@@ -22,9 +22,6 @@ namespace MySqlDB
     
         public long client_id { get; set; }
         public string client_name { get; set; }
-        public string client_surname { get; set; }
-        public string client_jobtitle { get; set; }
-        public string client_organisation { get; set; }
         public string client_email { get; set; }
         public string client_wphone { get; set; }
         public string client_fax { get; set; }

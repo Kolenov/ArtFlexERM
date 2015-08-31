@@ -17,7 +17,7 @@ namespace MySqlDB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public waybills()
         {
-            this.supply = new HashSet<supply>();
+            this.supplies = new HashSet<supplies>();
         }
     
         public long waybill_id { get; set; }
@@ -26,8 +26,8 @@ namespace MySqlDB
         public System.DateTime waybill_date { get; set; }
         public Nullable<System.DateTime> waybill_createtime { get; set; }
     
-        public virtual supplier supplier { get; set; }
+        public virtual suppliers suppliers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<supply> supply { get; set; }
+        public virtual ICollection<supplies> supplies { get; set; }
     }
 }

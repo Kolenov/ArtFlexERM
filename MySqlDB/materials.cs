@@ -17,9 +17,9 @@ namespace MySqlDB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public materials()
         {
-            this.consumption = new HashSet<consumption>();
+            this.consumptions = new HashSet<consumptions>();
             this.rests = new HashSet<rests>();
-            this.supply = new HashSet<supply>();
+            this.supplies = new HashSet<supplies>();
         }
     
         public long material_id { get; set; }
@@ -33,11 +33,11 @@ namespace MySqlDB
     
         public virtual categories categories { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<consumption> consumption { get; set; }
+        public virtual ICollection<consumptions> consumptions { get; set; }
         public virtual units units { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<rests> rests { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<supply> supply { get; set; }
+        public virtual ICollection<supplies> supplies { get; set; }
     }
 }

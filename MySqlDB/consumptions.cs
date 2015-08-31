@@ -12,7 +12,7 @@ namespace MySqlDB
     using System;
     using System.Collections.Generic;
     
-    public partial class consumption
+    public partial class consumptions
     {
         public long consumption_id { get; set; }
         public long supply_id { get; set; }
@@ -24,6 +24,6 @@ namespace MySqlDB
     
         public virtual materials materials { get; set; }
         public virtual orders orders { get; set; }
-        public virtual supply supply { get; set; }
+        public virtual supplies supplies { get; set; }
     }
 }

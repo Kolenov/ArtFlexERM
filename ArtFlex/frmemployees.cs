@@ -26,7 +26,7 @@ namespace ArtFlex
 {
 	public partial class frmemployees : Form
 	{
-		private ModelEntities context;
+		private ArtflexDbContext context;
 		
 		public frmemployees()
 		{
@@ -35,7 +35,7 @@ namespace ArtFlex
 		
 		private void frmemployees_Load(object sender, EventArgs e)
 		{
-			context = new ModelEntities();
+			context = new ArtflexDbContext();
 			context.employees.Load();
 			BindingList<employees> _entities = context.employees.Local.ToBindingList();
 			employeesBindingSource.DataSource = _entities;

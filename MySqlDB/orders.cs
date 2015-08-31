@@ -17,7 +17,7 @@ namespace MySqlDB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public orders()
         {
-            this.consumption = new HashSet<consumption>();
+            this.consumptions = new HashSet<consumptions>();
         }
     
         public long order_id { get; set; }
@@ -28,7 +28,7 @@ namespace MySqlDB
     
         public virtual clients clients { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<consumption> consumption { get; set; }
+        public virtual ICollection<consumptions> consumptions { get; set; }
         public virtual employees employees { get; set; }
     }
 }

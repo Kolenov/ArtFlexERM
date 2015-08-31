@@ -12,28 +12,29 @@ namespace MySqlDB
     using System;
     using System.Collections.Generic;
     
-    public partial class supplier
+    public partial class supplies
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public supplier()
+        public supplies()
         {
-            this.waybills = new HashSet<waybills>();
+            this.consumptions = new HashSet<consumptions>();
+            this.rests = new HashSet<rests>();
         }
     
-        public long supplier_id { get; set; }
-        public string supplier_name { get; set; }
-        public string supplier_surname { get; set; }
-        public string supplier_jobtitle { get; set; }
-        public string supplier_organisation { get; set; }
-        public string supplier_email { get; set; }
-        public string supplier_mphone { get; set; }
-        public string supplier_wphone { get; set; }
-        public string supplier_fax { get; set; }
-        public string supplier_skipe { get; set; }
-        public string supplier_address { get; set; }
-        public string supplier_description { get; set; }
+        public long supply_id { get; set; }
+        public double supply_quantity { get; set; }
+        public long material_id { get; set; }
+        public double supply_summ { get; set; }
+        public double supply_costunit { get; set; }
+        public string supply_description { get; set; }
+        public long waybill_id { get; set; }
+        public System.DateTime supply_createtime { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<waybills> waybills { get; set; }
+        public virtual ICollection<consumptions> consumptions { get; set; }
+        public virtual materials materials { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<rests> rests { get; set; }
+        public virtual waybills waybills { get; set; }
     }
 }
