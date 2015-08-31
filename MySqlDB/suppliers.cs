@@ -23,7 +23,6 @@ namespace MySqlDB
         public long supplier_id { get; set; }
         public string supplier_name { get; set; }
         public string supplier_email { get; set; }
-        public string supplier_mphone { get; set; }
         public string supplier_wphone { get; set; }
         public string supplier_fax { get; set; }
         public string supplier_skipe { get; set; }

@@ -21,6 +21,7 @@ using MySql.Data.MySqlClient;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity;
 using MySqlDB;
+using System.Reflection;
 
 namespace ArtFlex
 {
@@ -32,32 +33,112 @@ namespace ArtFlex
 		{
 			InitializeComponent();
 		}
+
+        /// <summary>
+        /// Изменение свойства DoubleBuffered контрола.
+        /// </summary>
+        /// <param name="c">Ссылка на контрол.</param>
+        /// <param name="value">Значение, которое надо установить DoubleBuffered.</param>
+        void SetDoubleBuffered(Control c, bool value)
+        {
+            PropertyInfo pi = typeof(Control).GetProperty("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic);
+            if (pi != null)
+            {
+                pi.SetValue(c, value, null);
+
+                MethodInfo mi = typeof(Control).GetMethod("SetStyle", BindingFlags.Instance | BindingFlags.InvokeMethod | BindingFlags.NonPublic);
+                if (mi != null)
+                {
+                    mi.Invoke(c, new object[] { ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer, true });
+                }
+
+                mi = typeof(Control).GetMethod("UpdateStyles", BindingFlags.Instance | BindingFlags.InvokeMethod | BindingFlags.NonPublic);
+                if (mi != null)
+                {
+                    mi.Invoke(c, null);
+                }
+            }
+        }
 		
 		private void frmsupplier_Load(object sender, EventArgs e)
 		{
 			context = new ArtflexDbContext();
 			context.suppliers.Load();
 			BindingList<suppliers> _entities = context.suppliers.Local.ToBindingList();
-			supplierBindingSource.DataSource = _entities;
-			this.supplier_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "supplier_id", true ));
-			this.supplier_nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "supplier_name", true ));
-			this.supplier_surnameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "supplier_surname", true ));
-			this.supplier_jobtitleTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "supplier_jobtitle", true ));
-			this.supplier_organisationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "supplier_organisation", true ));
-			this.supplier_emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "supplier_email", true ));
-			this.supplier_mphoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "supplier_mphone", true ));
-			this.supplier_wphoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "supplier_wphone", true ));
-			this.supplier_faxTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "supplier_fax", true ));
-			this.supplier_skipeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "supplier_skipe", true ));
-			this.supplier_addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "supplier_address", true ));
-			this.supplier_descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "supplier_description", true ));
-			
+			suppliersBindingSource.DataSource = _entities;
+			this.supplier_nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.suppliersBindingSource, "supplier_name", true ));
+			this.supplier_emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.suppliersBindingSource, "supplier_email", true ));
+			this.supplier_wphoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.suppliersBindingSource, "supplier_wphone", true ));
+			this.supplier_faxTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.suppliersBindingSource, "supplier_fax", true ));
+			this.supplier_skipeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.suppliersBindingSource, "supplier_skipe", true ));
+			this.supplier_addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.suppliersBindingSource, "supplier_address", true ));
+			this.supplier_descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.suppliersBindingSource, "supplier_description", true ));
+
+            // DataGridView Collumns
+            System.Windows.Forms.DataGridViewTextBoxColumn col_supplier_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            col_supplier_id.DataPropertyName = "supplier_id";
+            col_supplier_id.HeaderText = "ID";
+            col_supplier_id.Name = "col_supplier_id";
+            dataGridViewSuppliers.Columns.Add(col_supplier_id);
+
+            System.Windows.Forms.DataGridViewTextBoxColumn col_supplier_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            col_supplier_name.DataPropertyName = "supplier_name";
+            col_supplier_name.HeaderText = "Имя";
+            col_supplier_name.Name = "col_supplier_name";
+            dataGridViewSuppliers.Columns.Add(col_supplier_name);
+
+            System.Windows.Forms.DataGridViewTextBoxColumn col_supplier_email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            col_supplier_email.DataPropertyName = "supplier_email";
+            col_supplier_email.HeaderText = "e-mail";
+            col_supplier_email.Name = "col_supplier_email";
+            dataGridViewSuppliers.Columns.Add(col_supplier_email);
+
+
+            System.Windows.Forms.DataGridViewTextBoxColumn col_supplier_wphone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            col_supplier_wphone.DataPropertyName = "supplier_wphone";
+            col_supplier_wphone.HeaderText = "Телефон";
+            col_supplier_wphone.Name = "col_supplier_wphone";
+            dataGridViewSuppliers.Columns.Add(col_supplier_wphone);
+
+            System.Windows.Forms.DataGridViewTextBoxColumn col_supplier_fax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            col_supplier_fax.DataPropertyName = "supplier_fax";
+            col_supplier_fax.HeaderText = "Факс";
+            col_supplier_fax.Name = "col_supplier_fax";
+            dataGridViewSuppliers.Columns.Add(col_supplier_fax);
+
+            System.Windows.Forms.DataGridViewTextBoxColumn col_supplier_skipe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            col_supplier_skipe.DataPropertyName = "supplier_skipe";
+            col_supplier_skipe.HeaderText = "Скайп";
+            col_supplier_skipe.Name = "col_supplier_skipe";
+            dataGridViewSuppliers.Columns.Add(col_supplier_skipe);
+
+            System.Windows.Forms.DataGridViewTextBoxColumn col_supplier_address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            col_supplier_address.DataPropertyName = "supplier_address";
+            col_supplier_address.HeaderText = "Адрес";
+            col_supplier_address.Name = "col_supplier_address";
+            dataGridViewSuppliers.Columns.Add(col_supplier_address);
+
+            System.Windows.Forms.DataGridViewTextBoxColumn col_supplier_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            col_supplier_description.DataPropertyName = "supplier_description";
+            col_supplier_description.HeaderText = "Описание";
+            col_supplier_description.Name = "col_supplier_description";
+            dataGridViewSuppliers.Columns.Add(col_supplier_description);
+
+
+            this.dataGridViewSuppliers.AutoGenerateColumns = false;
+            this.dataGridViewSuppliers.DataSource = this.suppliersBindingSource;
+
+            SetDoubleBuffered(dataGridViewSuppliers, true);
+
+            this.splitContainer1.SplitterDistance = 120;
+
+            this.buttonCancel.CausesValidation = false;		
 		}
 		
 		private void Save_Click(object sender, EventArgs e)
 		{
 			if (!this.Validate()) return;
-			supplierBindingSource.EndEdit();
+			suppliersBindingSource.EndEdit();
 			context.SaveChanges();
 			
 		}
@@ -66,24 +147,7 @@ namespace ArtFlex
 		{
 			e.Cancel = false;
 		}
-		
-		private void supplier_idTextBox_Validating(object sender, CancelEventArgs e)
-		{
-			e.Cancel = false;
-			if( string.IsNullOrEmpty( supplier_idTextBox.Text ) )
-			{
-				e.Cancel = true;
-				errorProvider1.SetError( supplier_idTextBox, "The field supplier_id is required" ); 
-			}
-			int v;
-			string s = supplier_idTextBox.Text;
-			if( !int.TryParse( s, out v ) )
-			{
-				e.Cancel = true;
-				errorProvider1.SetError( supplier_idTextBox, "The field supplier_id must be int." );
-			}
-			if( !e.Cancel ) { errorProvider1.SetError( supplier_idTextBox, "" ); } 
-		}
+
 		
 		private void supplier_nameTextBox_Validating(object sender, CancelEventArgs e)
 		{
@@ -96,122 +160,72 @@ namespace ArtFlex
 			if( !e.Cancel ) { errorProvider1.SetError( supplier_nameTextBox, "" ); } 
 		}
 		
-		private void supplier_surnameTextBox_Validating(object sender, CancelEventArgs e)
-		{
-			e.Cancel = false;
-			if( string.IsNullOrEmpty( supplier_surnameTextBox.Text ) )
-			{
-				e.Cancel = true;
-				errorProvider1.SetError( supplier_surnameTextBox, "The field supplier_surname is required" ); 
-			}
-			if( !e.Cancel ) { errorProvider1.SetError( supplier_surnameTextBox, "" ); } 
-		}
-		
-		private void supplier_jobtitleTextBox_Validating(object sender, CancelEventArgs e)
-		{
-			e.Cancel = false;
-			if( string.IsNullOrEmpty( supplier_jobtitleTextBox.Text ) )
-			{
-				e.Cancel = true;
-				errorProvider1.SetError( supplier_jobtitleTextBox, "The field supplier_jobtitle is required" ); 
-			}
-			if( !e.Cancel ) { errorProvider1.SetError( supplier_jobtitleTextBox, "" ); } 
-		}
-		
-		private void supplier_organisationTextBox_Validating(object sender, CancelEventArgs e)
-		{
-			e.Cancel = false;
-			if( string.IsNullOrEmpty( supplier_organisationTextBox.Text ) )
-			{
-				e.Cancel = true;
-				errorProvider1.SetError( supplier_organisationTextBox, "The field supplier_organisation is required" ); 
-			}
-			if( !e.Cancel ) { errorProvider1.SetError( supplier_organisationTextBox, "" ); } 
-		}
 		
 		private void supplier_emailTextBox_Validating(object sender, CancelEventArgs e)
 		{
 			e.Cancel = false;
-			if( string.IsNullOrEmpty( supplier_emailTextBox.Text ) )
-			{
-				e.Cancel = true;
-				errorProvider1.SetError( supplier_emailTextBox, "The field supplier_email is required" ); 
-			}
-			if( !e.Cancel ) { errorProvider1.SetError( supplier_emailTextBox, "" ); } 
+            //if( string.IsNullOrEmpty( supplier_emailTextBox.Text ) )
+            //{
+            //    e.Cancel = true;
+            //    errorProvider1.SetError( supplier_emailTextBox, "The field supplier_email is required" ); 
+            //}
+            //if( !e.Cancel ) { errorProvider1.SetError( supplier_emailTextBox, "" ); } 
 		}
-		
-		private void supplier_mphoneTextBox_Validating(object sender, CancelEventArgs e)
-		{
-			e.Cancel = false;
-			if( string.IsNullOrEmpty( supplier_mphoneTextBox.Text ) )
-			{
-				e.Cancel = true;
-				errorProvider1.SetError( supplier_mphoneTextBox, "The field supplier_mphone is required" ); 
-			}
-			if( !e.Cancel ) { errorProvider1.SetError( supplier_mphoneTextBox, "" ); } 
-		}
-		
+
 		private void supplier_wphoneTextBox_Validating(object sender, CancelEventArgs e)
 		{
 			e.Cancel = false;
-			if( string.IsNullOrEmpty( supplier_wphoneTextBox.Text ) )
-			{
-				e.Cancel = true;
-				errorProvider1.SetError( supplier_wphoneTextBox, "The field supplier_wphone is required" ); 
-			}
-			if( !e.Cancel ) { errorProvider1.SetError( supplier_wphoneTextBox, "" ); } 
-		}
+        //    if( string.IsNullOrEmpty( supplier_wphoneTextBox.Text ) )
+        //    {
+        //        e.Cancel = true;
+        //        errorProvider1.SetError( supplier_wphoneTextBox, "The field supplier_wphone is required" ); 
+        //    }
+        //    if( !e.Cancel ) { errorProvider1.SetError( supplier_wphoneTextBox, "" ); } 
+        }
 		
 		private void supplier_faxTextBox_Validating(object sender, CancelEventArgs e)
 		{
 			e.Cancel = false;
-			if( string.IsNullOrEmpty( supplier_faxTextBox.Text ) )
-			{
-				e.Cancel = true;
-				errorProvider1.SetError( supplier_faxTextBox, "The field supplier_fax is required" ); 
-			}
-			if( !e.Cancel ) { errorProvider1.SetError( supplier_faxTextBox, "" ); } 
+            //if( string.IsNullOrEmpty( supplier_faxTextBox.Text ) )
+            //{
+            //    e.Cancel = true;
+            //    errorProvider1.SetError( supplier_faxTextBox, "The field supplier_fax is required" ); 
+            //}
+            //if( !e.Cancel ) { errorProvider1.SetError( supplier_faxTextBox, "" ); } 
 		}
 		
 		private void supplier_skipeTextBox_Validating(object sender, CancelEventArgs e)
 		{
 			e.Cancel = false;
-			if( string.IsNullOrEmpty( supplier_skipeTextBox.Text ) )
-			{
-				e.Cancel = true;
-				errorProvider1.SetError( supplier_skipeTextBox, "The field supplier_skipe is required" ); 
-			}
-			if( !e.Cancel ) { errorProvider1.SetError( supplier_skipeTextBox, "" ); } 
+            //if( string.IsNullOrEmpty( supplier_skipeTextBox.Text ) )
+            //{
+            //    e.Cancel = true;
+            //    errorProvider1.SetError( supplier_skipeTextBox, "The field supplier_skipe is required" ); 
+            //}
+            //if( !e.Cancel ) { errorProvider1.SetError( supplier_skipeTextBox, "" ); } 
 		}
 		
 		private void supplier_addressTextBox_Validating(object sender, CancelEventArgs e)
 		{
 			e.Cancel = false;
-			if( string.IsNullOrEmpty( supplier_addressTextBox.Text ) )
-			{
-				e.Cancel = true;
-				errorProvider1.SetError( supplier_addressTextBox, "The field supplier_address is required" ); 
-			}
-			if( !e.Cancel ) { errorProvider1.SetError( supplier_addressTextBox, "" ); } 
+            //if( string.IsNullOrEmpty( supplier_addressTextBox.Text ) )
+            //{
+            //    e.Cancel = true;
+            //    errorProvider1.SetError( supplier_addressTextBox, "The field supplier_address is required" ); 
+            //}
+            //if( !e.Cancel ) { errorProvider1.SetError( supplier_addressTextBox, "" ); } 
 		}
 		
 		private void supplier_descriptionTextBox_Validating(object sender, CancelEventArgs e)
 		{
 			e.Cancel = false;
-			if( string.IsNullOrEmpty( supplier_descriptionTextBox.Text ) )
-			{
-				e.Cancel = true;
-				errorProvider1.SetError( supplier_descriptionTextBox, "The field supplier_description is required" ); 
-			}
-			if( !e.Cancel ) { errorProvider1.SetError( supplier_descriptionTextBox, "" ); } 
+            //if( string.IsNullOrEmpty( supplier_descriptionTextBox.Text ) )
+            //{
+            //    e.Cancel = true;
+            //    errorProvider1.SetError( supplier_descriptionTextBox, "The field supplier_description is required" ); 
+            //}
+            //if( !e.Cancel ) { errorProvider1.SetError( supplier_descriptionTextBox, "" ); } 
 		}
 		
-		
-		
-		
-		private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
-		{
-			supplierBindingSource.AddNew();
-		}
 	}
 }

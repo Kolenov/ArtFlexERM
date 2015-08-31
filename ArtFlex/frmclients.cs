@@ -89,40 +89,40 @@ namespace ArtFlex
             dataGridViewClients.Columns.Add(col_client_name);
 
             System.Windows.Forms.DataGridViewTextBoxColumn col_client_email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            col_client_name.DataPropertyName = "client_email";
-            col_client_name.HeaderText = "e-mail";
-            col_client_name.Name = "col_client_email";
+            col_client_email.DataPropertyName = "client_email";
+            col_client_email.HeaderText = "e-mail";
+            col_client_email.Name = "col_client_email";
             dataGridViewClients.Columns.Add(col_client_email);
 
 
             System.Windows.Forms.DataGridViewTextBoxColumn col_client_wphone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            col_client_name.DataPropertyName = "client_wphone";
-            col_client_name.HeaderText = "Телефон";
-            col_client_name.Name = "col_client_wphone";
+            col_client_wphone.DataPropertyName = "client_wphone";
+            col_client_wphone.HeaderText = "Телефон";
+            col_client_wphone.Name = "col_client_wphone";
             dataGridViewClients.Columns.Add(col_client_wphone);
 
             System.Windows.Forms.DataGridViewTextBoxColumn col_client_fax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            col_client_name.DataPropertyName = "client_fax";
-            col_client_name.HeaderText = "Факс";
-            col_client_name.Name = "col_client_fax";
+            col_client_fax.DataPropertyName = "client_fax";
+            col_client_fax.HeaderText = "Факс";
+            col_client_fax.Name = "col_client_fax";
             dataGridViewClients.Columns.Add(col_client_fax);
 
             System.Windows.Forms.DataGridViewTextBoxColumn col_client_skipe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            col_client_name.DataPropertyName = "client_skipe";
-            col_client_name.HeaderText = "Скайп";
-            col_client_name.Name = "col_client_skipe";
+            col_client_skipe.DataPropertyName = "client_skipe";
+            col_client_skipe.HeaderText = "Скайп";
+            col_client_skipe.Name = "col_client_skipe";
             dataGridViewClients.Columns.Add(col_client_skipe);
 
             System.Windows.Forms.DataGridViewTextBoxColumn col_client_address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            col_client_name.DataPropertyName = "client_address";
-            col_client_name.HeaderText = "Адрес";
-            col_client_name.Name = "col_client_address";
+            col_client_address.DataPropertyName = "client_address";
+            col_client_address.HeaderText = "Адрес";
+            col_client_address.Name = "col_client_address";
             dataGridViewClients.Columns.Add(col_client_address);
 
             System.Windows.Forms.DataGridViewTextBoxColumn col_client_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            col_client_name.DataPropertyName = "client_description";
-            col_client_name.HeaderText = "Описание";
-            col_client_name.Name = "col_client_description";
+            col_client_description.DataPropertyName = "client_description";
+            col_client_description.HeaderText = "Описание";
+            col_client_description.Name = "col_client_description";
             dataGridViewClients.Columns.Add(col_client_description);
             
 

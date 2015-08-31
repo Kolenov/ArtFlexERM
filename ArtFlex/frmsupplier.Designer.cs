@@ -39,547 +39,327 @@ namespace ArtFlex
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmsupplier));
-			this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
-			this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-			this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-			this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-			this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-			this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-			this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-			this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-			this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-			this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-			this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-			this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-			this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-			
-			this.Panel1 = new System.Windows.Forms.Panel();
-			
-			this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.panel3 = new System.Windows.Forms.Panel();
-			this.panel4 = new System.Windows.Forms.Panel();
-			this.panel5 = new System.Windows.Forms.Panel();
-			this.panel6 = new System.Windows.Forms.Panel();
-			
-			((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-			this.bindingNavigator1.SuspendLayout();
-			this.panel3.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
-			
-			this.Panel1.SuspendLayout();
-			this.SuspendLayout();
-			// 
-			// bindingNavigator1
-			// 
-			this.bindingNavigator1.AddNewItem = null;
-			this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
-			this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
-			this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.bindingNavigatorMoveFirstItem,
-			this.bindingNavigatorMovePreviousItem,
-			this.bindingNavigatorSeparator,
-			this.bindingNavigatorPositionItem,
-			this.bindingNavigatorCountItem,
-			this.bindingNavigatorSeparator1,
-			this.bindingNavigatorMoveNextItem,
-			this.bindingNavigatorMoveLastItem,
-			this.bindingNavigatorSeparator2,
-			this.bindingNavigatorAddNewItem,
-			this.bindingNavigatorDeleteItem,
-			this.toolStripButton1});
-			this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
-			this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-			this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
-			this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
-			this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-			this.bindingNavigator1.Name = "bindingNavigator1";
-			this.bindingNavigator1.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-			this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-			this.bindingNavigator1.Size = new System.Drawing.Size(360, 25);
-			this.bindingNavigator1.TabIndex = 0;
-			this.bindingNavigator1.Text = "bindingNavigator1";
-			// 
-			// bindingNavigatorAddNewItem
-			// 
-			this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-			this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-			this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-			this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-			this.bindingNavigatorAddNewItem.Text = "Add new";
-			this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
-			// 
-			// bindingNavigatorCountItem
-			// 
-			this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-			this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-			this.bindingNavigatorCountItem.Text = "of {0}";
-			this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-			// 
-			// bindingNavigatorDeleteItem
-			// 
-			this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-			this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-			this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-			this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-			this.bindingNavigatorDeleteItem.Text = "Delete";
-			// 
-			// bindingNavigatorMoveFirstItem
-			// 
-			this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-			this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-			this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-			this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-			this.bindingNavigatorMoveFirstItem.Text = "Move first";
-			// 
-			// bindingNavigatorMovePreviousItem
-			// 
-			this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-			this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-			this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-			this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-			this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-			// 
-			// bindingNavigatorSeparator
-			// 
-			this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-			this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-			// 
-			// bindingNavigatorPositionItem
-			// 
-			this.bindingNavigatorPositionItem.AccessibleName = "Position";
-			this.bindingNavigatorPositionItem.AutoSize = false;
-			this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-			this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-			this.bindingNavigatorPositionItem.Text = "0";
-			this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-			// 
-			// bindingNavigatorSeparator1
-			// 
-			this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-			this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-			// 
-			// bindingNavigatorMoveNextItem
-			// 
-			this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-			this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-			this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-			this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-			this.bindingNavigatorMoveNextItem.Text = "Move next";
-			// 
-			// bindingNavigatorMoveLastItem
-			// 
-			this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-			this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-			this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-			this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-			this.bindingNavigatorMoveLastItem.Text = "Move last";
-			// 
-			// bindingNavigatorSeparator2
-			// 
-			this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-			this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-			// 
-			// toolStripButton1
-			// 
-			this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorSaveItem.Image")));
-			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton1.Name = "toolStripButton1";
-			this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton1.Text = "Save";
-			this.toolStripButton1.Click += new System.EventHandler(this.Save_Click);
-			// 
-			// errorProvider1
-			// 
-			this.errorProvider1.ContainerControl = this;
-			//
-			// Panel1
-			//
-			this.Panel1.AutoScroll = true;
-			this.Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.Panel1.Location = new System.Drawing.Point(0, 25);
-			this.Panel1.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
-			this.Panel1.Name = "Panel1";
-			this.Panel1.Size = new System.Drawing.Size(656, 183);
-			this.Panel1.TabIndex = 1;
-			this.Panel1.AutoSize = true;
-			
-			this.bindingNavigator1.BindingSource = this.supplierBindingSource;
-			//
-			// supplier_idLabel
-			//
-			this.supplier_idLabel = new System.Windows.Forms.Label();
-			this.supplier_idLabel.AutoSize = true;
-			this.supplier_idLabel.Location = new System.Drawing.Point( 99, 50 );
-			this.supplier_idLabel.Name = "supplier_idLabel";
-			this.supplier_idLabel.Size = new System.Drawing.Size( 57, 13 );
-			this.supplier_idLabel.TabIndex = 1;
-			this.supplier_idLabel.Text = "supplier_id";
-			this.Panel1.Controls.Add( this.supplier_idLabel );
-			//
-			// supplier_idTextBox
-			//
-			this.supplier_idTextBox = new System.Windows.Forms.TextBox();
-			this.supplier_idTextBox.Location = new System.Drawing.Point( 166, 50 );
-			this.supplier_idTextBox.Name = "supplier_idTextBox";
-			this.supplier_idTextBox.Size = new System.Drawing.Size( 100, 20 );
-			this.supplier_idTextBox.TabIndex = 2;
-			this.supplier_idTextBox.Validating += new System.ComponentModel.CancelEventHandler( this.supplier_idTextBox_Validating );
-			this.Panel1.Controls.Add( this.supplier_idTextBox);
-			//
-			// supplier_nameLabel
-			//
-			this.supplier_nameLabel = new System.Windows.Forms.Label();
-			this.supplier_nameLabel.AutoSize = true;
-			this.supplier_nameLabel.Location = new System.Drawing.Point( 81, 76 );
-			this.supplier_nameLabel.Name = "supplier_nameLabel";
-			this.supplier_nameLabel.Size = new System.Drawing.Size( 75, 13 );
-			this.supplier_nameLabel.TabIndex = 3;
-			this.supplier_nameLabel.Text = "supplier_name";
-			this.Panel1.Controls.Add( this.supplier_nameLabel );
-			//
-			// supplier_nameTextBox
-			//
-			this.supplier_nameTextBox = new System.Windows.Forms.TextBox();
-			this.supplier_nameTextBox.Location = new System.Drawing.Point( 166, 76 );
-			this.supplier_nameTextBox.Name = "supplier_nameTextBox";
-			this.supplier_nameTextBox.Size = new System.Drawing.Size( 100, 20 );
-			this.supplier_nameTextBox.TabIndex = 4;
-			this.supplier_nameTextBox.Validating += new System.ComponentModel.CancelEventHandler( this.supplier_nameTextBox_Validating );
-			this.Panel1.Controls.Add( this.supplier_nameTextBox);
-			//
-			// supplier_surnameLabel
-			//
-			this.supplier_surnameLabel = new System.Windows.Forms.Label();
-			this.supplier_surnameLabel.AutoSize = true;
-			this.supplier_surnameLabel.Location = new System.Drawing.Point( 67, 102 );
-			this.supplier_surnameLabel.Name = "supplier_surnameLabel";
-			this.supplier_surnameLabel.Size = new System.Drawing.Size( 89, 13 );
-			this.supplier_surnameLabel.TabIndex = 5;
-			this.supplier_surnameLabel.Text = "supplier_surname";
-			this.Panel1.Controls.Add( this.supplier_surnameLabel );
-			//
-			// supplier_surnameTextBox
-			//
-			this.supplier_surnameTextBox = new System.Windows.Forms.TextBox();
-			this.supplier_surnameTextBox.Location = new System.Drawing.Point( 166, 102 );
-			this.supplier_surnameTextBox.Name = "supplier_surnameTextBox";
-			this.supplier_surnameTextBox.Size = new System.Drawing.Size( 100, 20 );
-			this.supplier_surnameTextBox.TabIndex = 6;
-			this.supplier_surnameTextBox.Validating += new System.ComponentModel.CancelEventHandler( this.supplier_surnameTextBox_Validating );
-			this.Panel1.Controls.Add( this.supplier_surnameTextBox);
-			//
-			// supplier_jobtitleLabel
-			//
-			this.supplier_jobtitleLabel = new System.Windows.Forms.Label();
-			this.supplier_jobtitleLabel.AutoSize = true;
-			this.supplier_jobtitleLabel.Location = new System.Drawing.Point( 77, 128 );
-			this.supplier_jobtitleLabel.Name = "supplier_jobtitleLabel";
-			this.supplier_jobtitleLabel.Size = new System.Drawing.Size( 79, 13 );
-			this.supplier_jobtitleLabel.TabIndex = 7;
-			this.supplier_jobtitleLabel.Text = "supplier_jobtitle";
-			this.Panel1.Controls.Add( this.supplier_jobtitleLabel );
-			//
-			// supplier_jobtitleTextBox
-			//
-			this.supplier_jobtitleTextBox = new System.Windows.Forms.TextBox();
-			this.supplier_jobtitleTextBox.Location = new System.Drawing.Point( 166, 128 );
-			this.supplier_jobtitleTextBox.Name = "supplier_jobtitleTextBox";
-			this.supplier_jobtitleTextBox.Size = new System.Drawing.Size( 100, 20 );
-			this.supplier_jobtitleTextBox.TabIndex = 8;
-			this.supplier_jobtitleTextBox.Validating += new System.ComponentModel.CancelEventHandler( this.supplier_jobtitleTextBox_Validating );
-			this.Panel1.Controls.Add( this.supplier_jobtitleTextBox);
-			//
-			// supplier_organisationLabel
-			//
-			this.supplier_organisationLabel = new System.Windows.Forms.Label();
-			this.supplier_organisationLabel.AutoSize = true;
-			this.supplier_organisationLabel.Location = new System.Drawing.Point( 50, 154 );
-			this.supplier_organisationLabel.Name = "supplier_organisationLabel";
-			this.supplier_organisationLabel.Size = new System.Drawing.Size( 106, 13 );
-			this.supplier_organisationLabel.TabIndex = 9;
-			this.supplier_organisationLabel.Text = "supplier_organisation";
-			this.Panel1.Controls.Add( this.supplier_organisationLabel );
-			//
-			// supplier_organisationTextBox
-			//
-			this.supplier_organisationTextBox = new System.Windows.Forms.TextBox();
-			this.supplier_organisationTextBox.Location = new System.Drawing.Point( 166, 154 );
-			this.supplier_organisationTextBox.Name = "supplier_organisationTextBox";
-			this.supplier_organisationTextBox.Size = new System.Drawing.Size( 100, 20 );
-			this.supplier_organisationTextBox.TabIndex = 10;
-			this.supplier_organisationTextBox.Validating += new System.ComponentModel.CancelEventHandler( this.supplier_organisationTextBox_Validating );
-			this.Panel1.Controls.Add( this.supplier_organisationTextBox);
-			//
-			// supplier_emailLabel
-			//
-			this.supplier_emailLabel = new System.Windows.Forms.Label();
-			this.supplier_emailLabel.AutoSize = true;
-			this.supplier_emailLabel.Location = new System.Drawing.Point( 83, 180 );
-			this.supplier_emailLabel.Name = "supplier_emailLabel";
-			this.supplier_emailLabel.Size = new System.Drawing.Size( 73, 13 );
-			this.supplier_emailLabel.TabIndex = 11;
-			this.supplier_emailLabel.Text = "supplier_email";
-			this.Panel1.Controls.Add( this.supplier_emailLabel );
-			//
-			// supplier_emailTextBox
-			//
-			this.supplier_emailTextBox = new System.Windows.Forms.TextBox();
-			this.supplier_emailTextBox.Location = new System.Drawing.Point( 166, 180 );
-			this.supplier_emailTextBox.Name = "supplier_emailTextBox";
-			this.supplier_emailTextBox.Size = new System.Drawing.Size( 100, 20 );
-			this.supplier_emailTextBox.TabIndex = 12;
-			this.supplier_emailTextBox.Validating += new System.ComponentModel.CancelEventHandler( this.supplier_emailTextBox_Validating );
-			this.Panel1.Controls.Add( this.supplier_emailTextBox);
-			//
-			// supplier_mphoneLabel
-			//
-			this.supplier_mphoneLabel = new System.Windows.Forms.Label();
-			this.supplier_mphoneLabel.AutoSize = true;
-			this.supplier_mphoneLabel.Location = new System.Drawing.Point( 395, 50 );
-			this.supplier_mphoneLabel.Name = "supplier_mphoneLabel";
-			this.supplier_mphoneLabel.Size = new System.Drawing.Size( 87, 13 );
-			this.supplier_mphoneLabel.TabIndex = 13;
-			this.supplier_mphoneLabel.Text = "supplier_mphone";
-			this.Panel1.Controls.Add( this.supplier_mphoneLabel );
-			//
-			// supplier_mphoneTextBox
-			//
-			this.supplier_mphoneTextBox = new System.Windows.Forms.TextBox();
-			this.supplier_mphoneTextBox.Location = new System.Drawing.Point( 492, 50 );
-			this.supplier_mphoneTextBox.Name = "supplier_mphoneTextBox";
-			this.supplier_mphoneTextBox.Size = new System.Drawing.Size( 100, 20 );
-			this.supplier_mphoneTextBox.TabIndex = 14;
-			this.supplier_mphoneTextBox.Validating += new System.ComponentModel.CancelEventHandler( this.supplier_mphoneTextBox_Validating );
-			this.Panel1.Controls.Add( this.supplier_mphoneTextBox);
-			//
-			// supplier_wphoneLabel
-			//
-			this.supplier_wphoneLabel = new System.Windows.Forms.Label();
-			this.supplier_wphoneLabel.AutoSize = true;
-			this.supplier_wphoneLabel.Location = new System.Drawing.Point( 395, 76 );
-			this.supplier_wphoneLabel.Name = "supplier_wphoneLabel";
-			this.supplier_wphoneLabel.Size = new System.Drawing.Size( 87, 13 );
-			this.supplier_wphoneLabel.TabIndex = 15;
-			this.supplier_wphoneLabel.Text = "supplier_wphone";
-			this.Panel1.Controls.Add( this.supplier_wphoneLabel );
-			//
-			// supplier_wphoneTextBox
-			//
-			this.supplier_wphoneTextBox = new System.Windows.Forms.TextBox();
-			this.supplier_wphoneTextBox.Location = new System.Drawing.Point( 492, 76 );
-			this.supplier_wphoneTextBox.Name = "supplier_wphoneTextBox";
-			this.supplier_wphoneTextBox.Size = new System.Drawing.Size( 100, 20 );
-			this.supplier_wphoneTextBox.TabIndex = 16;
-			this.supplier_wphoneTextBox.Validating += new System.ComponentModel.CancelEventHandler( this.supplier_wphoneTextBox_Validating );
-			this.Panel1.Controls.Add( this.supplier_wphoneTextBox);
-			//
-			// supplier_faxLabel
-			//
-			this.supplier_faxLabel = new System.Windows.Forms.Label();
-			this.supplier_faxLabel.AutoSize = true;
-			this.supplier_faxLabel.Location = new System.Drawing.Point( 419, 102 );
-			this.supplier_faxLabel.Name = "supplier_faxLabel";
-			this.supplier_faxLabel.Size = new System.Drawing.Size( 63, 13 );
-			this.supplier_faxLabel.TabIndex = 17;
-			this.supplier_faxLabel.Text = "supplier_fax";
-			this.Panel1.Controls.Add( this.supplier_faxLabel );
-			//
-			// supplier_faxTextBox
-			//
-			this.supplier_faxTextBox = new System.Windows.Forms.TextBox();
-			this.supplier_faxTextBox.Location = new System.Drawing.Point( 492, 102 );
-			this.supplier_faxTextBox.Name = "supplier_faxTextBox";
-			this.supplier_faxTextBox.Size = new System.Drawing.Size( 100, 20 );
-			this.supplier_faxTextBox.TabIndex = 18;
-			this.supplier_faxTextBox.Validating += new System.ComponentModel.CancelEventHandler( this.supplier_faxTextBox_Validating );
-			this.Panel1.Controls.Add( this.supplier_faxTextBox);
-			//
-			// supplier_skipeLabel
-			//
-			this.supplier_skipeLabel = new System.Windows.Forms.Label();
-			this.supplier_skipeLabel.AutoSize = true;
-			this.supplier_skipeLabel.Location = new System.Drawing.Point( 408, 128 );
-			this.supplier_skipeLabel.Name = "supplier_skipeLabel";
-			this.supplier_skipeLabel.Size = new System.Drawing.Size( 74, 13 );
-			this.supplier_skipeLabel.TabIndex = 19;
-			this.supplier_skipeLabel.Text = "supplier_skipe";
-			this.Panel1.Controls.Add( this.supplier_skipeLabel );
-			//
-			// supplier_skipeTextBox
-			//
-			this.supplier_skipeTextBox = new System.Windows.Forms.TextBox();
-			this.supplier_skipeTextBox.Location = new System.Drawing.Point( 492, 128 );
-			this.supplier_skipeTextBox.Name = "supplier_skipeTextBox";
-			this.supplier_skipeTextBox.Size = new System.Drawing.Size( 100, 20 );
-			this.supplier_skipeTextBox.TabIndex = 20;
-			this.supplier_skipeTextBox.Validating += new System.ComponentModel.CancelEventHandler( this.supplier_skipeTextBox_Validating );
-			this.Panel1.Controls.Add( this.supplier_skipeTextBox);
-			//
-			// supplier_addressLabel
-			//
-			this.supplier_addressLabel = new System.Windows.Forms.Label();
-			this.supplier_addressLabel.AutoSize = true;
-			this.supplier_addressLabel.Location = new System.Drawing.Point( 396, 154 );
-			this.supplier_addressLabel.Name = "supplier_addressLabel";
-			this.supplier_addressLabel.Size = new System.Drawing.Size( 86, 13 );
-			this.supplier_addressLabel.TabIndex = 21;
-			this.supplier_addressLabel.Text = "supplier_address";
-			this.Panel1.Controls.Add( this.supplier_addressLabel );
-			//
-			// supplier_addressTextBox
-			//
-			this.supplier_addressTextBox = new System.Windows.Forms.TextBox();
-			this.supplier_addressTextBox.Location = new System.Drawing.Point( 492, 154 );
-			this.supplier_addressTextBox.Name = "supplier_addressTextBox";
-			this.supplier_addressTextBox.Size = new System.Drawing.Size( 100, 20 );
-			this.supplier_addressTextBox.TabIndex = 22;
-			this.supplier_addressTextBox.Validating += new System.ComponentModel.CancelEventHandler( this.supplier_addressTextBox_Validating );
-			this.Panel1.Controls.Add( this.supplier_addressTextBox);
-			//
-			// supplier_descriptionLabel
-			//
-			this.supplier_descriptionLabel = new System.Windows.Forms.Label();
-			this.supplier_descriptionLabel.AutoSize = true;
-			this.supplier_descriptionLabel.Location = new System.Drawing.Point( 382, 180 );
-			this.supplier_descriptionLabel.Name = "supplier_descriptionLabel";
-			this.supplier_descriptionLabel.Size = new System.Drawing.Size( 100, 13 );
-			this.supplier_descriptionLabel.TabIndex = 23;
-			this.supplier_descriptionLabel.Text = "supplier_description";
-			this.Panel1.Controls.Add( this.supplier_descriptionLabel );
-			//
-			// supplier_descriptionTextBox
-			//
-			this.supplier_descriptionTextBox = new System.Windows.Forms.TextBox();
-			this.supplier_descriptionTextBox.Location = new System.Drawing.Point( 492, 180 );
-			this.supplier_descriptionTextBox.Name = "supplier_descriptionTextBox";
-			this.supplier_descriptionTextBox.Size = new System.Drawing.Size( 100, 20 );
-			this.supplier_descriptionTextBox.TabIndex = 24;
-			this.supplier_descriptionTextBox.Validating += new System.ComponentModel.CancelEventHandler( this.supplier_descriptionTextBox_Validating );
-			this.Panel1.Controls.Add( this.supplier_descriptionTextBox);
-			// 
-			// panel4
-			// 
-			this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-			this.panel4.Location = new System.Drawing.Point(656, 0);
-			this.panel4.Name = "panel4";
-			this.panel4.Size = new System.Drawing.Size(10, 183);
-			this.panel4.TabIndex = 3;
-			// 
-			// panel3
-			// 
-			this.panel3.Controls.Add(this.Panel1);
-			this.panel3.Controls.Add(this.panel4);
-			this.panel3.Controls.Add(this.panel5);
-			this.panel3.Controls.Add(this.panel6);
-			this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel3.Location = new System.Drawing.Point(0, 25);
-			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(666, 183);
-			this.panel3.TabIndex = 19;
-			// 
-			// panel5
-			// 
-			this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
-			this.panel5.Location = new System.Drawing.Point(0, 0);
-			this.panel5.Name = "panel5";
-			this.panel5.Size = new System.Drawing.Size(10, 183);
-			this.panel5.TabIndex = 5;
-			// 
-			// panel6
-			// 
-			this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panel6.Location = new System.Drawing.Point(0, 324);
-			this.panel6.Name = "panel6";
-			this.panel6.Size = new System.Drawing.Size(400, 10);
-			this.panel6.TabIndex = 6;
-			
-			
-			// 
-			// frmsupplier
-			// 
-			this.AutoScroll = true;
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(400, 359);
-			this.Name = "frmsupplier";
-			this.Text = "frmsupplier";
-			this.Load += new System.EventHandler(this.frmsupplier_Load);
-			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmsupplier_FormClosing);
-			((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-			this.bindingNavigator1.ResumeLayout(false);
-			this.bindingNavigator1.PerformLayout();
-			this.Text = "Supplier";
-			((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
-			this.Controls.Add(this.panel3);
-			this.panel3.ResumeLayout(false);
-			this.panel3.PerformLayout();
-			
-			this.Controls.Add(this.bindingNavigator1);
-			this.Panel1.ResumeLayout(false);
-			this.Panel1.PerformLayout();
-			this.ResumeLayout(false);
-			this.PerformLayout();
-			
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.suppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.supplier_nameTextBox = new System.Windows.Forms.TextBox();
+            this.supplier_emailTextBox = new System.Windows.Forms.TextBox();
+            this.supplier_wphoneTextBox = new System.Windows.Forms.TextBox();
+            this.supplier_faxTextBox = new System.Windows.Forms.TextBox();
+            this.supplier_skipeTextBox = new System.Windows.Forms.TextBox();
+            this.supplier_addressTextBox = new System.Windows.Forms.TextBox();
+            this.supplier_descriptionTextBox = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonAddNew = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.dataGridViewSuppliers = new System.Windows.Forms.DataGridView();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.client_addressLabel = new System.Windows.Forms.Label();
+            this.client_skipeLabel = new System.Windows.Forms.Label();
+            this.client_emailLabel = new System.Windows.Forms.Label();
+            this.client_wphoneLabel = new System.Windows.Forms.Label();
+            this.client_nameLabel = new System.Windows.Forms.Label();
+            this.client_faxLabel = new System.Windows.Forms.Label();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.client_descriptionLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.suppliersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSuppliers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // supplier_nameTextBox
+            // 
+            this.supplier_nameTextBox.Location = new System.Drawing.Point(12, 29);
+            this.supplier_nameTextBox.Name = "supplier_nameTextBox";
+            this.supplier_nameTextBox.Size = new System.Drawing.Size(511, 23);
+            this.supplier_nameTextBox.TabIndex = 4;
+            this.supplier_nameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.supplier_nameTextBox_Validating);
+            // 
+            // supplier_emailTextBox
+            // 
+            this.supplier_emailTextBox.Location = new System.Drawing.Point(755, 29);
+            this.supplier_emailTextBox.Name = "supplier_emailTextBox";
+            this.supplier_emailTextBox.Size = new System.Drawing.Size(220, 23);
+            this.supplier_emailTextBox.TabIndex = 12;
+            this.supplier_emailTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.supplier_emailTextBox_Validating);
+            // 
+            // supplier_wphoneTextBox
+            // 
+            this.supplier_wphoneTextBox.Location = new System.Drawing.Point(529, 29);
+            this.supplier_wphoneTextBox.Name = "supplier_wphoneTextBox";
+            this.supplier_wphoneTextBox.Size = new System.Drawing.Size(220, 23);
+            this.supplier_wphoneTextBox.TabIndex = 16;
+            this.supplier_wphoneTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.supplier_wphoneTextBox_Validating);
+            // 
+            // supplier_faxTextBox
+            // 
+            this.supplier_faxTextBox.Location = new System.Drawing.Point(529, 78);
+            this.supplier_faxTextBox.Name = "supplier_faxTextBox";
+            this.supplier_faxTextBox.Size = new System.Drawing.Size(220, 23);
+            this.supplier_faxTextBox.TabIndex = 18;
+            this.supplier_faxTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.supplier_faxTextBox_Validating);
+            // 
+            // supplier_skipeTextBox
+            // 
+            this.supplier_skipeTextBox.Location = new System.Drawing.Point(755, 78);
+            this.supplier_skipeTextBox.Name = "supplier_skipeTextBox";
+            this.supplier_skipeTextBox.Size = new System.Drawing.Size(220, 23);
+            this.supplier_skipeTextBox.TabIndex = 20;
+            this.supplier_skipeTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.supplier_skipeTextBox_Validating);
+            // 
+            // supplier_addressTextBox
+            // 
+            this.supplier_addressTextBox.Location = new System.Drawing.Point(12, 77);
+            this.supplier_addressTextBox.Name = "supplier_addressTextBox";
+            this.supplier_addressTextBox.Size = new System.Drawing.Size(511, 23);
+            this.supplier_addressTextBox.TabIndex = 22;
+            this.supplier_addressTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.supplier_addressTextBox_Validating);
+            // 
+            // supplier_descriptionTextBox
+            // 
+            this.supplier_descriptionTextBox.Location = new System.Drawing.Point(981, 29);
+            this.supplier_descriptionTextBox.Multiline = true;
+            this.supplier_descriptionTextBox.Name = "supplier_descriptionTextBox";
+            this.supplier_descriptionTextBox.Size = new System.Drawing.Size(301, 72);
+            this.supplier_descriptionTextBox.TabIndex = 24;
+            this.supplier_descriptionTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.supplier_descriptionTextBox_Validating);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.Controls.Add(this.buttonAddNew);
+            this.panel2.Controls.Add(this.buttonSave);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.panel2.Location = new System.Drawing.Point(0, 643);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1450, 44);
+            this.panel2.TabIndex = 6;
+            // 
+            // buttonAddNew
+            // 
+            this.buttonAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAddNew.Location = new System.Drawing.Point(1198, 4);
+            this.buttonAddNew.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonAddNew.Name = "buttonAddNew";
+            this.buttonAddNew.Size = new System.Drawing.Size(120, 36);
+            this.buttonAddNew.TabIndex = 37;
+            this.buttonAddNew.Text = "Добавить";
+            this.buttonAddNew.UseVisualStyleBackColor = true;
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSave.Location = new System.Drawing.Point(1326, 4);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(120, 36);
+            this.buttonSave.TabIndex = 36;
+            this.buttonSave.Text = "Сохранить";
+            // 
+            // dataGridViewSuppliers
+            // 
+            this.dataGridViewSuppliers.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewSuppliers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewSuppliers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewSuppliers.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSuppliers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewSuppliers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSuppliers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewSuppliers.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridViewSuppliers.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewSuppliers.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewSuppliers.Name = "dataGridViewSuppliers";
+            this.dataGridViewSuppliers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewSuppliers.Size = new System.Drawing.Size(1450, 522);
+            this.dataGridViewSuppliers.TabIndex = 24;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.BackColor = System.Drawing.SystemColors.Control;
+            this.splitContainer1.IsSplitterFixed = true;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.splitContainer1.Panel1.Controls.Add(this.supplier_addressTextBox);
+            this.splitContainer1.Panel1.Controls.Add(this.supplier_faxTextBox);
+            this.splitContainer1.Panel1.Controls.Add(this.supplier_wphoneTextBox);
+            this.splitContainer1.Panel1.Controls.Add(this.supplier_emailTextBox);
+            this.splitContainer1.Panel1.Controls.Add(this.client_addressLabel);
+            this.splitContainer1.Panel1.Controls.Add(this.supplier_nameTextBox);
+            this.splitContainer1.Panel1.Controls.Add(this.client_skipeLabel);
+            this.splitContainer1.Panel1.Controls.Add(this.client_emailLabel);
+            this.splitContainer1.Panel1.Controls.Add(this.client_wphoneLabel);
+            this.splitContainer1.Panel1.Controls.Add(this.supplier_skipeTextBox);
+            this.splitContainer1.Panel1.Controls.Add(this.client_nameLabel);
+            this.splitContainer1.Panel1.Controls.Add(this.client_faxLabel);
+            this.splitContainer1.Panel1.Controls.Add(this.supplier_descriptionTextBox);
+            this.splitContainer1.Panel1.Controls.Add(this.buttonCancel);
+            this.splitContainer1.Panel1.Controls.Add(this.client_descriptionLabel);
+            this.splitContainer1.Panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.splitContainer1.Panel1MinSize = 0;
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.dataGridViewSuppliers);
+            this.splitContainer1.Size = new System.Drawing.Size(1450, 643);
+            this.splitContainer1.SplitterDistance = 120;
+            this.splitContainer1.SplitterWidth = 1;
+            this.splitContainer1.TabIndex = 5;
+            // 
+            // client_addressLabel
+            // 
+            this.client_addressLabel.AutoSize = true;
+            this.client_addressLabel.Location = new System.Drawing.Point(12, 55);
+            this.client_addressLabel.Name = "client_addressLabel";
+            this.client_addressLabel.Size = new System.Drawing.Size(48, 17);
+            this.client_addressLabel.TabIndex = 19;
+            this.client_addressLabel.Text = "Адрес";
+            // 
+            // client_skipeLabel
+            // 
+            this.client_skipeLabel.AutoSize = true;
+            this.client_skipeLabel.Location = new System.Drawing.Point(754, 58);
+            this.client_skipeLabel.Name = "client_skipeLabel";
+            this.client_skipeLabel.Size = new System.Drawing.Size(47, 17);
+            this.client_skipeLabel.TabIndex = 17;
+            this.client_skipeLabel.Text = "Skype";
+            // 
+            // client_emailLabel
+            // 
+            this.client_emailLabel.AutoSize = true;
+            this.client_emailLabel.Location = new System.Drawing.Point(754, 9);
+            this.client_emailLabel.Name = "client_emailLabel";
+            this.client_emailLabel.Size = new System.Drawing.Size(47, 17);
+            this.client_emailLabel.TabIndex = 11;
+            this.client_emailLabel.Text = "E-mail";
+            // 
+            // client_wphoneLabel
+            // 
+            this.client_wphoneLabel.AutoSize = true;
+            this.client_wphoneLabel.Location = new System.Drawing.Point(526, 9);
+            this.client_wphoneLabel.Name = "client_wphoneLabel";
+            this.client_wphoneLabel.Size = new System.Drawing.Size(68, 17);
+            this.client_wphoneLabel.TabIndex = 13;
+            this.client_wphoneLabel.Text = "Телефон";
+            // 
+            // client_nameLabel
+            // 
+            this.client_nameLabel.AutoSize = true;
+            this.client_nameLabel.Location = new System.Drawing.Point(9, 9);
+            this.client_nameLabel.Name = "client_nameLabel";
+            this.client_nameLabel.Size = new System.Drawing.Size(81, 17);
+            this.client_nameLabel.TabIndex = 9;
+            this.client_nameLabel.Text = "Поставщик";
+            // 
+            // client_faxLabel
+            // 
+            this.client_faxLabel.AutoSize = true;
+            this.client_faxLabel.Location = new System.Drawing.Point(526, 58);
+            this.client_faxLabel.Name = "client_faxLabel";
+            this.client_faxLabel.Size = new System.Drawing.Size(43, 17);
+            this.client_faxLabel.TabIndex = 15;
+            this.client_faxLabel.Text = "Факс";
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancel.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonCancel.Location = new System.Drawing.Point(1289, 65);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(120, 36);
+            this.buttonCancel.TabIndex = 38;
+            this.buttonCancel.Text = "Отменить";
+            this.buttonCancel.UseVisualStyleBackColor = false;
+            // 
+            // client_descriptionLabel
+            // 
+            this.client_descriptionLabel.AutoSize = true;
+            this.client_descriptionLabel.Location = new System.Drawing.Point(978, 9);
+            this.client_descriptionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.client_descriptionLabel.Name = "client_descriptionLabel";
+            this.client_descriptionLabel.Size = new System.Drawing.Size(74, 17);
+            this.client_descriptionLabel.TabIndex = 30;
+            this.client_descriptionLabel.Text = "Описание";
+            // 
+            // frmsupplier
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1450, 687);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.splitContainer1);
+            this.Name = "frmsupplier";
+            this.Text = "Supplier";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmsupplier_FormClosing);
+            this.Load += new System.EventHandler(this.frmsupplier_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.suppliersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSuppliers)).EndInit();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.ResumeLayout(false);
+
 		}
 		
 		#endregion
-		
-		private System.Windows.Forms.BindingNavigator bindingNavigator1;
-		private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-		private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-		private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-		private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-		private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-		private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-		private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-		private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-		private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-		private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-		private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-		private System.Windows.Forms.ToolStripButton toolStripButton1;
-		private System.Windows.Forms.ErrorProvider errorProvider1;
-		private System.Windows.Forms.Panel Panel1;
-		private System.Windows.Forms.BindingSource supplierBindingSource;
-		private System.Windows.Forms.TextBox supplier_idTextBox;
-		private System.Windows.Forms.Label supplier_idLabel;
-		private System.Windows.Forms.TextBox supplier_nameTextBox;
-		private System.Windows.Forms.Label supplier_nameLabel;
-		private System.Windows.Forms.TextBox supplier_surnameTextBox;
-		private System.Windows.Forms.Label supplier_surnameLabel;
-		private System.Windows.Forms.TextBox supplier_jobtitleTextBox;
-		private System.Windows.Forms.Label supplier_jobtitleLabel;
-		private System.Windows.Forms.TextBox supplier_organisationTextBox;
-		private System.Windows.Forms.Label supplier_organisationLabel;
-		private System.Windows.Forms.TextBox supplier_emailTextBox;
-		private System.Windows.Forms.Label supplier_emailLabel;
-		private System.Windows.Forms.TextBox supplier_mphoneTextBox;
-		private System.Windows.Forms.Label supplier_mphoneLabel;
-		private System.Windows.Forms.TextBox supplier_wphoneTextBox;
-		private System.Windows.Forms.Label supplier_wphoneLabel;
-		private System.Windows.Forms.TextBox supplier_faxTextBox;
-		private System.Windows.Forms.Label supplier_faxLabel;
-		private System.Windows.Forms.TextBox supplier_skipeTextBox;
-		private System.Windows.Forms.Label supplier_skipeLabel;
-		private System.Windows.Forms.TextBox supplier_addressTextBox;
-		private System.Windows.Forms.Label supplier_addressLabel;
-		private System.Windows.Forms.TextBox supplier_descriptionTextBox;
-		private System.Windows.Forms.Label supplier_descriptionLabel;
-		private System.Windows.Forms.Panel panel3;
-		private System.Windows.Forms.Panel panel4;
-		private System.Windows.Forms.Panel panel5;
-		private System.Windows.Forms.Panel panel6;
+
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.BindingSource suppliersBindingSource;
+        private System.Windows.Forms.TextBox supplier_nameTextBox;
+        private System.Windows.Forms.TextBox supplier_emailTextBox;
+        private System.Windows.Forms.TextBox supplier_wphoneTextBox;
+        private System.Windows.Forms.TextBox supplier_faxTextBox;
+        private System.Windows.Forms.TextBox supplier_skipeTextBox;
+        private System.Windows.Forms.TextBox supplier_addressTextBox;
+        private System.Windows.Forms.TextBox supplier_descriptionTextBox;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button buttonAddNew;
+        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Label client_addressLabel;
+        private System.Windows.Forms.Label client_skipeLabel;
+        private System.Windows.Forms.Label client_emailLabel;
+        private System.Windows.Forms.Label client_wphoneLabel;
+        private System.Windows.Forms.Label client_nameLabel;
+        private System.Windows.Forms.Label client_faxLabel;
+        private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Label client_descriptionLabel;
+        private System.Windows.Forms.DataGridView dataGridViewSuppliers;
 		
 	}
 }

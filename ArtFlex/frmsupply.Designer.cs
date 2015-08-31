@@ -39,435 +39,222 @@ namespace ArtFlex
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmsupply));
-			this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
-			this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-			this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-			this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-			this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-			this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-			this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-			this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-			this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-			this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-			this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-			this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-			this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-			
-			this.Panel1 = new System.Windows.Forms.Panel();
-			
-			this.supplyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.panel3 = new System.Windows.Forms.Panel();
-			this.panel4 = new System.Windows.Forms.Panel();
-			this.panel5 = new System.Windows.Forms.Panel();
-			this.panel6 = new System.Windows.Forms.Panel();
-			
-			((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-			this.bindingNavigator1.SuspendLayout();
-			this.panel3.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.supplyBindingSource)).BeginInit();
-			
-			this.Panel1.SuspendLayout();
-			this.SuspendLayout();
-			// 
-			// bindingNavigator1
-			// 
-			this.bindingNavigator1.AddNewItem = null;
-			this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
-			this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
-			this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.bindingNavigatorMoveFirstItem,
-			this.bindingNavigatorMovePreviousItem,
-			this.bindingNavigatorSeparator,
-			this.bindingNavigatorPositionItem,
-			this.bindingNavigatorCountItem,
-			this.bindingNavigatorSeparator1,
-			this.bindingNavigatorMoveNextItem,
-			this.bindingNavigatorMoveLastItem,
-			this.bindingNavigatorSeparator2,
-			this.bindingNavigatorAddNewItem,
-			this.bindingNavigatorDeleteItem,
-			this.toolStripButton1});
-			this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
-			this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-			this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
-			this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
-			this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-			this.bindingNavigator1.Name = "bindingNavigator1";
-			this.bindingNavigator1.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-			this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-			this.bindingNavigator1.Size = new System.Drawing.Size(360, 25);
-			this.bindingNavigator1.TabIndex = 0;
-			this.bindingNavigator1.Text = "bindingNavigator1";
-			// 
-			// bindingNavigatorAddNewItem
-			// 
-			this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-			this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-			this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-			this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-			this.bindingNavigatorAddNewItem.Text = "Add new";
-			this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
-			// 
-			// bindingNavigatorCountItem
-			// 
-			this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-			this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-			this.bindingNavigatorCountItem.Text = "of {0}";
-			this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-			// 
-			// bindingNavigatorDeleteItem
-			// 
-			this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-			this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-			this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-			this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-			this.bindingNavigatorDeleteItem.Text = "Delete";
-			// 
-			// bindingNavigatorMoveFirstItem
-			// 
-			this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-			this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-			this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-			this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-			this.bindingNavigatorMoveFirstItem.Text = "Move first";
-			// 
-			// bindingNavigatorMovePreviousItem
-			// 
-			this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-			this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-			this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-			this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-			this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-			// 
-			// bindingNavigatorSeparator
-			// 
-			this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-			this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-			// 
-			// bindingNavigatorPositionItem
-			// 
-			this.bindingNavigatorPositionItem.AccessibleName = "Position";
-			this.bindingNavigatorPositionItem.AutoSize = false;
-			this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-			this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-			this.bindingNavigatorPositionItem.Text = "0";
-			this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-			// 
-			// bindingNavigatorSeparator1
-			// 
-			this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-			this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-			// 
-			// bindingNavigatorMoveNextItem
-			// 
-			this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-			this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-			this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-			this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-			this.bindingNavigatorMoveNextItem.Text = "Move next";
-			// 
-			// bindingNavigatorMoveLastItem
-			// 
-			this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-			this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-			this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-			this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-			this.bindingNavigatorMoveLastItem.Text = "Move last";
-			// 
-			// bindingNavigatorSeparator2
-			// 
-			this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-			this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-			// 
-			// toolStripButton1
-			// 
-			this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorSaveItem.Image")));
-			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton1.Name = "toolStripButton1";
-			this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton1.Text = "Save";
-			this.toolStripButton1.Click += new System.EventHandler(this.Save_Click);
-			// 
-			// errorProvider1
-			// 
-			this.errorProvider1.ContainerControl = this;
-			//
-			// Panel1
-			//
-			this.Panel1.AutoScroll = true;
-			this.Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.Panel1.Location = new System.Drawing.Point(0, 25);
-			this.Panel1.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
-			this.Panel1.Name = "Panel1";
-			this.Panel1.Size = new System.Drawing.Size(656, 183);
-			this.Panel1.TabIndex = 1;
-			this.Panel1.AutoSize = true;
-			
-			this.bindingNavigator1.BindingSource = this.supplyBindingSource;
-			//
-			// supply_idLabel
-			//
-			this.supply_idLabel = new System.Windows.Forms.Label();
-			this.supply_idLabel.AutoSize = true;
-			this.supply_idLabel.Location = new System.Drawing.Point( 93, 50 );
-			this.supply_idLabel.Name = "supply_idLabel";
-			this.supply_idLabel.Size = new System.Drawing.Size( 51, 13 );
-			this.supply_idLabel.TabIndex = 1;
-			this.supply_idLabel.Text = "supply_id";
-			this.Panel1.Controls.Add( this.supply_idLabel );
-			//
-			// supply_idTextBox
-			//
-			this.supply_idTextBox = new System.Windows.Forms.TextBox();
-			this.supply_idTextBox.Location = new System.Drawing.Point( 154, 50 );
-			this.supply_idTextBox.Name = "supply_idTextBox";
-			this.supply_idTextBox.Size = new System.Drawing.Size( 100, 20 );
-			this.supply_idTextBox.TabIndex = 2;
-			this.supply_idTextBox.Validating += new System.ComponentModel.CancelEventHandler( this.supply_idTextBox_Validating );
-			this.Panel1.Controls.Add( this.supply_idTextBox);
-			//
-			// supply_quantityLabel
-			//
-			this.supply_quantityLabel = new System.Windows.Forms.Label();
-			this.supply_quantityLabel.AutoSize = true;
-			this.supply_quantityLabel.Location = new System.Drawing.Point( 64, 76 );
-			this.supply_quantityLabel.Name = "supply_quantityLabel";
-			this.supply_quantityLabel.Size = new System.Drawing.Size( 80, 13 );
-			this.supply_quantityLabel.TabIndex = 3;
-			this.supply_quantityLabel.Text = "supply_quantity";
-			this.Panel1.Controls.Add( this.supply_quantityLabel );
-			//
-			// supply_quantityTextBox
-			//
-			this.supply_quantityTextBox = new System.Windows.Forms.TextBox();
-			this.supply_quantityTextBox.Location = new System.Drawing.Point( 154, 76 );
-			this.supply_quantityTextBox.Name = "supply_quantityTextBox";
-			this.supply_quantityTextBox.Size = new System.Drawing.Size( 100, 20 );
-			this.supply_quantityTextBox.TabIndex = 4;
-			this.supply_quantityTextBox.Validating += new System.ComponentModel.CancelEventHandler( this.supply_quantityTextBox_Validating );
-			this.Panel1.Controls.Add( this.supply_quantityTextBox);
-			//
-			// material_idLabel
-			//
-			this.material_idLabel = new System.Windows.Forms.Label();
-			this.material_idLabel.AutoSize = true;
-			this.material_idLabel.Location = new System.Drawing.Point( 87, 102 );
-			this.material_idLabel.Name = "material_idLabel";
-			this.material_idLabel.Size = new System.Drawing.Size( 57, 13 );
-			this.material_idLabel.TabIndex = 5;
-			this.material_idLabel.Text = "material_id";
-			this.Panel1.Controls.Add( this.material_idLabel );
-			//
-			// material_idTextBox
-			//
-			this.material_idTextBox = new System.Windows.Forms.TextBox();
-			this.material_idTextBox.Location = new System.Drawing.Point( 154, 102 );
-			this.material_idTextBox.Name = "material_idTextBox";
-			this.material_idTextBox.Size = new System.Drawing.Size( 100, 20 );
-			this.material_idTextBox.TabIndex = 6;
-			this.material_idTextBox.Validating += new System.ComponentModel.CancelEventHandler( this.material_idTextBox_Validating );
-			this.Panel1.Controls.Add( this.material_idTextBox);
-			//
-			// supply_summLabel
-			//
-			this.supply_summLabel = new System.Windows.Forms.Label();
-			this.supply_summLabel.AutoSize = true;
-			this.supply_summLabel.Location = new System.Drawing.Point( 74, 128 );
-			this.supply_summLabel.Name = "supply_summLabel";
-			this.supply_summLabel.Size = new System.Drawing.Size( 70, 13 );
-			this.supply_summLabel.TabIndex = 7;
-			this.supply_summLabel.Text = "supply_summ";
-			this.Panel1.Controls.Add( this.supply_summLabel );
-			//
-			// supply_summTextBox
-			//
-			this.supply_summTextBox = new System.Windows.Forms.TextBox();
-			this.supply_summTextBox.Location = new System.Drawing.Point( 154, 128 );
-			this.supply_summTextBox.Name = "supply_summTextBox";
-			this.supply_summTextBox.Size = new System.Drawing.Size( 100, 20 );
-			this.supply_summTextBox.TabIndex = 8;
-			this.supply_summTextBox.Validating += new System.ComponentModel.CancelEventHandler( this.supply_summTextBox_Validating );
-			this.Panel1.Controls.Add( this.supply_summTextBox);
-			//
-			// supply_costunitLabel
-			//
-			this.supply_costunitLabel = new System.Windows.Forms.Label();
-			this.supply_costunitLabel.AutoSize = true;
-			this.supply_costunitLabel.Location = new System.Drawing.Point( 378, 50 );
-			this.supply_costunitLabel.Name = "supply_costunitLabel";
-			this.supply_costunitLabel.Size = new System.Drawing.Size( 80, 13 );
-			this.supply_costunitLabel.TabIndex = 9;
-			this.supply_costunitLabel.Text = "supply_costunit";
-			this.Panel1.Controls.Add( this.supply_costunitLabel );
-			//
-			// supply_costunitTextBox
-			//
-			this.supply_costunitTextBox = new System.Windows.Forms.TextBox();
-			this.supply_costunitTextBox.Location = new System.Drawing.Point( 468, 50 );
-			this.supply_costunitTextBox.Name = "supply_costunitTextBox";
-			this.supply_costunitTextBox.Size = new System.Drawing.Size( 100, 20 );
-			this.supply_costunitTextBox.TabIndex = 10;
-			this.supply_costunitTextBox.Validating += new System.ComponentModel.CancelEventHandler( this.supply_costunitTextBox_Validating );
-			this.Panel1.Controls.Add( this.supply_costunitTextBox);
-			//
-			// supply_descriptionLabel
-			//
-			this.supply_descriptionLabel = new System.Windows.Forms.Label();
-			this.supply_descriptionLabel.AutoSize = true;
-			this.supply_descriptionLabel.Location = new System.Drawing.Point( 364, 76 );
-			this.supply_descriptionLabel.Name = "supply_descriptionLabel";
-			this.supply_descriptionLabel.Size = new System.Drawing.Size( 94, 13 );
-			this.supply_descriptionLabel.TabIndex = 11;
-			this.supply_descriptionLabel.Text = "supply_description";
-			this.Panel1.Controls.Add( this.supply_descriptionLabel );
-			//
-			// supply_descriptionTextBox
-			//
-			this.supply_descriptionTextBox = new System.Windows.Forms.TextBox();
-			this.supply_descriptionTextBox.Location = new System.Drawing.Point( 468, 76 );
-			this.supply_descriptionTextBox.Name = "supply_descriptionTextBox";
-			this.supply_descriptionTextBox.Size = new System.Drawing.Size( 100, 20 );
-			this.supply_descriptionTextBox.TabIndex = 12;
-			this.supply_descriptionTextBox.Validating += new System.ComponentModel.CancelEventHandler( this.supply_descriptionTextBox_Validating );
-			this.Panel1.Controls.Add( this.supply_descriptionTextBox);
-			//
-			// waybill_idLabel
-			//
-			this.waybill_idLabel = new System.Windows.Forms.Label();
-			this.waybill_idLabel.AutoSize = true;
-			this.waybill_idLabel.Location = new System.Drawing.Point( 406, 102 );
-			this.waybill_idLabel.Name = "waybill_idLabel";
-			this.waybill_idLabel.Size = new System.Drawing.Size( 52, 13 );
-			this.waybill_idLabel.TabIndex = 13;
-			this.waybill_idLabel.Text = "waybill_id";
-			this.Panel1.Controls.Add( this.waybill_idLabel );
-			//
-			// waybill_idTextBox
-			//
-			this.waybill_idTextBox = new System.Windows.Forms.TextBox();
-			this.waybill_idTextBox.Location = new System.Drawing.Point( 468, 102 );
-			this.waybill_idTextBox.Name = "waybill_idTextBox";
-			this.waybill_idTextBox.Size = new System.Drawing.Size( 100, 20 );
-			this.waybill_idTextBox.TabIndex = 14;
-			this.waybill_idTextBox.Validating += new System.ComponentModel.CancelEventHandler( this.waybill_idTextBox_Validating );
-			this.Panel1.Controls.Add( this.waybill_idTextBox);
-			//
-			// supply_createtimeLabel
-			//
-			this.supply_createtimeLabel = new System.Windows.Forms.Label();
-			this.supply_createtimeLabel.AutoSize = true;
-			this.supply_createtimeLabel.Location = new System.Drawing.Point( 366, 128 );
-			this.supply_createtimeLabel.Name = "supply_createtimeLabel";
-			this.supply_createtimeLabel.Size = new System.Drawing.Size( 92, 13 );
-			this.supply_createtimeLabel.TabIndex = 15;
-			this.supply_createtimeLabel.Text = "supply_createtime";
-			this.Panel1.Controls.Add( this.supply_createtimeLabel );
-			//
-			// supply_createtimeTextBox
-			//
-			this.supply_createtimeTextBox = new System.Windows.Forms.TextBox();
-			this.supply_createtimeTextBox.Location = new System.Drawing.Point( 468, 128 );
-			this.supply_createtimeTextBox.Name = "supply_createtimeTextBox";
-			this.supply_createtimeTextBox.Size = new System.Drawing.Size( 100, 20 );
-			this.supply_createtimeTextBox.TabIndex = 16;
-			this.supply_createtimeTextBox.Enabled = false;
-			this.Panel1.Controls.Add( this.supply_createtimeTextBox);
-			// 
-			// panel4
-			// 
-			this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-			this.panel4.Location = new System.Drawing.Point(656, 0);
-			this.panel4.Name = "panel4";
-			this.panel4.Size = new System.Drawing.Size(10, 183);
-			this.panel4.TabIndex = 3;
-			// 
-			// panel3
-			// 
-			this.panel3.Controls.Add(this.Panel1);
-			this.panel3.Controls.Add(this.panel4);
-			this.panel3.Controls.Add(this.panel5);
-			this.panel3.Controls.Add(this.panel6);
-			this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel3.Location = new System.Drawing.Point(0, 25);
-			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(666, 183);
-			this.panel3.TabIndex = 19;
-			// 
-			// panel5
-			// 
-			this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
-			this.panel5.Location = new System.Drawing.Point(0, 0);
-			this.panel5.Name = "panel5";
-			this.panel5.Size = new System.Drawing.Size(10, 183);
-			this.panel5.TabIndex = 5;
-			// 
-			// panel6
-			// 
-			this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panel6.Location = new System.Drawing.Point(0, 324);
-			this.panel6.Name = "panel6";
-			this.panel6.Size = new System.Drawing.Size(400, 10);
-			this.panel6.TabIndex = 6;
-			
-			
-			// 
-			// frmsupply
-			// 
-			this.AutoScroll = true;
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(400, 359);
-			this.Name = "frmsupply";
-			this.Text = "frmsupply";
-			this.Load += new System.EventHandler(this.frmsupply_Load);
-			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmsupply_FormClosing);
-			((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-			this.bindingNavigator1.ResumeLayout(false);
-			this.bindingNavigator1.PerformLayout();
-			this.Text = "Supply";
-			((System.ComponentModel.ISupportInitialize)(this.supplyBindingSource)).EndInit();
-			this.Controls.Add(this.panel3);
-			this.panel3.ResumeLayout(false);
-			this.panel3.PerformLayout();
-			
-			this.Controls.Add(this.bindingNavigator1);
-			this.Panel1.ResumeLayout(false);
-			this.Panel1.PerformLayout();
-			this.ResumeLayout(false);
-			this.PerformLayout();
-			
+            this.components = new System.ComponentModel.Container();
+            this.suppliesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Panel1 = new System.Windows.Forms.Panel();
+            this.supply_idLabel = new System.Windows.Forms.Label();
+            this.supply_idTextBox = new System.Windows.Forms.TextBox();
+            this.supply_quantityLabel = new System.Windows.Forms.Label();
+            this.supply_quantityTextBox = new System.Windows.Forms.TextBox();
+            this.material_idLabel = new System.Windows.Forms.Label();
+            this.material_idTextBox = new System.Windows.Forms.TextBox();
+            this.supply_summLabel = new System.Windows.Forms.Label();
+            this.supply_summTextBox = new System.Windows.Forms.TextBox();
+            this.supply_costunitLabel = new System.Windows.Forms.Label();
+            this.supply_costunitTextBox = new System.Windows.Forms.TextBox();
+            this.supply_descriptionLabel = new System.Windows.Forms.Label();
+            this.supply_descriptionTextBox = new System.Windows.Forms.TextBox();
+            this.waybill_idLabel = new System.Windows.Forms.Label();
+            this.waybill_idTextBox = new System.Windows.Forms.TextBox();
+            this.supply_createtimeLabel = new System.Windows.Forms.Label();
+            this.supply_createtimeTextBox = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.suppliesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.Panel1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // Panel1
+            // 
+            this.Panel1.AutoScroll = true;
+            this.Panel1.AutoSize = true;
+            this.Panel1.Controls.Add(this.supply_idLabel);
+            this.Panel1.Controls.Add(this.supply_idTextBox);
+            this.Panel1.Controls.Add(this.supply_quantityLabel);
+            this.Panel1.Controls.Add(this.supply_quantityTextBox);
+            this.Panel1.Controls.Add(this.material_idLabel);
+            this.Panel1.Controls.Add(this.material_idTextBox);
+            this.Panel1.Controls.Add(this.supply_summLabel);
+            this.Panel1.Controls.Add(this.supply_summTextBox);
+            this.Panel1.Controls.Add(this.supply_costunitLabel);
+            this.Panel1.Controls.Add(this.supply_costunitTextBox);
+            this.Panel1.Controls.Add(this.supply_descriptionLabel);
+            this.Panel1.Controls.Add(this.supply_descriptionTextBox);
+            this.Panel1.Controls.Add(this.waybill_idLabel);
+            this.Panel1.Controls.Add(this.waybill_idTextBox);
+            this.Panel1.Controls.Add(this.supply_createtimeLabel);
+            this.Panel1.Controls.Add(this.supply_createtimeTextBox);
+            this.Panel1.Location = new System.Drawing.Point(158, 281);
+            this.Panel1.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.Panel1.Name = "Panel1";
+            this.Panel1.Size = new System.Drawing.Size(656, 183);
+            this.Panel1.TabIndex = 1;
+            // 
+            // supply_idLabel
+            // 
+            this.supply_idLabel.AutoSize = true;
+            this.supply_idLabel.Location = new System.Drawing.Point(93, 50);
+            this.supply_idLabel.Name = "supply_idLabel";
+            this.supply_idLabel.Size = new System.Drawing.Size(51, 13);
+            this.supply_idLabel.TabIndex = 1;
+            this.supply_idLabel.Text = "supply_id";
+            // 
+            // supply_idTextBox
+            // 
+            this.supply_idTextBox.Location = new System.Drawing.Point(154, 50);
+            this.supply_idTextBox.Name = "supply_idTextBox";
+            this.supply_idTextBox.Size = new System.Drawing.Size(100, 20);
+            this.supply_idTextBox.TabIndex = 2;
+            this.supply_idTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.supply_idTextBox_Validating);
+            // 
+            // supply_quantityLabel
+            // 
+            this.supply_quantityLabel.AutoSize = true;
+            this.supply_quantityLabel.Location = new System.Drawing.Point(64, 76);
+            this.supply_quantityLabel.Name = "supply_quantityLabel";
+            this.supply_quantityLabel.Size = new System.Drawing.Size(80, 13);
+            this.supply_quantityLabel.TabIndex = 3;
+            this.supply_quantityLabel.Text = "supply_quantity";
+            // 
+            // supply_quantityTextBox
+            // 
+            this.supply_quantityTextBox.Location = new System.Drawing.Point(154, 76);
+            this.supply_quantityTextBox.Name = "supply_quantityTextBox";
+            this.supply_quantityTextBox.Size = new System.Drawing.Size(100, 20);
+            this.supply_quantityTextBox.TabIndex = 4;
+            this.supply_quantityTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.supply_quantityTextBox_Validating);
+            // 
+            // material_idLabel
+            // 
+            this.material_idLabel.AutoSize = true;
+            this.material_idLabel.Location = new System.Drawing.Point(87, 102);
+            this.material_idLabel.Name = "material_idLabel";
+            this.material_idLabel.Size = new System.Drawing.Size(57, 13);
+            this.material_idLabel.TabIndex = 5;
+            this.material_idLabel.Text = "material_id";
+            // 
+            // material_idTextBox
+            // 
+            this.material_idTextBox.Location = new System.Drawing.Point(154, 102);
+            this.material_idTextBox.Name = "material_idTextBox";
+            this.material_idTextBox.Size = new System.Drawing.Size(100, 20);
+            this.material_idTextBox.TabIndex = 6;
+            this.material_idTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.material_idTextBox_Validating);
+            // 
+            // supply_summLabel
+            // 
+            this.supply_summLabel.AutoSize = true;
+            this.supply_summLabel.Location = new System.Drawing.Point(74, 128);
+            this.supply_summLabel.Name = "supply_summLabel";
+            this.supply_summLabel.Size = new System.Drawing.Size(70, 13);
+            this.supply_summLabel.TabIndex = 7;
+            this.supply_summLabel.Text = "supply_summ";
+            // 
+            // supply_summTextBox
+            // 
+            this.supply_summTextBox.Location = new System.Drawing.Point(154, 128);
+            this.supply_summTextBox.Name = "supply_summTextBox";
+            this.supply_summTextBox.Size = new System.Drawing.Size(100, 20);
+            this.supply_summTextBox.TabIndex = 8;
+            this.supply_summTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.supply_summTextBox_Validating);
+            // 
+            // supply_costunitLabel
+            // 
+            this.supply_costunitLabel.AutoSize = true;
+            this.supply_costunitLabel.Location = new System.Drawing.Point(378, 50);
+            this.supply_costunitLabel.Name = "supply_costunitLabel";
+            this.supply_costunitLabel.Size = new System.Drawing.Size(80, 13);
+            this.supply_costunitLabel.TabIndex = 9;
+            this.supply_costunitLabel.Text = "supply_costunit";
+            // 
+            // supply_costunitTextBox
+            // 
+            this.supply_costunitTextBox.Location = new System.Drawing.Point(468, 50);
+            this.supply_costunitTextBox.Name = "supply_costunitTextBox";
+            this.supply_costunitTextBox.Size = new System.Drawing.Size(100, 20);
+            this.supply_costunitTextBox.TabIndex = 10;
+            this.supply_costunitTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.supply_costunitTextBox_Validating);
+            // 
+            // supply_descriptionLabel
+            // 
+            this.supply_descriptionLabel.AutoSize = true;
+            this.supply_descriptionLabel.Location = new System.Drawing.Point(364, 76);
+            this.supply_descriptionLabel.Name = "supply_descriptionLabel";
+            this.supply_descriptionLabel.Size = new System.Drawing.Size(94, 13);
+            this.supply_descriptionLabel.TabIndex = 11;
+            this.supply_descriptionLabel.Text = "supply_description";
+            // 
+            // supply_descriptionTextBox
+            // 
+            this.supply_descriptionTextBox.Location = new System.Drawing.Point(468, 76);
+            this.supply_descriptionTextBox.Name = "supply_descriptionTextBox";
+            this.supply_descriptionTextBox.Size = new System.Drawing.Size(100, 20);
+            this.supply_descriptionTextBox.TabIndex = 12;
+            this.supply_descriptionTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.supply_descriptionTextBox_Validating);
+            // 
+            // waybill_idLabel
+            // 
+            this.waybill_idLabel.AutoSize = true;
+            this.waybill_idLabel.Location = new System.Drawing.Point(406, 102);
+            this.waybill_idLabel.Name = "waybill_idLabel";
+            this.waybill_idLabel.Size = new System.Drawing.Size(52, 13);
+            this.waybill_idLabel.TabIndex = 13;
+            this.waybill_idLabel.Text = "waybill_id";
+            // 
+            // waybill_idTextBox
+            // 
+            this.waybill_idTextBox.Location = new System.Drawing.Point(468, 102);
+            this.waybill_idTextBox.Name = "waybill_idTextBox";
+            this.waybill_idTextBox.Size = new System.Drawing.Size(100, 20);
+            this.waybill_idTextBox.TabIndex = 14;
+            this.waybill_idTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.waybill_idTextBox_Validating);
+            // 
+            // supply_createtimeLabel
+            // 
+            this.supply_createtimeLabel.AutoSize = true;
+            this.supply_createtimeLabel.Location = new System.Drawing.Point(366, 128);
+            this.supply_createtimeLabel.Name = "supply_createtimeLabel";
+            this.supply_createtimeLabel.Size = new System.Drawing.Size(92, 13);
+            this.supply_createtimeLabel.TabIndex = 15;
+            this.supply_createtimeLabel.Text = "supply_createtime";
+            // 
+            // supply_createtimeTextBox
+            // 
+            this.supply_createtimeTextBox.Enabled = false;
+            this.supply_createtimeTextBox.Location = new System.Drawing.Point(468, 128);
+            this.supply_createtimeTextBox.Name = "supply_createtimeTextBox";
+            this.supply_createtimeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.supply_createtimeTextBox.TabIndex = 16;
+            // 
+            // frmsupply
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1450, 687);
+            this.Controls.Add(this.Panel1);
+            this.Name = "frmsupply";
+            this.Text = "Supply";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmsupply_FormClosing);
+            this.Load += new System.EventHandler(this.frmsupply_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.suppliesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.Panel1.ResumeLayout(false);
+            this.Panel1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
 		}
 		
 		#endregion
-		
-		private System.Windows.Forms.BindingNavigator bindingNavigator1;
-		private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-		private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-		private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-		private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-		private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-		private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-		private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-		private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-		private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-		private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-		private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-		private System.Windows.Forms.ToolStripButton toolStripButton1;
-		private System.Windows.Forms.ErrorProvider errorProvider1;
+
+        private System.Windows.Forms.ErrorProvider errorProvider1;
 		private System.Windows.Forms.Panel Panel1;
-		private System.Windows.Forms.BindingSource supplyBindingSource;
+		private System.Windows.Forms.BindingSource suppliesBindingSource;
 		private System.Windows.Forms.TextBox supply_idTextBox;
 		private System.Windows.Forms.Label supply_idLabel;
 		private System.Windows.Forms.TextBox supply_quantityTextBox;
@@ -483,11 +270,7 @@ namespace ArtFlex
 		private System.Windows.Forms.TextBox waybill_idTextBox;
 		private System.Windows.Forms.Label waybill_idLabel;
 		private System.Windows.Forms.TextBox supply_createtimeTextBox;
-		private System.Windows.Forms.Label supply_createtimeLabel;
-		private System.Windows.Forms.Panel panel3;
-		private System.Windows.Forms.Panel panel4;
-		private System.Windows.Forms.Panel panel5;
-		private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label supply_createtimeLabel;
 		
 	}
 }

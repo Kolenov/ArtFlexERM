@@ -38,22 +38,22 @@ namespace ArtFlex
 			context = new ArtflexDbContext();
 			context.supplies.Load();
 			BindingList<supplies> _entities = context.supplies.Local.ToBindingList();
-			supplyBindingSource.DataSource = _entities;
-			this.supply_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplyBindingSource, "supply_id", true ));
-			this.supply_quantityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplyBindingSource, "", true ));
-			this.material_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplyBindingSource, "material_id", true ));
-			this.supply_summTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplyBindingSource, "", true ));
-			this.supply_costunitTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplyBindingSource, "", true ));
-			this.supply_descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplyBindingSource, "supply_description", true ));
-			this.waybill_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplyBindingSource, "waybill_id", true ));
-			this.supply_createtimeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplyBindingSource, "supply_createtime", true ));
+			suppliesBindingSource.DataSource = _entities;
+			this.supply_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.suppliesBindingSource, "supply_id", true ));
+			this.supply_quantityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.suppliesBindingSource, "", true ));
+			this.material_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.suppliesBindingSource, "material_id", true ));
+			this.supply_summTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.suppliesBindingSource, "", true ));
+			this.supply_costunitTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.suppliesBindingSource, "", true ));
+			this.supply_descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.suppliesBindingSource, "supply_description", true ));
+			this.waybill_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.suppliesBindingSource, "waybill_id", true ));
+			this.supply_createtimeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.suppliesBindingSource, "supply_createtime", true ));
 			
 		}
 		
 		private void Save_Click(object sender, EventArgs e)
 		{
 			if (!this.Validate()) return;
-			supplyBindingSource.EndEdit();
+			suppliesBindingSource.EndEdit();
 			context.SaveChanges();
 			
 		}
@@ -187,7 +187,7 @@ namespace ArtFlex
 		
 		private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
 		{
-			supplyBindingSource.AddNew();
+			suppliesBindingSource.AddNew();
 		}
 	}
 }
