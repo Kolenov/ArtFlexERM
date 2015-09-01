@@ -79,13 +79,13 @@ namespace ArtFlex
 
     private void frmsupplierToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      frmsupplier f = new frmsupplier();
+      frmsuppliers f = new frmsuppliers();
       f.Show();
     }
 
     private void frmsupplyToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      frmsupply f = new frmsupply();
+      frmsupplies f = new frmsupplies();
       f.Show();
     }
 

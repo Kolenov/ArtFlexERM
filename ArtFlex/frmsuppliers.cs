@@ -25,11 +25,11 @@ using System.Reflection;
 
 namespace ArtFlex
 {
-	public partial class frmsupplier : Form
+	public partial class frmsuppliers : Form
 	{
 		private ArtflexDbContext context;
 		
-		public frmsupplier()
+		public frmsuppliers()
 		{
 			InitializeComponent();
 		}

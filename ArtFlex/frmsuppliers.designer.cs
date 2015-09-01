@@ -11,7 +11,7 @@
 
 namespace ArtFlex
 {
-	partial class frmsupplier
+	partial class frmsuppliers
 	{
 		/// <summary>
 		/// Required designer variable.

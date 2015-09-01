@@ -127,17 +127,17 @@
     <Compile Include="frmrests.designer.cs">
       <DependentUpon>frmrests.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmsupplier.cs">
+    <Compile Include="frmsuppliers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmsupplier.designer.cs">
-      <DependentUpon>frmsupplier.cs</DependentUpon>
+    <Compile Include="frmsuppliers.designer.cs">
+      <DependentUpon>frmsuppliers.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmsupply.cs">
+    <Compile Include="frmsupplies.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmsupply.designer.cs">
-      <DependentUpon>frmsupply.cs</DependentUpon>
+    <Compile Include="frmsupplies.designer.cs">
+      <DependentUpon>frmsupplies.cs</DependentUpon>
     </Compile>
     <Compile Include="frmunits.cs">
       <SubType>Form</SubType>
@@ -148,7 +148,7 @@
     <Compile Include="frmwaybills.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmwaybills.designer.cs">
+    <Compile Include="frmwaybills.Designer.cs">
       <DependentUpon>frmwaybills.cs</DependentUpon>
     </Compile>
     <Compile Include="MyDateTimePickerColumn.cs">
@@ -183,11 +183,11 @@
     <EmbeddedResource Include="frmrests.resx">
       <DependentUpon>frmrests.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmsupplier.resx">
-      <DependentUpon>frmsupplier.cs</DependentUpon>
+    <EmbeddedResource Include="frmsuppliers.resx">
+      <DependentUpon>frmsuppliers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmsupply.resx">
-      <DependentUpon>frmsupply.cs</DependentUpon>
+    <EmbeddedResource Include="frmsupplies.resx">
+      <DependentUpon>frmsupplies.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmunits.resx">
       <DependentUpon>frmunits.cs</DependentUpon>

@@ -40,136 +40,180 @@ namespace ArtFlex
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.formsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.frmcategoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.frmclientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.frmconsumptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.frmemployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.frmjob_titlesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.frmmaterialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.frmordersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.frmrestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.frmsupplierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.frmsupplyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.frmunitsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.frmwaybillsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-
+            this.ñïðàâî÷íèêèToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.frmcategoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.frmmaterialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.frmclientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.frmsupplierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.frmemployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.frmunitsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.frmjob_titlesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.frmordersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ñêëàäToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.frmsupplyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.frmconsumptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.frmrestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.frmwaybillsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.frmordersToolStripMenuItem,
+            this.ñêëàäToolStripMenuItem,
+            this.ñïðàâî÷íèêèToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(284, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1276, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-
-      this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.formsToolStripMenuItem });
-      // 
-      // formsToolStripMenuItem
-      // 
-      this.formsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { 
-      this.frmcategoriesToolStripMenuItem ,       this.frmclientsToolStripMenuItem ,       this.frmconsumptionToolStripMenuItem ,       this.frmemployeesToolStripMenuItem ,       this.frmjob_titlesToolStripMenuItem ,       this.frmmaterialsToolStripMenuItem ,       this.frmordersToolStripMenuItem ,       this.frmrestsToolStripMenuItem ,       this.frmsupplierToolStripMenuItem ,       this.frmsupplyToolStripMenuItem ,       this.frmunitsToolStripMenuItem ,       this.frmwaybillsToolStripMenuItem       });
-      this.formsToolStripMenuItem.Name = "formsToolStripMenuItem";
-      this.formsToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-      this.formsToolStripMenuItem.Text = "Forms"; 
-      // 
-      // frmcategoriesToolStripMenuItem
-      // 
-      this.frmcategoriesToolStripMenuItem.Name = "frmcategoriesToolStripMenuItem";
-      this.frmcategoriesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-      this.frmcategoriesToolStripMenuItem.Text = "categories";
-      this.frmcategoriesToolStripMenuItem.Click += new System.EventHandler(this.frmcategoriesToolStripMenuItem_Click);
-      // 
-      // frmclientsToolStripMenuItem
-      // 
-      this.frmclientsToolStripMenuItem.Name = "frmclientsToolStripMenuItem";
-      this.frmclientsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-      this.frmclientsToolStripMenuItem.Text = "clients";
-      this.frmclientsToolStripMenuItem.Click += new System.EventHandler(this.frmclientsToolStripMenuItem_Click);
-      // 
-      // frmconsumptionToolStripMenuItem
-      // 
-      this.frmconsumptionToolStripMenuItem.Name = "frmconsumptionToolStripMenuItem";
-      this.frmconsumptionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-      this.frmconsumptionToolStripMenuItem.Text = "consumption";
-      this.frmconsumptionToolStripMenuItem.Click += new System.EventHandler(this.frmconsumptionToolStripMenuItem_Click);
-      // 
-      // frmemployeesToolStripMenuItem
-      // 
-      this.frmemployeesToolStripMenuItem.Name = "frmemployeesToolStripMenuItem";
-      this.frmemployeesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-      this.frmemployeesToolStripMenuItem.Text = "employees";
-      this.frmemployeesToolStripMenuItem.Click += new System.EventHandler(this.frmemployeesToolStripMenuItem_Click);
-      // 
-      // frmjob_titlesToolStripMenuItem
-      // 
-      this.frmjob_titlesToolStripMenuItem.Name = "frmjob_titlesToolStripMenuItem";
-      this.frmjob_titlesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-      this.frmjob_titlesToolStripMenuItem.Text = "job_titles";
-      this.frmjob_titlesToolStripMenuItem.Click += new System.EventHandler(this.frmjob_titlesToolStripMenuItem_Click);
-      // 
-      // frmmaterialsToolStripMenuItem
-      // 
-      this.frmmaterialsToolStripMenuItem.Name = "frmmaterialsToolStripMenuItem";
-      this.frmmaterialsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-      this.frmmaterialsToolStripMenuItem.Text = "materials";
-      this.frmmaterialsToolStripMenuItem.Click += new System.EventHandler(this.frmmaterialsToolStripMenuItem_Click);
-      // 
-      // frmordersToolStripMenuItem
-      // 
-      this.frmordersToolStripMenuItem.Name = "frmordersToolStripMenuItem";
-      this.frmordersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-      this.frmordersToolStripMenuItem.Text = "orders";
-      this.frmordersToolStripMenuItem.Click += new System.EventHandler(this.frmordersToolStripMenuItem_Click);
-      // 
-      // frmrestsToolStripMenuItem
-      // 
-      this.frmrestsToolStripMenuItem.Name = "frmrestsToolStripMenuItem";
-      this.frmrestsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-      this.frmrestsToolStripMenuItem.Text = "rests";
-      this.frmrestsToolStripMenuItem.Click += new System.EventHandler(this.frmrestsToolStripMenuItem_Click);
-      // 
-      // frmsupplierToolStripMenuItem
-      // 
-      this.frmsupplierToolStripMenuItem.Name = "frmsupplierToolStripMenuItem";
-      this.frmsupplierToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-      this.frmsupplierToolStripMenuItem.Text = "supplier";
-      this.frmsupplierToolStripMenuItem.Click += new System.EventHandler(this.frmsupplierToolStripMenuItem_Click);
-      // 
-      // frmsupplyToolStripMenuItem
-      // 
-      this.frmsupplyToolStripMenuItem.Name = "frmsupplyToolStripMenuItem";
-      this.frmsupplyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-      this.frmsupplyToolStripMenuItem.Text = "supply";
-      this.frmsupplyToolStripMenuItem.Click += new System.EventHandler(this.frmsupplyToolStripMenuItem_Click);
-      // 
-      // frmunitsToolStripMenuItem
-      // 
-      this.frmunitsToolStripMenuItem.Name = "frmunitsToolStripMenuItem";
-      this.frmunitsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-      this.frmunitsToolStripMenuItem.Text = "units";
-      this.frmunitsToolStripMenuItem.Click += new System.EventHandler(this.frmunitsToolStripMenuItem_Click);
-      // 
-      // frmwaybillsToolStripMenuItem
-      // 
-      this.frmwaybillsToolStripMenuItem.Name = "frmwaybillsToolStripMenuItem";
-      this.frmwaybillsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-      this.frmwaybillsToolStripMenuItem.Text = "waybills";
-      this.frmwaybillsToolStripMenuItem.Click += new System.EventHandler(this.frmwaybillsToolStripMenuItem_Click);
-
+            // 
+            // ñïðàâî÷íèêèToolStripMenuItem
+            // 
+            this.ñïðàâî÷íèêèToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.ñïðàâî÷íèêèToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.frmmaterialsToolStripMenuItem,
+            this.frmcategoriesToolStripMenuItem,
+            this.frmunitsToolStripMenuItem,
+            this.frmclientsToolStripMenuItem,
+            this.frmsupplierToolStripMenuItem,
+            this.frmemployeesToolStripMenuItem,
+            this.frmjob_titlesToolStripMenuItem});
+            this.ñïðàâî÷íèêèToolStripMenuItem.Name = "ñïðàâî÷íèêèToolStripMenuItem";
+            this.ñïðàâî÷íèêèToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.ñïðàâî÷íèêèToolStripMenuItem.Text = "Ñïðàâî÷íèêè";
+            // 
+            // frmcategoriesToolStripMenuItem
+            // 
+            this.frmcategoriesToolStripMenuItem.Name = "frmcategoriesToolStripMenuItem";
+            this.frmcategoriesToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.frmcategoriesToolStripMenuItem.Text = "Êàòåãîðèè";
+            this.frmcategoriesToolStripMenuItem.Click += new System.EventHandler(this.frmcategoriesToolStripMenuItem_Click);
+            // 
+            // frmmaterialsToolStripMenuItem
+            // 
+            this.frmmaterialsToolStripMenuItem.Name = "frmmaterialsToolStripMenuItem";
+            this.frmmaterialsToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.frmmaterialsToolStripMenuItem.Text = "Ìàòåðèàëû";
+            this.frmmaterialsToolStripMenuItem.Click += new System.EventHandler(this.frmmaterialsToolStripMenuItem_Click);
+            // 
+            // frmclientsToolStripMenuItem
+            // 
+            this.frmclientsToolStripMenuItem.Name = "frmclientsToolStripMenuItem";
+            this.frmclientsToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.frmclientsToolStripMenuItem.Text = "Êëèåíòû";
+            this.frmclientsToolStripMenuItem.Click += new System.EventHandler(this.frmclientsToolStripMenuItem_Click);
+            // 
+            // frmsupplierToolStripMenuItem
+            // 
+            this.frmsupplierToolStripMenuItem.Name = "frmsupplierToolStripMenuItem";
+            this.frmsupplierToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.frmsupplierToolStripMenuItem.Text = "Ïîñòàâùèêè";
+            this.frmsupplierToolStripMenuItem.Click += new System.EventHandler(this.frmsupplierToolStripMenuItem_Click);
+            // 
+            // frmemployeesToolStripMenuItem
+            // 
+            this.frmemployeesToolStripMenuItem.Name = "frmemployeesToolStripMenuItem";
+            this.frmemployeesToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.frmemployeesToolStripMenuItem.Text = "Ñîòðóäíèêè";
+            this.frmemployeesToolStripMenuItem.Click += new System.EventHandler(this.frmemployeesToolStripMenuItem_Click);
+            // 
+            // frmunitsToolStripMenuItem
+            // 
+            this.frmunitsToolStripMenuItem.Name = "frmunitsToolStripMenuItem";
+            this.frmunitsToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.frmunitsToolStripMenuItem.Text = "Åäèíèöû èçìåðåíèÿ";
+            this.frmunitsToolStripMenuItem.Click += new System.EventHandler(this.frmunitsToolStripMenuItem_Click);
+            // 
+            // frmjob_titlesToolStripMenuItem
+            // 
+            this.frmjob_titlesToolStripMenuItem.Name = "frmjob_titlesToolStripMenuItem";
+            this.frmjob_titlesToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.frmjob_titlesToolStripMenuItem.Text = "Äîëæíîñòè";
+            this.frmjob_titlesToolStripMenuItem.Click += new System.EventHandler(this.frmjob_titlesToolStripMenuItem_Click);
+            // 
+            // frmordersToolStripMenuItem
+            // 
+            this.frmordersToolStripMenuItem.Name = "frmordersToolStripMenuItem";
+            this.frmordersToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.frmordersToolStripMenuItem.Text = "Çàêàçû";
+            this.frmordersToolStripMenuItem.Click += new System.EventHandler(this.frmordersToolStripMenuItem_Click);
+            // 
+            // ñêëàäToolStripMenuItem
+            // 
+            this.ñêëàäToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.frmsupplyToolStripMenuItem,
+            this.frmconsumptionToolStripMenuItem,
+            this.frmrestsToolStripMenuItem,
+            this.frmwaybillsToolStripMenuItem});
+            this.ñêëàäToolStripMenuItem.Name = "ñêëàäToolStripMenuItem";
+            this.ñêëàäToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.ñêëàäToolStripMenuItem.Text = "Ñêëàä";
+            // 
+            // frmsupplyToolStripMenuItem
+            // 
+            this.frmsupplyToolStripMenuItem.Name = "frmsupplyToolStripMenuItem";
+            this.frmsupplyToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.frmsupplyToolStripMenuItem.Text = "Ïðèõîä";
+            this.frmsupplyToolStripMenuItem.Click += new System.EventHandler(this.frmsupplyToolStripMenuItem_Click);
+            // 
+            // frmconsumptionToolStripMenuItem
+            // 
+            this.frmconsumptionToolStripMenuItem.Name = "frmconsumptionToolStripMenuItem";
+            this.frmconsumptionToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.frmconsumptionToolStripMenuItem.Text = "Ðàñõîä";
+            this.frmconsumptionToolStripMenuItem.Click += new System.EventHandler(this.frmconsumptionToolStripMenuItem_Click);
+            // 
+            // frmrestsToolStripMenuItem
+            // 
+            this.frmrestsToolStripMenuItem.Name = "frmrestsToolStripMenuItem";
+            this.frmrestsToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.frmrestsToolStripMenuItem.Text = "Îñòàòêè";
+            this.frmrestsToolStripMenuItem.Click += new System.EventHandler(this.frmrestsToolStripMenuItem_Click);
+            // 
+            // frmwaybillsToolStripMenuItem
+            // 
+            this.frmwaybillsToolStripMenuItem.Name = "frmwaybillsToolStripMenuItem";
+            this.frmwaybillsToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.frmwaybillsToolStripMenuItem.Text = "Ïðèõîäíûå îðäåðà";
+            this.frmwaybillsToolStripMenuItem.Click += new System.EventHandler(this.frmwaybillsToolStripMenuItem_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 28);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(697, 245);
+            this.dataGridView1.TabIndex = 1;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(0, 279);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(697, 241);
+            this.dataGridView2.TabIndex = 2;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(1276, 710);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
             this.Text = "Main Form";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,19 +222,22 @@ namespace ArtFlex
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem formsToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem frmcategoriesToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem frmclientsToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem frmconsumptionToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem frmemployeesToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem frmjob_titlesToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem frmmaterialsToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem frmordersToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem frmrestsToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem frmsupplierToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem frmsupplyToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem frmunitsToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem frmwaybillsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem frmordersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ñêëàäToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem frmsupplyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem frmconsumptionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem frmrestsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem frmwaybillsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ñïðàâî÷íèêèToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem frmmaterialsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem frmcategoriesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem frmclientsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem frmsupplierToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem frmemployeesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem frmunitsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem frmjob_titlesToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView2;
 
     }
 }
