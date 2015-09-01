@@ -108,7 +108,6 @@
           <Property Name="supplier_id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="supplier_name" Type="varchar" MaxLength="45" />
           <Property Name="supplier_email" Type="varchar" MaxLength="45" />
-          <Property Name="supplier_mphone" Type="varchar" MaxLength="45" />
           <Property Name="supplier_wphone" Type="varchar" MaxLength="45" />
           <Property Name="supplier_fax" Type="varchar" MaxLength="45" />
           <Property Name="supplier_skipe" Type="varchar" MaxLength="45" />
@@ -127,6 +126,7 @@
           <Property Name="supply_description" Type="varchar" MaxLength="255" />
           <Property Name="waybill_id" Type="uint" Nullable="false" />
           <Property Name="supply_createtime" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="suppy_date" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="units">
           <Key>
@@ -582,6 +582,7 @@
           <NavigationProperty Name="materials" Relationship="MySqlDB.fk_supplies_materials1" FromRole="supplies" ToRole="materials" />
           <NavigationProperty Name="rests" Relationship="MySqlDB.fk_rests_supply1" FromRole="supplies" ToRole="rests" />
           <NavigationProperty Name="waybills" Relationship="MySqlDB.fk_supplies_waybills1" FromRole="supplies" ToRole="waybills" />
+          <Property Name="suppy_date" Type="DateTime" Nullable="false" />
         </EntityType>
         <EntityType Name="units">
           <Key>
@@ -887,6 +888,7 @@
           <EntitySetMapping Name="supplies">
             <EntityTypeMapping TypeName="MySqlDB.supplies">
               <MappingFragment StoreEntitySet="supplies">
+                <ScalarProperty Name="suppy_date" ColumnName="suppy_date" />
                 <ScalarProperty Name="supply_createtime" ColumnName="supply_createtime" />
                 <ScalarProperty Name="waybill_id" ColumnName="waybill_id" />
                 <ScalarProperty Name="supply_description" ColumnName="supply_description" />

@@ -29,6 +29,7 @@ namespace MySqlDB
         public string supply_description { get; set; }
         public long waybill_id { get; set; }
         public System.DateTime supply_createtime { get; set; }
+        public System.DateTime suppy_date { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<consumptions> consumptions { get; set; }
