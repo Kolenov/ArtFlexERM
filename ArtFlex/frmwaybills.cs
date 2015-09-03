@@ -28,6 +28,7 @@ namespace ArtFlex
     public partial class frmwaybills : Form
     {
         private ArtflexDbContext context;
+        private int supplier;
 
         public frmwaybills()
         {
@@ -36,8 +37,11 @@ namespace ArtFlex
 
         private void frmwaybills_Load(object sender, EventArgs e)
         {
+            supplier = -1;
             context = new ArtflexDbContext();
-            context.waybills.Load();
+
+            //context.waybills.Where(s => s.supplier_id == -1).Include(s => s.suppliers).Load();
+            context.waybills.Where(s => s.supplier_id == supplier).Load();
             BindingList<waybills> _entities = context.waybills.Local.ToBindingList();
             waybillsBindingSource.CurrentChanged += waybillsBindingSource_CurrentChanged;
             waybillsBindingSource.DataSource = _entities;
@@ -54,28 +58,34 @@ namespace ArtFlex
             col_waybill_name.Name = "col_waybill_name";
             dataGridViewWaybills.Columns.Add(col_waybill_name);
 
-            System.Windows.Forms.DataGridViewComboBoxColumn col_supplier_id = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            col_supplier_id.DataSource = context.suppliers.ToList();
-            col_supplier_id.DataPropertyName = "supplier_id";
-            col_supplier_id.DisplayMember = "supplier_name";
-            col_supplier_id.ValueMember = "supplier_id";
-            col_supplier_id.HeaderText = "Поставщик";
-            col_supplier_id.Name = "col_supplier_id";
-            col_supplier_id.ToolTipText = "Pick the column from the foreign table to use as friendly value for this lookup.";
-            dataGridViewWaybills.Columns.Add(col_supplier_id);
+            //System.Windows.Forms.DataGridViewTextBoxColumn col_supplier_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            //col_supplier_name.DataPropertyName = "SupplierName";
+            //col_supplier_name.HeaderText = "Поставщик";
+            //col_supplier_name.Name = "col_supplier_name";
+            //dataGridViewWaybills.Columns.Add(col_supplier_name);
+
+            System.Windows.Forms.DataGridViewComboBoxColumn col_supplier_name = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            col_supplier_name.DataSource = context.suppliers.ToList();
+            col_supplier_name.DataPropertyName = "supplier_id";
+            col_supplier_name.DisplayMember = "supplier_name";
+            col_supplier_name.ValueMember = "supplier_id";
+            col_supplier_name.HeaderText = "Поставщик";
+            col_supplier_name.Name = "col_supplier_id";
+            col_supplier_name.ToolTipText = "Pick the column from the foreign table to use as friendly value for this lookup.";
+            col_supplier_name.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
+            dataGridViewWaybills.Columns.Add(col_supplier_name);
 
             System.Windows.Forms.DataGridViewTextBoxColumn col_waybill_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            col_waybill_date.DataPropertyName = "waybill_datee";
+            col_waybill_date.DataPropertyName = "waybill_date";
             col_waybill_date.HeaderText = "Дата поставки";
             col_waybill_date.Name = "col_waybill_date";
             dataGridViewWaybills.Columns.Add(col_waybill_date);
 
+            this.dataGridViewWaybills.AutoGenerateColumns = false;
+            this.dataGridViewWaybills.DataSource = this.waybillsBindingSource;
 
 
-            suppliesBindingSource.DataSource = waybillsBindingSource;
-            suppliesBindingSource.DataMember = "supplies";
-            dataGridViewSupplies.AutoGenerateColumns = false;
- 
+            // dataGridViewSupplies
             System.Windows.Forms.DataGridViewTextBoxColumn colsupply_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             colsupply_id.DataPropertyName = "supply_id";
             colsupply_id.HeaderText = "supply_id";
@@ -96,6 +106,7 @@ namespace ArtFlex
             colmaterial_id.HeaderText = "material_id";
             colmaterial_id.Name = "colmaterial_id";
             colmaterial_id.ToolTipText = "Pick the column from the foreign table to use as friendly value for this lookup.";
+            colmaterial_id.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
             dataGridViewSupplies.Columns.Add(colmaterial_id);
 
             System.Windows.Forms.DataGridViewTextBoxColumn colsupply_summ = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -124,6 +135,7 @@ namespace ArtFlex
             colwaybill_id.HeaderText = "waybill_id";
             colwaybill_id.Name = "colwaybill_id";
             colwaybill_id.ToolTipText = "Pick the column from the foreign table to use as friendly value for this lookup.";
+            colwaybill_id.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
             dataGridViewSupplies.Columns.Add(colwaybill_id);
 
             System.Windows.Forms.DataGridViewTextBoxColumn colsupply_createtime = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -135,17 +147,17 @@ namespace ArtFlex
             dataGridViewSupplies.Columns.Add(colsupply_createtime);
 
 
+            suppliesBindingSource.DataSource = waybillsBindingSource;
+            suppliesBindingSource.DataMember = "supplies";
+            dataGridViewSupplies.AutoGenerateColumns = false;
+
+
             dataGridViewSupplies.DataSource = suppliesBindingSource;
 
             // Supplier selector
             this.supplierComboBox.DataSource = context.suppliers.ToList();
             this.supplierComboBox.DisplayMember = "supplier_name";
             this.supplierComboBox.ValueMember = "supplier_id";
-
-
-
-
-
         }
 
         private void Save_Click(object sender, EventArgs e)
@@ -154,7 +166,6 @@ namespace ArtFlex
             waybillsBindingSource.EndEdit();
             suppliesBindingSource.EndEdit();
             context.SaveChanges();
-
         }
 
         private void frmwaybills_FormClosing(object sender, FormClosingEventArgs e)
@@ -269,12 +280,11 @@ namespace ArtFlex
             suppliesBindingSource.DataMember = "supplies";
             dataGridViewSupplies.Refresh();
         }
-
-
-
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
             waybillsBindingSource.AddNew();
         }
+
+
     }
 }

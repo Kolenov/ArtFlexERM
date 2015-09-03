@@ -42,6 +42,7 @@ namespace ArtFlex
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmcategories));
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
+            this.categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -54,7 +55,6 @@ namespace ArtFlex
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.Panel1 = new System.Windows.Forms.Panel();
             this.category_idLabel = new System.Windows.Forms.Label();
@@ -65,12 +65,14 @@ namespace ArtFlex
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.waybillsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.Panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.waybillsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // bindingNavigator1
@@ -100,7 +102,7 @@ namespace ArtFlex
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(705, 25);
+            this.bindingNavigator1.Size = new System.Drawing.Size(976, 25);
             this.bindingNavigator1.TabIndex = 0;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -216,7 +218,7 @@ namespace ArtFlex
             this.Panel1.Location = new System.Drawing.Point(10, 0);
             this.Panel1.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
             this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(685, 325);
+            this.Panel1.Size = new System.Drawing.Size(956, 507);
             this.Panel1.TabIndex = 1;
             // 
             // category_idLabel
@@ -262,15 +264,15 @@ namespace ArtFlex
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 25);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(705, 335);
+            this.panel3.Size = new System.Drawing.Size(976, 517);
             this.panel3.TabIndex = 19;
             // 
             // panel4
             // 
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(695, 0);
+            this.panel4.Location = new System.Drawing.Point(966, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(10, 325);
+            this.panel4.Size = new System.Drawing.Size(10, 507);
             this.panel4.TabIndex = 3;
             // 
             // panel5
@@ -278,23 +280,27 @@ namespace ArtFlex
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(10, 325);
+            this.panel5.Size = new System.Drawing.Size(10, 507);
             this.panel5.TabIndex = 5;
             // 
             // panel6
             // 
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(0, 325);
+            this.panel6.Location = new System.Drawing.Point(0, 507);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(705, 10);
+            this.panel6.Size = new System.Drawing.Size(976, 10);
             this.panel6.TabIndex = 6;
+            // 
+            // waybillsBindingSource
+            // 
+            this.waybillsBindingSource.DataSource = typeof(MySqlDB.waybills);
             // 
             // frmcategories
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(705, 360);
+            this.ClientSize = new System.Drawing.Size(976, 542);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.bindingNavigator1);
             this.Name = "frmcategories";
@@ -310,6 +316,7 @@ namespace ArtFlex
             this.Panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.waybillsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,7 +347,8 @@ namespace ArtFlex
 		private System.Windows.Forms.Panel panel3;
 		private System.Windows.Forms.Panel panel4;
 		private System.Windows.Forms.Panel panel5;
-		private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.BindingSource waybillsBindingSource;
 		
 	}
 }
