@@ -352,26 +352,40 @@ namespace ArtFlex
 
         private void dataGridViewMaterials_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            //waybillsBindingSource.MoveLast();
+            //waybills waybillsObj = waybillsBindingSource.Current as waybills;
+            //materials materialsObj = materialsBindingSource.Current as materials;
+
+            //waybillsObj.supplies.Add(new supplies()
+            //{
+            //    material_id = materialsObj.material_id,
+            //    waybill_id = 0
+   
+            //});
+
+            //suppliesBindingSource.DataSource = waybillsBindingSource.Current;
+            //suppliesBindingSource.DataMember = "supplies";
+            //dataGridViewSupplies.Refresh();
+   
+            ////suppliesBindingSource.Add(suppliesObj);
+            ////suppliesBindingSource.ResetBindings(true);
+            ////suppliesBindingSource.DataSource = waybillsObj.supplies.ToList();
+            ////suppliesBindingSource.DataMember = "supplies";
+            ////dataGridViewSupplies.Refresh();
+
+
+
             waybillsBindingSource.MoveLast();
             waybills waybillsObj = waybillsBindingSource.Current as waybills;
             materials materialsObj = materialsBindingSource.Current as materials;
-
-            waybillsObj.supplies.Add(new supplies()
+            supplies suppliesObj = new supplies()
             {
-                material_id = materialsObj.material_id,
-                waybill_id = 0
-   
-            });
+                materials = materialsObj,
+                waybills = waybillsObj
+            };
 
-            suppliesBindingSource.DataSource = waybillsBindingSource.Current;
-            suppliesBindingSource.DataMember = "supplies";
+            suppliesBindingSource.Add(suppliesObj);
             dataGridViewSupplies.Refresh();
-   
-            //suppliesBindingSource.Add(suppliesObj);
-            //suppliesBindingSource.ResetBindings(true);
-            //suppliesBindingSource.DataSource = waybillsObj.supplies.ToList();
-            //suppliesBindingSource.DataMember = "supplies";
-            //dataGridViewSupplies.Refresh();
 
 
         }
