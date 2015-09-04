@@ -206,19 +206,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
-    <None Include="frmsupplies.datasource" />
-    <None Include="MySqlDB.categories.datasource" />
-    <None Include="MySqlDB.clients.datasource" />
-    <None Include="MySqlDB.consumptions.datasource" />
-    <None Include="MySqlDB.employees.datasource" />
-    <None Include="MySqlDB.job_titles.datasource" />
-    <None Include="MySqlDB.materials.datasource" />
-    <None Include="MySqlDB.orders.datasource" />
-    <None Include="MySqlDB.rests.datasource" />
-    <None Include="MySqlDB.suppliers.datasource" />
-    <None Include="MySqlDB.supplies.datasource" />
-    <None Include="MySqlDB.units.datasource" />
-    <None Include="MySqlDB.waybills.datasource" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

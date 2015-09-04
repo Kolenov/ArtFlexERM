@@ -4,19 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e6343fababae47e38ececd10d726f4c0" Name="Diagram1" ZoomLevel="131">
+      <Diagram DiagramId="e6343fababae47e38ececd10d726f4c0" Name="Diagram1" ZoomLevel="109">
         <EntityTypeShape EntityType="MySqlDB.categories" Width="1.5" PointX="0.75" PointY="5.75" />
-        <EntityTypeShape EntityType="MySqlDB.clients" Width="1.5" PointX="7.25" PointY="19.375" />
-        <EntityTypeShape EntityType="MySqlDB.consumptions" Width="1.5" PointX="6.375" PointY="5.125" />
-        <EntityTypeShape EntityType="MySqlDB.employees" Width="1.5" PointX="7.25" PointY="12" />
-        <EntityTypeShape EntityType="MySqlDB.job_titles" Width="1.5" PointX="7.125" PointY="17.125" />
+        <EntityTypeShape EntityType="MySqlDB.clients" Width="1.5" PointX="14.25" PointY="8.125" />
+        <EntityTypeShape EntityType="MySqlDB.consumptions" Width="1.5" PointX="7.375" PointY="4.875" />
+        <EntityTypeShape EntityType="MySqlDB.employees" Width="1.5" PointX="11.375" PointY="9.625" />
+        <EntityTypeShape EntityType="MySqlDB.job_titles" Width="1.5" PointX="14.25" PointY="11.625" />
         <EntityTypeShape EntityType="MySqlDB.materials" Width="1.5" PointX="3" PointY="4.875" />
-        <EntityTypeShape EntityType="MySqlDB.orders" Width="1.5" PointX="9" PointY="12.125" />
-        <EntityTypeShape EntityType="MySqlDB.rests" Width="1.5" PointX="8.25" PointY="5.25" />
-        <EntityTypeShape EntityType="MySqlDB.suppliers" Width="1.5" PointX="1" PointY="9.5" />
-        <EntityTypeShape EntityType="MySqlDB.supplies" Width="1.5" PointX="5.125" PointY="9.375" />
+        <EntityTypeShape EntityType="MySqlDB.orders" Width="1.5" PointX="11.375" PointY="6.25" />
+        <EntityTypeShape EntityType="MySqlDB.rests" Width="1.5" PointX="2.375" PointY="9.25" />
+        <EntityTypeShape EntityType="MySqlDB.suppliers" Width="1.5" PointX="9.125" PointY="9.875" />
+        <EntityTypeShape EntityType="MySqlDB.supplies" Width="1.5" PointX="5.25" PointY="8.75" />
         <EntityTypeShape EntityType="MySqlDB.units" Width="1.5" PointX="0.75" PointY="2.75" />
-        <EntityTypeShape EntityType="MySqlDB.waybills" Width="1.5" PointX="3" PointY="9.625" />
+        <EntityTypeShape EntityType="MySqlDB.waybills" Width="1.5" PointX="7.25" PointY="9.875" />
         <AssociationConnector Association="MySqlDB.fk_materials_categories1" />
         <AssociationConnector Association="MySqlDB.fk_orders_clients1" />
         <AssociationConnector Association="MySqlDB.fk_consumptions_materials1" />

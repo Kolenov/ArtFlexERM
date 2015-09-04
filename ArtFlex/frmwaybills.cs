@@ -28,7 +28,7 @@ namespace ArtFlex
     public partial class frmwaybills : Form
     {
         private ArtflexDbContext context;
-        private int supplier;
+        private long supplier;
 
         public frmwaybills()
         {
@@ -39,8 +39,6 @@ namespace ArtFlex
         {
             supplier = -1;
             context = new ArtflexDbContext();
-
-            //context.waybills.Where(s => s.supplier_id == -1).Include(s => s.suppliers).Load();
             context.waybills.Where(s => s.supplier_id == supplier).Load();
             BindingList<waybills> _entities = context.waybills.Local.ToBindingList();
             waybillsBindingSource.CurrentChanged += waybillsBindingSource_CurrentChanged;
@@ -57,12 +55,6 @@ namespace ArtFlex
             col_waybill_name.HeaderText = "Накладная";
             col_waybill_name.Name = "col_waybill_name";
             dataGridViewWaybills.Columns.Add(col_waybill_name);
-
-            //System.Windows.Forms.DataGridViewTextBoxColumn col_supplier_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            //col_supplier_name.DataPropertyName = "SupplierName";
-            //col_supplier_name.HeaderText = "Поставщик";
-            //col_supplier_name.Name = "col_supplier_name";
-            //dataGridViewWaybills.Columns.Add(col_supplier_name);
 
             System.Windows.Forms.DataGridViewComboBoxColumn col_supplier_name = new System.Windows.Forms.DataGridViewComboBoxColumn();
             col_supplier_name.DataSource = context.suppliers.ToList();
@@ -283,6 +275,20 @@ namespace ArtFlex
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
             waybillsBindingSource.AddNew();
+        }
+
+        private void supplierComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            suppliers _supplierObj = supplierComboBox.SelectedItem as suppliers;
+            if (_supplierObj == null)
+               this.supplier = -1;
+
+            this.context.Dispose();
+            this.context = new ArtflexDbContext();
+            this.context.waybills.Where<waybills>(w => w.supplier_id == _supplierObj.supplier_id).Load();
+            BindingList<waybills> _waybills = this.context.waybills.Local.ToBindingList();
+            waybillsBindingSource.DataSource = _waybills;
+            dataGridViewWaybills.Refresh();
         }
 
 

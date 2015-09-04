@@ -74,6 +74,7 @@ namespace ArtFlex
             // 
             // dataGridViewSupplies
             // 
+            this.dataGridViewSupplies.AllowUserToAddRows = false;
             this.dataGridViewSupplies.AllowUserToOrderColumns = true;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewSupplies.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
@@ -126,6 +127,7 @@ namespace ArtFlex
             // 
             // dataGridViewWaybills
             // 
+            this.dataGridViewWaybills.AllowUserToAddRows = false;
             this.dataGridViewWaybills.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewWaybills.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -185,6 +187,7 @@ namespace ArtFlex
             this.supplierComboBox.Name = "supplierComboBox";
             this.supplierComboBox.Size = new System.Drawing.Size(410, 24);
             this.supplierComboBox.TabIndex = 39;
+            this.supplierComboBox.SelectedIndexChanged += new System.EventHandler(this.supplierComboBox_SelectedIndexChanged);
             // 
             // buttonAddNew
             // 

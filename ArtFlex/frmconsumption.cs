@@ -39,6 +39,7 @@ namespace ArtFlex
 			context.consumptions.Load();
 			BindingList<consumptions> _entities = context.consumptions.Local.ToBindingList();
 			consumptionBindingSource.DataSource = _entities;
+
 			this.consumption_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.consumptionBindingSource, "consumption_id", true ));
 			this.supply_id_comboBox.DataSource = context.supplies.ToList();
 			this.supply_id_comboBox.DisplayMember = "supply_id";
