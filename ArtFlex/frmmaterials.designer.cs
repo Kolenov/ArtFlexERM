@@ -40,8 +40,8 @@ namespace ArtFlex
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -64,7 +64,7 @@ namespace ArtFlex
             this.material_UnitsComboBox = new System.Windows.Forms.ComboBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.materialsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.categoriesbindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMaterials)).BeginInit();
@@ -73,7 +73,7 @@ namespace ArtFlex
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.materialsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriesbindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // errorProvider1
@@ -157,18 +157,18 @@ namespace ArtFlex
             // dataGridViewMaterials
             // 
             this.dataGridViewMaterials.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewMaterials.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewMaterials.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewMaterials.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewMaterials.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewMaterials.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewMaterials.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewMaterials.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMaterials.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewMaterials.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -329,15 +329,16 @@ namespace ArtFlex
             this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 1;
             // 
-            // categoriesbindingSource
+            // categoriesBindingSource
             // 
-            this.categoriesbindingSource.DataSource = this.materialsBindingSource;
+            this.categoriesBindingSource.CurrentChanged += new System.EventHandler(this.categoriesbindingSource_CurrentChanged);
             // 
             // frmmaterials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(1450, 687);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.splitContainer1);
@@ -357,7 +358,7 @@ namespace ArtFlex
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.materialsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriesbindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -366,7 +367,7 @@ namespace ArtFlex
 
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.BindingSource materialsBindingSource;
-        private System.Windows.Forms.BindingSource categoriesbindingSource;
+        private System.Windows.Forms.BindingSource categoriesBindingSource;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button buttonCancel;

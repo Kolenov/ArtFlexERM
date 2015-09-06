@@ -317,7 +317,7 @@ namespace ArtFlex
         {
             this.context.Dispose();
             this.context = new ArtflexDbContext();
-
+            
             this.context.waybills.Load();
             BindingList<waybills> _waybills = context.waybills.Local.ToBindingList();
             this.waybillsBindingSource.DataSource = _waybills;
@@ -347,7 +347,7 @@ namespace ArtFlex
             supplies suppliesObj = new supplies()
             {
                 material_id = materialsObj.material_id,
-                suppy_date = waybill_date_dateTimePicker.Value,
+                suppy_date = System.DateTime.Now, //waybill_date_dateTimePicker.Value,
                 waybills = waybillsObj,
                 materials = materialsObj
             };

@@ -63,9 +63,14 @@ namespace ArtFlex
         private void frmmaterials_Load(object sender, EventArgs e)
         {
             context = new ArtflexDbContext();
+            //context.Configuration.ProxyCreationEnabled = false; 
             context.materials.Where<materials>(b => b.category_id == 1).Load();
             BindingList<materials> _materials = context.materials.Local.ToBindingList();
             materialsBindingSource.DataSource = _materials;
+
+            context.categories.Load();
+            BindingList<categories> _categories = context.categories.Local.ToBindingList();
+            categoriesBindingSource.DataSource = _categories;
 
             this.material_nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.materialsBindingSource, "material_name", true));
             this.material_sizeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.materialsBindingSource, "material_size", true));
@@ -79,7 +84,7 @@ namespace ArtFlex
             this.material_UnitsComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.materialsBindingSource, "unit_id"));
 
             // Categories selector
-            this.categoriesComboBox.DataSource = context.categories.ToList();
+            this.categoriesComboBox.DataSource = categoriesBindingSource;// context.categories.ToList();
             this.categoriesComboBox.DisplayMember = "category_name";
             this.categoriesComboBox.ValueMember = "category_id";
 
@@ -299,14 +304,17 @@ namespace ArtFlex
 
         private void categoriesComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             categories category = categoriesComboBox.SelectedItem as categories;
+
             if (category == null)
                 return;
-            this.context.Dispose();
             this.context = new ArtflexDbContext();
             this.context.materials.Where<materials>(b => b.category_id == category.category_id).Load();
             BindingList<materials> _materials = this.context.materials.Local.ToBindingList();
+            this.materialsBindingSource.Clear();
             materialsBindingSource.DataSource = _materials;
+            dataGridViewMaterials.Refresh();
         }
 
         private void material_CategoryComboBox_MouseWheel(object sender, EventArgs e)
@@ -322,6 +330,19 @@ namespace ArtFlex
         private void material_UnitsComboBox_MouseWheel(object sender, EventArgs e)
         {
             ((HandledMouseEventArgs)e).Handled = true;
+        }
+
+        private void categoriesbindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+            //categories category = ((categories)categoriesBindingSource.Current);
+            //if (category == null)
+            //    return;
+            //this.context = new ArtflexDbContext();
+            //this.context.materials.Where<materials>(b => b.category_id == category.category_id).Load();
+            //BindingList<materials> _materials = this.context.materials.Local.ToBindingList();
+            //this.materialsBindingSource.Clear();
+            //materialsBindingSource.DataSource = _materials;
+            dataGridViewMaterials.Refresh();
         }
 
     }
