@@ -63,22 +63,29 @@ namespace ArtFlex
 
         private void frmsupply_Load(object sender, EventArgs e)
         {
-            context = new ArtflexDbContext();
-            context.Configuration.ProxyCreationEnabled = false; 
+            this.context = new ArtflexDbContext();
+            //context.Configuration.ProxyCreationEnabled = false; 
 
-            context.categories.Load();
-            BindingList<categories> _categories = context.categories.Local.ToBindingList();
-            categoriesBindingSource.DataSource = _categories;
-
-            context.supplies.Load();
-            BindingList<supplies> _supplies = context.supplies.Local.ToBindingList();
-            suppliesBindingSource.DataSource = _supplies;
-                
-            context.waybills.Load();
+            this.context.waybills.Load();
             BindingList<waybills> _waybills = context.waybills.Local.ToBindingList();
-            waybillsBindingSource.DataSource = _waybills;
+            this.waybillsBindingSource.DataSource = _waybills;
 
+            this.waybillsBindingSource.AddNew();
+            this.waybillsBindingSource.MoveLast();
 
+            waybills waybillsObj = waybillsBindingSource.Current as waybills;
+            this.context.supplies.Where<supplies>(s => s.waybill_id == waybillsObj.waybill_id).Load();
+            BindingList<supplies> _supplies = context.supplies.Local.ToBindingList();
+            this.suppliesBindingSource.DataSource = _supplies;
+
+            this.context.categories.Load();
+            BindingList<categories> _categories = context.categories.Local.ToBindingList();
+            this.categoriesBindingSource.DataSource = _categories;
+
+            this.context.materials.Where<materials>(b => b.category_id == 1).Load();
+            BindingList<materials> _materials = context.materials.Local.ToBindingList();
+            this.materialsBindingSource.DataSource = _materials;
+                           
             this.waybill_nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.waybillsBindingSource, "waybill_name", true));
             this.waybill_date_dateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.waybillsBindingSource, "waybill_date", true));
 
@@ -92,12 +99,14 @@ namespace ArtFlex
             this.categoriesComboBox.DisplayMember = "category_name";
             this.categoriesComboBox.ValueMember = "category_id";
 
-            // dataGridViewSupplies Collumns
+            #region dataGridViewSupplies Columns
+            // dataGridViewSupplies Columns
             System.Windows.Forms.DataGridViewTextBoxColumn col_supply_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             col_supply_id.DataPropertyName = "supply_id";
             col_supply_id.HeaderText = "ID";
             col_supply_id.Name = "col_supply_id";
-            dataGridViewSupplies.Columns.Add(col_supply_id);
+            col_supply_id.ReadOnly = true;
+            this.dataGridViewSupplies.Columns.Add(col_supply_id);
 
             System.Windows.Forms.DataGridViewComboBoxColumn col_material = new System.Windows.Forms.DataGridViewComboBoxColumn();
             col_material.DataSource = context.materials.ToList();
@@ -107,59 +116,46 @@ namespace ArtFlex
             col_material.HeaderText = "Материал";
             col_material.Name = "col_material";
             col_material.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
-            dataGridViewSupplies.Columns.Add(col_material);
+            col_material.ReadOnly = true;
+            this.dataGridViewSupplies.Columns.Add(col_material);
 
             System.Windows.Forms.DataGridViewTextBoxColumn col_supply_quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             col_supply_quantity.DataPropertyName = "supply_quantity";
             col_supply_quantity.HeaderText = "Кличество";
             col_supply_quantity.Name = "col_supply_quantity";
-            dataGridViewSupplies.Columns.Add(col_supply_quantity);
+            col_supply_quantity.ReadOnly = false;
+            this.dataGridViewSupplies.Columns.Add(col_supply_quantity);
 
             System.Windows.Forms.DataGridViewTextBoxColumn col_supply_summ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             col_supply_summ.Name = "col_supply_summ";
             col_supply_summ.HeaderText = "Сумма";
             col_supply_summ.DataPropertyName = "supply_summ";
-            dataGridViewSupplies.Columns.Add(col_supply_summ);
+            this.dataGridViewSupplies.Columns.Add(col_supply_summ);
 
             System.Windows.Forms.DataGridViewTextBoxColumn col_supply_costunit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             col_supply_costunit.Name = "col_supply_costunit";
             col_supply_costunit.HeaderText = "Цена за единицу";
             col_supply_costunit.DataPropertyName = "supply_costunit";
-            dataGridViewSupplies.Columns.Add(col_supply_costunit);
+            this.dataGridViewSupplies.Columns.Add(col_supply_costunit);
 
             System.Windows.Forms.DataGridViewTextBoxColumn col_supply_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             col_supply_description.Name = "col_supply_description";
-            col_supply_description.HeaderText = "Примечание";
+            col_supply_description.HeaderText = "Описание";
             col_supply_description.DataPropertyName = "supply_description";
-            dataGridViewSupplies.Columns.Add(col_supply_description);
-
-            //System.Windows.Forms.DataGridViewComboBoxColumn col_waybill_id = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            //col_waybill_id.DataSource = context.waybills.ToList();
-            //col_waybill_id.DataPropertyName = "waybill_id";
-            //col_waybill_id.DisplayMember = "waybill_name";
-            //col_waybill_id.ValueMember = "waybill_id";
-            //col_waybill_id.HeaderText = "Накладная";
-            //col_waybill_id.Name = "col_waybill_id";
-            //col_waybill_id.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
-            //dataGridViewSupplies.Columns.Add(col_waybill_id);
-
-            System.Windows.Forms.DataGridViewTextBoxColumn col_suppy_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            col_suppy_date.Name = "col_suppy_date";
-            col_suppy_date.HeaderText = "Дата поставки";
-            col_suppy_date.DataPropertyName = "suppy_date";
-            dataGridViewSupplies.Columns.Add(col_suppy_date);
+            col_supply_description.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewSupplies.Columns.Add(col_supply_description);
+            #endregion
 
             this.dataGridViewSupplies.AutoGenerateColumns = false;
             this.dataGridViewSupplies.DataSource = this.suppliesBindingSource;
 
-
-
-            // dataGridViewMaterials
+            #region dataGridViewMaterials Columns
+            // dataGridViewMaterials Columns
             System.Windows.Forms.DataGridViewTextBoxColumn col_material_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             col_material_id.DataPropertyName = "material_id";
             col_material_id.HeaderText = "ID";
             col_material_id.Name = "col_material_id";
-            dataGridViewMaterials.Columns.Add(col_material_id);
+            this.dataGridViewMaterials.Columns.Add(col_material_id);
 
             System.Windows.Forms.DataGridViewComboBoxColumn col_category_id = new System.Windows.Forms.DataGridViewComboBoxColumn();
             col_category_id.DataSource = context.categories.ToList();
@@ -169,13 +165,13 @@ namespace ArtFlex
             col_category_id.HeaderText = "Тип";
             col_category_id.Name = "col_category_id";
             col_category_id.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
-            dataGridViewMaterials.Columns.Add(col_category_id);
+            this.dataGridViewMaterials.Columns.Add(col_category_id);
 
             System.Windows.Forms.DataGridViewTextBoxColumn col_material_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             col_material_name.DataPropertyName = "material_name";
             col_material_name.HeaderText = "Название материала";
             col_material_name.Name = "col_material_name";
-            dataGridViewMaterials.Columns.Add(col_material_name);
+            this.dataGridViewMaterials.Columns.Add(col_material_name);
 
             System.Windows.Forms.DataGridViewComboBoxColumn col_units_id = new DataGridViewComboBoxColumn();
             col_units_id.DataSource = context.units.ToList();
@@ -185,47 +181,45 @@ namespace ArtFlex
             col_units_id.HeaderText = "Ед. изм.";
             col_units_id.Name = "col_units_id";
             col_units_id.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
-            dataGridViewMaterials.Columns.Add(col_units_id);
+            this.dataGridViewMaterials.Columns.Add(col_units_id);
 
             System.Windows.Forms.DataGridViewTextBoxColumn col_material_size = new System.Windows.Forms.DataGridViewTextBoxColumn();
             col_material_size.Name = "col_material_size";
             col_material_size.HeaderText = "Размер";
             col_material_size.DataPropertyName = "material_size";
-            dataGridViewMaterials.Columns.Add(col_material_size);
+            this.dataGridViewMaterials.Columns.Add(col_material_size);
 
             System.Windows.Forms.DataGridViewTextBoxColumn col_material_rollwidth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             col_material_rollwidth.DataPropertyName = "material_rollwidth";
             col_material_rollwidth.HeaderText = "Ширина рулона";
             col_material_rollwidth.Name = "col_material_rollwidth";
-            dataGridViewMaterials.Columns.Add(col_material_rollwidth);
-
-            System.Windows.Forms.DataGridViewTextBoxColumn col_material_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            col_material_description.Name = "col_material_description";
-            col_material_description.HeaderText = "Описание";
-            col_material_description.DataPropertyName = "material_description";
-            col_material_description.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewMaterials.Columns.Add(col_material_description);
+            this.dataGridViewMaterials.Columns.Add(col_material_rollwidth);
 
             System.Windows.Forms.DataGridViewTextBoxColumn col_material_createtime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             col_material_createtime.Name = "col_material_createtime";
             col_material_createtime.HeaderText = "Дата добавления";
             col_material_createtime.DataPropertyName = "material_createtime";
             col_material_createtime.ReadOnly = true;
-            dataGridViewMaterials.Columns.Add(col_material_createtime);
+            this.dataGridViewMaterials.Columns.Add(col_material_createtime);
+
+            System.Windows.Forms.DataGridViewTextBoxColumn col_material_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            col_material_description.Name = "col_material_description";
+            col_material_description.HeaderText = "Описание";
+            col_material_description.DataPropertyName = "material_description";
+            col_material_description.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewMaterials.Columns.Add(col_material_description);
+            #endregion
 
             this.dataGridViewMaterials.AutoGenerateColumns = false;
             this.dataGridViewMaterials.DataSource = this.materialsBindingSource;
-
 
             // DoubleBuffered
             SetDoubleBuffered(dataGridViewSupplies, true);
             SetDoubleBuffered(dataGridViewMaterials, true);
 
-
             this.buttonCancel.CausesValidation = false;
 
             this.waybill_date_dateTimePicker.Value = DateTime.Now;
-
         }
 
         private void frmsupply_FormClosing(object sender, FormClosingEventArgs e)
@@ -319,92 +313,89 @@ namespace ArtFlex
 
         #endregion
 
-        private void categoriesComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //categories category = categoriesComboBox.SelectedItem as categories;
-            //if (category == null)
-            //    return;
-
-            //this.context.Dispose();
-            //this.context = new ArtflexDbContext();
-            //this.context.materials.Where<materials>(b => b.category_id == category.category_id).Load();
-            //BindingList<materials> _materials = this.context.materials.Local.ToBindingList();
-            //materialsBindingSource.DataSource = _materials;
-            dataGridViewMaterials.Refresh();
-        }
-
         private void buttonAddNew_Click(object sender, EventArgs e)
         {
-            waybillsBindingSource.AddNew();
+            this.context.Dispose();
+            this.context = new ArtflexDbContext();
 
-            //suppliesBindingSource.DataSource = ((waybills)waybillsBindingSource.Current);
-            //suppliesBindingSource.DataMember = "supplies";
-            //dataGridViewSupplies.Refresh();
+            this.context.waybills.Load();
+            BindingList<waybills> _waybills = context.waybills.Local.ToBindingList();
+            this.waybillsBindingSource.DataSource = _waybills;
 
-            //this.context.Dispose();
-            //this.context = new ArtflexDbContext();
+            this.waybillsBindingSource.AddNew();
+            this.waybillsBindingSource.MoveLast();
 
-            //this.context.supplies.Where<supplies>(s => s.waybill_id == 0).Load();
-            //BindingList<waybills> _waybills = this.context.waybills.Local.ToBindingList();
-            //suppliesBindingSource.ResetBindings(true);
-            //suppliesBindingSource.DataSource = _waybills;
+            waybills waybillsObj = waybillsBindingSource.Current as waybills;
+            this.context.supplies.Where<supplies>(s => s.waybill_id == waybillsObj.waybill_id).Load();
+            BindingList<supplies> _supplies = context.supplies.Local.ToBindingList();
+            this.suppliesBindingSource.DataSource = _supplies;
+
+            this.context.categories.Load();
+            BindingList<categories> _categories = context.categories.Local.ToBindingList();
+            this.categoriesBindingSource.DataSource = _categories;
+
+            this.context.materials.Where<materials>(b => b.category_id == 1).Load();
+            BindingList<materials> _materials = context.materials.Local.ToBindingList();
+            this.materialsBindingSource.DataSource = _materials;
         }
 
         private void dataGridViewMaterials_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //waybillsBindingSource.MoveLast();
-            //waybills waybillsObj = waybillsBindingSource.Current as waybills;
-            //materials materialsObj = materialsBindingSource.Current as materials;
-
-            //waybillsObj.supplies.Add(new supplies()
-            //{
-            //    material_id = materialsObj.material_id,
-            //    waybill_id = 0
-   
-            //});
-
-            //suppliesBindingSource.DataSource = waybillsBindingSource.Current;
-            //suppliesBindingSource.DataMember = "supplies";
-            //dataGridViewSupplies.Refresh();
-   
-            ////suppliesBindingSource.Add(suppliesObj);
-            ////suppliesBindingSource.ResetBindings(true);
-            ////suppliesBindingSource.DataSource = waybillsObj.supplies.ToList();
-            ////suppliesBindingSource.DataMember = "supplies";
-            ////dataGridViewSupplies.Refresh();
-
-
-
             waybillsBindingSource.MoveLast();
             waybills waybillsObj = waybillsBindingSource.Current as waybills;
             materials materialsObj = materialsBindingSource.Current as materials;
             supplies suppliesObj = new supplies()
             {
-                materials = materialsObj,
-                waybills = waybillsObj
+                material_id = materialsObj.material_id,
+                suppy_date = waybill_date_dateTimePicker.Value,
+                waybills = waybillsObj,
+                materials = materialsObj
             };
 
             suppliesBindingSource.Add(suppliesObj);
             dataGridViewSupplies.Refresh();
-
-
         }
-
-
-        private void waybillsBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-            suppliesBindingSource.DataSource = waybillsBindingSource.Current;
-            suppliesBindingSource.DataMember = "supplies";
-            dataGridViewSupplies.Refresh();
-        }
-
 
         private void categoriesBindingSource_CurrentChanged(object sender, EventArgs e)
         {
-            materialsBindingSource.DataSource = categoriesBindingSource.Current;
+            materialsBindingSource.DataSource = ((categories)categoriesBindingSource.Current);
             materialsBindingSource.DataMember = "materials";
             dataGridViewMaterials.Refresh();
         }
+
+        private void dataGridViewSupplies_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+
+            //MessageBox.Show("Error happened " + e.Context.ToString());
+
+            if (e.Context == DataGridViewDataErrorContexts.Commit)
+            {
+                MessageBox.Show("Commit error");
+            }
+            if (e.Context == DataGridViewDataErrorContexts.CurrentCellChange)
+            {
+                MessageBox.Show("Cell change");
+            }
+            if (e.Context == DataGridViewDataErrorContexts.Parsing)
+            {
+                MessageBox.Show("parsing error");
+            }
+            if (e.Context == DataGridViewDataErrorContexts.LeaveControl)
+            {
+                MessageBox.Show("leave control error");
+            }
+
+            if ((e.Exception) is ConstraintException)
+            {
+                DataGridView view = (DataGridView)sender;
+                view.Rows[e.RowIndex].ErrorText = "an error";
+                view.Rows[e.RowIndex].Cells[e.ColumnIndex].ErrorText = "an error";
+
+                e.ThrowException = false;
+            }
+            //e.ThrowException = true;
+        }
+
     }
 }
 
