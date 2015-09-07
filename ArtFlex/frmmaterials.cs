@@ -78,13 +78,14 @@ namespace ArtFlex
             this.material_descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.materialsBindingSource, "material_description", true));
             this.material_createtimeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.materialsBindingSource, "material_createtime", true));
 
+            // Units selector
             this.material_UnitsComboBox.DataSource = context.units.ToList();
             this.material_UnitsComboBox.DisplayMember = "unit_shortname";
             this.material_UnitsComboBox.ValueMember = "unit_id";
             this.material_UnitsComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.materialsBindingSource, "unit_id"));
 
             // Categories selector
-            this.categoriesComboBox.DataSource = categoriesBindingSource;// context.categories.ToList();
+            this.categoriesComboBox.DataSource = context.categories.ToList();
             this.categoriesComboBox.DisplayMember = "category_name";
             this.categoriesComboBox.ValueMember = "category_id";
 
@@ -214,12 +215,11 @@ namespace ArtFlex
             if (zeroIdObj != null) return;
 
             this.splitContainer1.SplitterDistance = 120;
-            categories category = categoriesComboBox.SelectedItem as categories;
 
             materials obj = new materials
             {
                 unit_id = 1,
-                category_id = category.category_id
+                category_id = this.categoriesComboBox.SelectedIndex
             };
 
             materialsBindingSource.Add(obj);
@@ -240,10 +240,13 @@ namespace ArtFlex
 
             using (var _context = new ArtflexDbContext())
             {
+                char[] charsToTrim = { '*', ' ', '\'' };
                 var zeroIdObj = materialsBindingSource.OfType<materials>().ToList().Find(f => f.material_id == 0);
-                var obj = _context.materials.ToList().Find(b => b.material_name == this.material_nameTextBox.Text);
+                var obj = _context.materials.ToList().Find(b => b.material_name.ToLower().Trim(charsToTrim) == this.material_nameTextBox.Text.ToLower().Trim(charsToTrim));
+
                 if (obj != null && zeroIdObj != null)
                 {
+
                     errorProvider1.SetError(material_nameTextBox, "Такое имя материала уже существует");
                     return;
                 }
@@ -251,7 +254,7 @@ namespace ArtFlex
             }
 
             materialsBindingSource.EndEdit();
-            context.SaveChanges();
+            this.context.SaveChanges();
             this.buttonAddNew.Enabled = true;
             this.dataGridViewMaterials.Refresh();
         }
@@ -272,7 +275,7 @@ namespace ArtFlex
         private void dataGridViewMaterials_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
 
-            //MessageBox.Show("Error happened " + e.Context.ToString());
+            MessageBox.Show("Error happened " + e.Context.ToString());
 
             if (e.Context == DataGridViewDataErrorContexts.Commit)
             {
@@ -299,20 +302,21 @@ namespace ArtFlex
 
                 e.ThrowException = false;
             }
-            //e.ThrowException = true;
+            e.ThrowException = true;
         }
 
         private void categoriesComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.buttonCancel.PerformClick();
 
             categories category = categoriesComboBox.SelectedItem as categories;
 
             if (category == null)
                 return;
+            this.context.Dispose();
             this.context = new ArtflexDbContext();
             this.context.materials.Where<materials>(b => b.category_id == category.category_id).Load();
             BindingList<materials> _materials = this.context.materials.Local.ToBindingList();
-            this.materialsBindingSource.Clear();
             materialsBindingSource.DataSource = _materials;
             dataGridViewMaterials.Refresh();
         }
@@ -332,17 +336,19 @@ namespace ArtFlex
             ((HandledMouseEventArgs)e).Handled = true;
         }
 
-        private void categoriesbindingSource_CurrentChanged(object sender, EventArgs e)
+        private void material_nameTextBox_TextChanged(object sender, EventArgs e)
         {
-            //categories category = ((categories)categoriesBindingSource.Current);
-            //if (category == null)
-            //    return;
-            //this.context = new ArtflexDbContext();
-            //this.context.materials.Where<materials>(b => b.category_id == category.category_id).Load();
-            //BindingList<materials> _materials = this.context.materials.Local.ToBindingList();
-            //this.materialsBindingSource.Clear();
-            //materialsBindingSource.DataSource = _materials;
-            dataGridViewMaterials.Refresh();
+            string _normStr = this.material_nameTextBox.Text.Replace("  ", " ");
+            this.material_nameTextBox.Text = _normStr;
+            this.material_nameTextBox.SelectionStart = this.material_nameTextBox.Text.Length;
+        }
+
+        private void material_nameTextBox_Leave(object sender, EventArgs e)
+        {
+            char[] charsToTrim = { '*', ' ', '\'' };
+            string _normStr = this.material_nameTextBox.Text.Trim(charsToTrim);
+            this.material_nameTextBox.Text = _normStr;
+            this.material_nameTextBox.SelectionStart = this.material_nameTextBox.Text.Length;
         }
 
     }
