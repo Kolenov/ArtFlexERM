@@ -210,7 +210,7 @@ namespace ArtFlex
         #region Buttons
         private void AddNewItem_Click(object sender, EventArgs e)
         {
-
+            categories category = categoriesComboBox.SelectedItem as categories;
             materials zeroIdObj = materialsBindingSource.List.OfType<materials>().ToList().Find(f => f.material_id == 0);
             if (zeroIdObj != null) return;
 
@@ -219,7 +219,7 @@ namespace ArtFlex
             materials obj = new materials
             {
                 unit_id = 1,
-                category_id = this.categoriesComboBox.SelectedIndex
+                category_id = category.category_id
             };
 
             materialsBindingSource.Add(obj);
